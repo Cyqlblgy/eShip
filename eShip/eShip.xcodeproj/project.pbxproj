@@ -19,6 +19,16 @@
 		2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE034F1AFC53CE0091BD9D /* MineViewController.m */; };
 		2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03511AFC584A0091BD9D /* CoreLocation.framework */; };
 		2ACE03571AFC58890091BD9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03531AFC58510091BD9D /* MapKit.framework */; };
+		2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038C1B0009830091BD9D /* ZBar.framework */; };
+		2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038E1B000B520091BD9D /* AVFoundation.framework */; };
+		2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03901B000B5C0091BD9D /* CoreMedia.framework */; };
+		2ACE03931B000B630091BD9D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03921B000B630091BD9D /* CoreVideo.framework */; };
+		2ACE03951B000B6E0091BD9D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03941B000B6E0091BD9D /* QuartzCore.framework */; };
+		2ACE03971B000B8A0091BD9D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03961B000B8A0091BD9D /* libiconv.dylib */; };
+		2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE039B1B000E100091BD9D /* WYPopoverController.m */; };
+		2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE039D1B000E100091BD9D /* WYStoryboardPopoverSegue.m */; };
+		2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */; };
+		2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +63,20 @@
 		2ACE034F1AFC53CE0091BD9D /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		2ACE03511AFC584A0091BD9D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2ACE03531AFC58510091BD9D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2ACE038C1B0009830091BD9D /* ZBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZBar.framework; sourceTree = "<group>"; };
+		2ACE038E1B000B520091BD9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2ACE03901B000B5C0091BD9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2ACE03921B000B630091BD9D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2ACE03941B000B6E0091BD9D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2ACE03961B000B8A0091BD9D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		2ACE039A1B000E100091BD9D /* WYPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYPopoverController.h; sourceTree = "<group>"; };
+		2ACE039B1B000E100091BD9D /* WYPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYPopoverController.m; sourceTree = "<group>"; };
+		2ACE039C1B000E100091BD9D /* WYStoryboardPopoverSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYStoryboardPopoverSegue.h; sourceTree = "<group>"; };
+		2ACE039D1B000E100091BD9D /* WYStoryboardPopoverSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYStoryboardPopoverSegue.m; sourceTree = "<group>"; };
+		2ACE03A01B0010340091BD9D /* WYTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYTableViewViewController.h; sourceTree = "<group>"; };
+		2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYTableViewViewController.m; sourceTree = "<group>"; };
+		2ACE03A41B001A880091BD9D /* CheckPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPriceViewController.h; sourceTree = "<group>"; };
+		2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPriceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +84,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACE03971B000B8A0091BD9D /* libiconv.dylib in Frameworks */,
+				2ACE03951B000B6E0091BD9D /* QuartzCore.framework in Frameworks */,
+				2ACE03931B000B630091BD9D /* CoreVideo.framework in Frameworks */,
+				2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */,
+				2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */,
 				2ACE03571AFC58890091BD9D /* MapKit.framework in Frameworks */,
+				2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */,
 				2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,16 +127,11 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2ACE03A31B0016A50091BD9D /* Server */,
+				2ACE03991B000E100091BD9D /* WYPopoverController */,
+				2ACE03981B000D2A0091BD9D /* ViewController */,
 				2ACE03261AFC47B90091BD9D /* AppDelegate.h */,
 				2ACE03271AFC47B90091BD9D /* AppDelegate.m */,
-				2ACE03481AFC50A40091BD9D /* SettingsViewController.h */,
-				2ACE03491AFC50A40091BD9D /* SettingsViewController.m */,
-				2ACE03291AFC47B90091BD9D /* MapViewController.h */,
-				2ACE032A1AFC47B90091BD9D /* MapViewController.m */,
-				2ACE034B1AFC53BF0091BD9D /* FindViewController.h */,
-				2ACE034C1AFC53BF0091BD9D /* FindViewController.m */,
-				2ACE034E1AFC53CE0091BD9D /* MineViewController.h */,
-				2ACE034F1AFC53CE0091BD9D /* MineViewController.m */,
 				2ACE032C1AFC47B90091BD9D /* Main.storyboard */,
 				2ACE032F1AFC47B90091BD9D /* Images.xcassets */,
 				2ACE03311AFC47B90091BD9D /* LaunchScreen.xib */,
@@ -144,10 +169,53 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2ACE03961B000B8A0091BD9D /* libiconv.dylib */,
+				2ACE03941B000B6E0091BD9D /* QuartzCore.framework */,
+				2ACE03921B000B630091BD9D /* CoreVideo.framework */,
+				2ACE03901B000B5C0091BD9D /* CoreMedia.framework */,
+				2ACE038E1B000B520091BD9D /* AVFoundation.framework */,
+				2ACE038C1B0009830091BD9D /* ZBar.framework */,
 				2ACE03531AFC58510091BD9D /* MapKit.framework */,
 				2ACE03511AFC584A0091BD9D /* CoreLocation.framework */,
 			);
 			name = framework;
+			sourceTree = "<group>";
+		};
+		2ACE03981B000D2A0091BD9D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2ACE03481AFC50A40091BD9D /* SettingsViewController.h */,
+				2ACE03491AFC50A40091BD9D /* SettingsViewController.m */,
+				2ACE03291AFC47B90091BD9D /* MapViewController.h */,
+				2ACE032A1AFC47B90091BD9D /* MapViewController.m */,
+				2ACE034B1AFC53BF0091BD9D /* FindViewController.h */,
+				2ACE034C1AFC53BF0091BD9D /* FindViewController.m */,
+				2ACE034E1AFC53CE0091BD9D /* MineViewController.h */,
+				2ACE034F1AFC53CE0091BD9D /* MineViewController.m */,
+				2ACE03A41B001A880091BD9D /* CheckPriceViewController.h */,
+				2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2ACE03991B000E100091BD9D /* WYPopoverController */ = {
+			isa = PBXGroup;
+			children = (
+				2ACE039A1B000E100091BD9D /* WYPopoverController.h */,
+				2ACE039B1B000E100091BD9D /* WYPopoverController.m */,
+				2ACE039C1B000E100091BD9D /* WYStoryboardPopoverSegue.h */,
+				2ACE039D1B000E100091BD9D /* WYStoryboardPopoverSegue.m */,
+				2ACE03A01B0010340091BD9D /* WYTableViewViewController.h */,
+				2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */,
+			);
+			path = WYPopoverController;
+			sourceTree = "<group>";
+		};
+		2ACE03A31B0016A50091BD9D /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +320,11 @@
 			files = (
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
+				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
+				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
+				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
+				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
@@ -381,9 +453,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = eShip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZBarSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -392,9 +472,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = eShip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZBarSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -452,6 +540,7 @@
 				2ACE03441AFC47B90091BD9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2ACE03451AFC47B90091BD9D /* Build configuration list for PBXNativeTarget "eShipTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +549,7 @@
 				2ACE03471AFC47B90091BD9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

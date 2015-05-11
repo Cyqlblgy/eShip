@@ -12,13 +12,172 @@
                     <view key="view" contentMode="scaleToFill" id="I97-Ud-ht2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="llp-ZT-Hyk">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="快件追踪" id="cKl-ET-DKM"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipNumber" id="0Ha-ce-HiQ" userLabel="shipNumberImage">
+                                <rect key="frame" x="33" y="116" width="60" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="输入运单号码" textAlignment="center" minimumFontSize="17" id="rK5-Gw-1iv" userLabel="shipNumberTextfield">
+                                <rect key="frame" x="101" y="116" width="138" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="选择快递公司" textAlignment="center" minimumFontSize="17" id="q6Q-hy-y1q" userLabel="carrierTextField">
+                                <rect key="frame" x="101" y="177" width="138" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrier" id="fNl-LC-X9b" userLabel="carrierImage">
+                                <rect key="frame" x="33" y="177" width="60" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sB4-Y2-DI8" userLabel="searchButton">
+                                <rect key="frame" x="33" y="259" width="254" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="查询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Yk-K9-iLM" userLabel="getListButton">
+                                <rect key="frame" x="250" y="177" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCarrierList:" destination="wdc-5q-Lba" eventType="touchUpInside" id="rHv-RX-yJd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="la4-67-hYS" userLabel="scanButton">
+                                <rect key="frame" x="250" y="116" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" image="scanner">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanNumber:" destination="wdc-5q-Lba" eventType="touchUpInside" id="yNe-P6-6EU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="查件" image="Find" id="p4O-ei-H1A"/>
+                    <connections>
+                        <outlet property="carrierTextField" destination="q6Q-hy-y1q" id="DqK-lc-FcT"/>
+                        <outlet property="getListButton" destination="9Yk-K9-iLM" id="KRo-pA-7Vc"/>
+                        <outlet property="navigationBar" destination="llp-ZT-Hyk" id="64G-Om-KdQ"/>
+                        <outlet property="navigationItem" destination="cKl-ET-DKM" id="Zyi-jV-oPj"/>
+                        <outlet property="scanButton" destination="la4-67-hYS" id="Ljj-Qm-FC4"/>
+                        <outlet property="searchButton" destination="sB4-Y2-DI8" id="apz-KT-MXU"/>
+                        <outlet property="shipNumberTextField" destination="rK5-Gw-1iv" id="Ufu-Ov-p5n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53c-xI-zCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="937"/>
+        </scene>
+        <!--Table View View Controller-->
+        <scene sceneID="aCe-Ii-eBq">
+            <objects>
+                <viewController storyboardIdentifier="CarrierListTableView" id="K9J-wW-vul" customClass="WYTableViewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4eH-LL-ZWL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9gB-aH-BGL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="K9J-wW-vul" id="TdO-bY-xjS"/>
+                                    <outlet property="delegate" destination="K9J-wW-vul" id="RPB-gT-WHT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="9gB-aH-BGL" id="k93-tK-o3P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVd-tg-VJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="885"/>
+        </scene>
+        <!--Check Price View Controller-->
+        <scene sceneID="tbc-mz-VhO">
+            <objects>
+                <viewController storyboardIdentifier="checkPriceVC" id="E2C-AN-6w1" customClass="CheckPriceViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aKo-kA-pSI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="选择原寄地" textAlignment="center" minimumFontSize="17" id="641-zO-Mng">
+                                <rect key="frame" x="5" y="93" width="310" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" id="eWG-rM-5Z0">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="运费查询" id="nPI-Dw-thV"/>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="选择目的地" textAlignment="center" minimumFontSize="17" id="6km-nD-zVq">
+                                <rect key="frame" x="5" y="152" width="310" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="选择物品类型" textAlignment="center" minimumFontSize="17" id="A6u-mJ-XLG">
+                                <rect key="frame" x="5" y="212" width="310" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vx2-gj-mg7" userLabel="searchButton">
+                                <rect key="frame" x="33" y="286" width="254" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="开始查询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchPrice:" destination="E2C-AN-6w1" eventType="touchUpInside" id="5Gk-PX-FrJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="destinationPlaceTextField" destination="6km-nD-zVq" id="tpM-Tw-JiI"/>
+                        <outlet property="itemTypeTextField" destination="A6u-mJ-XLG" id="OZb-GK-kg0"/>
+                        <outlet property="originalPlaceTextField" destination="641-zO-Mng" id="z1k-K8-Ay7"/>
+                        <outlet property="searchButton" destination="Vx2-gj-mg7" id="VTv-FI-oeh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sga-PT-9vD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="-868"/>
         </scene>
         <!--我的-->
         <scene sceneID="osw-5A-eX8">
@@ -113,6 +272,10 @@
         <image name="Map" width="32" height="32"/>
         <image name="Mine" width="32" height="32"/>
         <image name="Settings" width="32" height="32"/>
+        <image name="carrier" width="128" height="74"/>
+        <image name="next" width="40" height="40"/>
+        <image name="scanner" width="40" height="40"/>
+        <image name="shipNumber" width="570" height="194"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

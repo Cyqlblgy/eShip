@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ZBar/ZBarSDK.h>
+#import "WYPopoverController.h"
 
-@interface FindViewController : UIViewController
+@interface FindViewController : UIViewController <ZBarReaderDelegate,WYPopoverControllerDelegate>
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+
+@property (weak, nonatomic) IBOutlet UITextField *shipNumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *carrierTextField;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *getListButton;
+@property (weak, nonatomic) IBOutlet UIButton *scanButton;
+
+- (IBAction)scanNumber:(id)sender;
+
+- (IBAction)getCarrierList:(id)sender;
 
 @end
