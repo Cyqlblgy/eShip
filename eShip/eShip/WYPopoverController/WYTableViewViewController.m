@@ -9,18 +9,16 @@
 #import "WYTableViewViewController.h"
 
 @interface WYTableViewViewController (){
-    NSArray *carrierList;
 }
 
 @end
 
 @implementation WYTableViewViewController
 
-@synthesize selectedCarrier;
+@synthesize selectedOne,list;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    carrierList = [[NSArray alloc] initWithObjects:@"申通",@"圆通",@"FedEX",@"UPS",@"韵达", nil];
     // Do any additional setup after loading the view.
 }
 
@@ -34,7 +32,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return carrierList.count;
+    return list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,9 +44,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CarrierListCell"];
     }
-    NSString *rowText = [carrierList objectAtIndex:indexPath.row];
+    NSString *rowText = [list objectAtIndex:indexPath.row];
     cell.textLabel.text = rowText;
-    if([selectedCarrier isEqualToString:rowText]){
+    if([selectedOne isEqualToString:rowText]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else{
@@ -59,7 +57,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    selectedCarrier = [carrierList objectAtIndex:indexPath.row];
+    selectedOne = [list objectAtIndex:indexPath.row];
     [tableView reloadData];
 }
 

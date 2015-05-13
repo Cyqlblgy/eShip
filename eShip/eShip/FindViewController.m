@@ -19,21 +19,14 @@
 @end
 
 @implementation FindViewController
-@synthesize navigationBar,navigationItem,shipNumberTextField,scanButton,getListButton,carrierTextField;
+@synthesize shipNumberTextField,scanButton,getListButton,carrierTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frame = navigationBar.frame;
-    navigationBar.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height+10);
-    navigationBar.translucent = YES;
-    UILabel *label = [[UILabel alloc] initWithFrame: frame];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:25.0];
-    label.textAlignment=UITextAlignmentCenter;
-    label.textColor = [UIColor blackColor];
-    label.text = @"快递追踪";
-    navigationItem.titleView = label;
-    frame = shipNumberTextField.frame;
+    self.navigationItem.title = @"快递追踪";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    CGRect frame = shipNumberTextField.frame;
     scanButton.frame = CGRectMake(frame.origin.x+frame.size.width+ 11 , frame.origin.y, 40, 40);
 }
 
@@ -41,15 +34,13 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated{
+   [self.navigationController navigationBar].hidden = NO;
 }
-*/
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)scanNumber:(id)sender {
     reader = [[ZBarReaderViewController alloc] init];
@@ -66,8 +57,9 @@
 - (IBAction)getCarrierList:(id)sender {
     if(popoverController == nil && tableController == nil){
     tableController = [self.storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
-    tableController.preferredContentSize = CGSizeMake(280, 350);
     tableController.title = @"快递公司";
+    tableController.list = [[NSArray alloc] initWithObjects:@"申通",@"圆通",@"FedEX",@"UPS",@"韵达", nil];
+    tableController.preferredContentSize = CGSizeMake(280, (tableController.list.count+1)*44);
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];
     barItem.title = @"完成";
     barItem.target = self;
@@ -92,7 +84,7 @@
     popoverController.delegate = nil;
     popoverController = nil;
     if(tableController != nil){
-        carrierTextField.text = tableController.selectedCarrier;
+        carrierTextField.text = tableController.selectedOne;
     }
     tableController = nil;
 }
@@ -121,7 +113,7 @@
         popoverController.delegate = nil;
         popoverController = nil;
         if(tableController != nil){
-            carrierTextField.text = tableController.selectedCarrier;
+            carrierTextField.text = tableController.selectedOne;
         }
         tableController = nil;
     }

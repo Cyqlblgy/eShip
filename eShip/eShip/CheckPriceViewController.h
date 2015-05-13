@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WYPopoverController.h"
 
-@interface CheckPriceViewController : UIViewController
+@interface CheckPriceViewController : UIViewController<WYPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *originalPlaceTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *destinationPlaceTextField;

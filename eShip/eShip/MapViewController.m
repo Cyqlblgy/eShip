@@ -20,20 +20,13 @@
 
 @implementation MapViewController
 
-@synthesize navigationBar,navigationItem,myMapView;
+@synthesize myMapView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect frame = navigationBar.frame;
-    navigationBar.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height+10);
-    navigationBar.translucent = YES;
-    UILabel *label = [[UILabel alloc] initWithFrame: frame];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:25.0];
-    label.textAlignment = UITextAlignmentCenter;
-    label.textColor = [UIColor blackColor];
-    label.text = @"eShip";
-    navigationItem.titleView = label;
+    self.navigationItem.title = @"eShip";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     myMapView.delegate = self;
     
     users = [NSMutableArray arrayWithCapacity:10];
@@ -52,9 +45,17 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self.navigationController navigationBar].hidden = NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma MKMapViewDelegate

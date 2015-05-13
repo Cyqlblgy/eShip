@@ -10,5 +10,6 @@
 
 @interface WYTableViewViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) NSString *selectedCarrier;
+@property (weak, nonatomic) NSString *selectedOne;
+@property (strong, nonatomic) NSArray *list;
 @end

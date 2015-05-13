@@ -11,8 +11,6 @@
 #import "WYPopoverController.h"
 
 @interface FindViewController : UIViewController <ZBarReaderDelegate,WYPopoverControllerDelegate>
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @property (weak, nonatomic) IBOutlet UITextField *shipNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *carrierTextField;
