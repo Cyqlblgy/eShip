@@ -29,6 +29,7 @@
 		2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE039D1B000E100091BD9D /* WYStoryboardPopoverSegue.m */; };
 		2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */; };
 		2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */; };
+		2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A81B0054F20091BD9D /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYTableViewViewController.m; sourceTree = "<group>"; };
 		2ACE03A41B001A880091BD9D /* CheckPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckPriceViewController.h; sourceTree = "<group>"; };
 		2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPriceViewController.m; sourceTree = "<group>"; };
+		2ACE03A71B0054F20091BD9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		2ACE03A81B0054F20091BD9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				2ACE034F1AFC53CE0091BD9D /* MineViewController.m */,
 				2ACE03A41B001A880091BD9D /* CheckPriceViewController.h */,
 				2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */,
+				2ACE03A71B0054F20091BD9D /* HomeViewController.h */,
+				2ACE03A81B0054F20091BD9D /* HomeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
+				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
