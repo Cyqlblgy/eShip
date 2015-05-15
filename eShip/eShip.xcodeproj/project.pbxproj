@@ -17,6 +17,13 @@
 		2A1BF9E41B058E73003549D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */; };
 		2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D71B058E0E003549D7 /* OpenGLES.framework */; };
 		2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */; };
+		2A1BF9E81B0592B7003549D7 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9E71B0592B7003549D7 /* AMap.bundle */; };
+		2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */; };
+		2A1BF9F21B059ADB003549D7 /* animatedCar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EE1B059ADB003549D7 /* animatedCar_1.png */; };
+		2A1BF9F31B059ADB003549D7 /* animatedCar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EF1B059ADB003549D7 /* animatedCar_2.png */; };
+		2A1BF9F41B059ADB003549D7 /* animatedCar_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F01B059ADB003549D7 /* animatedCar_3.png */; };
+		2A1BF9F51B059ADB003549D7 /* animatedCar_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F11B059ADB003549D7 /* animatedCar_4.png */; };
+		2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
 		2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE032A1AFC47B90091BD9D /* MapViewController.m */; };
@@ -63,6 +70,15 @@
 		2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2A1BF9DB1B058E2C003549D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2A1BF9DD1B058E34003549D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2A1BF9E71B0592B7003549D7 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle; sourceTree = "<group>"; };
+		2A1BF9EA1B05988F003549D7 /* MACustomizedAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomizedAnnotation.h; sourceTree = "<group>"; };
+		2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotation.m; sourceTree = "<group>"; };
+		2A1BF9EE1B059ADB003549D7 /* animatedCar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedCar_1.png; sourceTree = "<group>"; };
+		2A1BF9EF1B059ADB003549D7 /* animatedCar_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedCar_2.png; sourceTree = "<group>"; };
+		2A1BF9F01B059ADB003549D7 /* animatedCar_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedCar_3.png; sourceTree = "<group>"; };
+		2A1BF9F11B059ADB003549D7 /* animatedCar_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedCar_4.png; sourceTree = "<group>"; };
+		2A1BF9F61B059BBA003549D7 /* MACustomizedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomizedAnnotationView.h; sourceTree = "<group>"; };
+		2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotationView.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACE03231AFC47B90091BD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACE03241AFC47B90091BD9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,9 +160,32 @@
 			name = Configuration;
 			sourceTree = "<group>";
 		};
+		2A1BF9E91B059862003549D7 /* MAMapCustomize */ = {
+			isa = PBXGroup;
+			children = (
+				2A1BF9EA1B05988F003549D7 /* MACustomizedAnnotation.h */,
+				2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */,
+				2A1BF9F61B059BBA003549D7 /* MACustomizedAnnotationView.h */,
+				2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */,
+			);
+			name = MAMapCustomize;
+			sourceTree = "<group>";
+		};
+		2A1BF9ED1B059AC1003549D7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2A1BF9EE1B059ADB003549D7 /* animatedCar_1.png */,
+				2A1BF9EF1B059ADB003549D7 /* animatedCar_2.png */,
+				2A1BF9F01B059ADB003549D7 /* animatedCar_3.png */,
+				2A1BF9F11B059ADB003549D7 /* animatedCar_4.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		2ACE03161AFC47B90091BD9D = {
 			isa = PBXGroup;
 			children = (
+				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
 				2ACE03211AFC47B90091BD9D /* eShip */,
 				2ACE033B1AFC47B90091BD9D /* eShipTests */,
 				2ACE03201AFC47B90091BD9D /* Products */,
@@ -166,6 +205,8 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A1BF9ED1B059AC1003549D7 /* Assets */,
+				2A1BF9E91B059862003549D7 /* MAMapCustomize */,
 				2A1BF9CA1B0588B9003549D7 /* Configuration */,
 				2ACE03A31B0016A50091BD9D /* Server */,
 				2ACE03991B000E100091BD9D /* WYPopoverController */,
@@ -349,8 +390,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1BF9F51B059ADB003549D7 /* animatedCar_4.png in Resources */,
+				2A1BF9F31B059ADB003549D7 /* animatedCar_2.png in Resources */,
+				2A1BF9E81B0592B7003549D7 /* AMap.bundle in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
+				2A1BF9F41B059ADB003549D7 /* animatedCar_3.png in Resources */,
 				2ACE03331AFC47B90091BD9D /* LaunchScreen.xib in Resources */,
+				2A1BF9F21B059ADB003549D7 /* animatedCar_1.png in Resources */,
 				2ACE03301AFC47B90091BD9D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,8 +418,10 @@
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
+				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
+				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
