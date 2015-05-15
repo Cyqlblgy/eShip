@@ -7,10 +7,11 @@
 //
 
 #import "MapViewController.h"
-#import <MapKit/MKUserLocation.h>
-#import <MapKit/MKPointAnnotation.h>
+//#import <MapKit/MKUserLocation.h>
+#import <MAMapKit/MAPointAnnotation.h>
+#import <MAMapKit/MAUserLocation.h>
 
-@interface MapViewController () <MKMapViewDelegate, MKAnnotation, CLLocationManagerDelegate>{
+@interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate>{
     NSMutableArray *locations;
     NSMutableArray *users;
     NSMutableArray *currentusers;
@@ -58,22 +59,26 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma MKMapViewDelegate
-
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+#pragma MAMapViewDelegate
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation{
+    MACoordinateRegion region = MACoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
     [myMapView setRegion:[myMapView regionThatFits:region] animated:YES];
-    
-    for(int i =0 ; i< 10 ; i++){
-        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-        CLLocationDegrees longitude = userLocation.coordinate.longitude - 0.01*i + random()%360 * 0.0001;
-        CLLocationDegrees latitude  = userLocation.coordinate.latitude + 0.01*i + random()%360 * 0.0001;
-        CLLocation *location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
-        point.coordinate = location.coordinate;
-        [self.myMapView addAnnotation:point];
-    }
-    
 }
+
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800, 800);
+//    [myMapView setRegion:[myMapView regionThatFits:region] animated:YES];
+//    
+//    for(int i =0 ; i< 10 ; i++){
+//        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//        CLLocationDegrees longitude = userLocation.coordinate.longitude - 0.01*i + random()%360 * 0.0001;
+//        CLLocationDegrees latitude  = userLocation.coordinate.latitude + 0.01*i + random()%360 * 0.0001;
+//        CLLocation *location = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
+//        point.coordinate = location.coordinate;
+//        [self.myMapView addAnnotation:point];
+//    }
+//    
+//}
 
 #pragma CLLocationManagerDelegate
 
@@ -122,25 +127,25 @@
 
 #pragma MKAnnotation
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    MKAnnotationView *pinView = nil;
-    if(annotation != mapView.userLocation)
-    {
-        static NSString *defaultPinID = @"com.invasivecode.pin";
-        pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-        if ( pinView == nil )
-            pinView = [[MKAnnotationView alloc]
-                       initWithAnnotation:annotation reuseIdentifier:defaultPinID];
-        
-        //pinView.pinColor = MKPinAnnotationColorGreen;
-        pinView.canShowCallout = YES;
-        //pinView.animatesDrop = YES;
-        pinView.image = [UIImage imageNamed:@"Ball.png"];    //as suggested by Squatch
-    }
-    else {
-        [mapView.userLocation setTitle:@"I am here"];
-    }
-    return pinView;
-}
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+//    MKAnnotationView *pinView = nil;
+//    if(annotation != mapView.userLocation)
+//    {
+//        static NSString *defaultPinID = @"com.invasivecode.pin";
+//        pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+//        if ( pinView == nil )
+//            pinView = [[MKAnnotationView alloc]
+//                       initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+//        
+//        //pinView.pinColor = MKPinAnnotationColorGreen;
+//        pinView.canShowCallout = YES;
+//        //pinView.animatesDrop = YES;
+//        pinView.image = [UIImage imageNamed:@"Ball.png"];    //as suggested by Squatch
+//    }
+//    else {
+//        [mapView.userLocation setTitle:@"I am here"];
+//    }
+//    return pinView;
+//}
 
 @end

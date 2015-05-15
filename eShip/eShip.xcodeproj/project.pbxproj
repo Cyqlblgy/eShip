@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1BF9C91B058752003549D7 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9C81B058752003549D7 /* MAMapKit.framework */; };
+		2A1BF9CE1B058DD1003549D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CC1B058CBE003549D7 /* MapKit.framework */; };
+		2A1BF9DF1B058E4A003549D7 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */; };
+		2A1BF9E01B058E53003549D7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D51B058E03003549D7 /* libz.dylib */; };
+		2A1BF9E11B058E5C003549D7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D11B058DED003549D7 /* Security.framework */; };
+		2A1BF9E21B058E64003549D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9DD1B058E34003549D7 /* Foundation.framework */; };
+		2A1BF9E31B058E6B003549D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9DB1B058E2C003549D7 /* UIKit.framework */; };
+		2A1BF9E41B058E73003549D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */; };
+		2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D71B058E0E003549D7 /* OpenGLES.framework */; };
+		2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
 		2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE032A1AFC47B90091BD9D /* MapViewController.m */; };
@@ -18,7 +28,6 @@
 		2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE034C1AFC53BF0091BD9D /* FindViewController.m */; };
 		2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE034F1AFC53CE0091BD9D /* MineViewController.m */; };
 		2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03511AFC584A0091BD9D /* CoreLocation.framework */; };
-		2ACE03571AFC58890091BD9D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03531AFC58510091BD9D /* MapKit.framework */; };
 		2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038C1B0009830091BD9D /* ZBar.framework */; };
 		2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038E1B000B520091BD9D /* AVFoundation.framework */; };
 		2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03901B000B5C0091BD9D /* CoreMedia.framework */; };
@@ -43,6 +52,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1BF9C81B058752003549D7 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		2A1BF9CB1B0588D3003549D7 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
+		2A1BF9CC1B058CBE003549D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		2A1BF9D11B058DED003549D7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		2A1BF9D51B058E03003549D7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2A1BF9D71B058E0E003549D7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2A1BF9DB1B058E2C003549D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2A1BF9DD1B058E34003549D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACE03231AFC47B90091BD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACE03241AFC47B90091BD9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,7 +83,6 @@
 		2ACE034E1AFC53CE0091BD9D /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		2ACE034F1AFC53CE0091BD9D /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		2ACE03511AFC584A0091BD9D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2ACE03531AFC58510091BD9D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2ACE038C1B0009830091BD9D /* ZBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZBar.framework; sourceTree = "<group>"; };
 		2ACE038E1B000B520091BD9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2ACE03901B000B5C0091BD9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -87,12 +106,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */,
+				2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */,
+				2A1BF9E41B058E73003549D7 /* CoreGraphics.framework in Frameworks */,
+				2A1BF9E31B058E6B003549D7 /* UIKit.framework in Frameworks */,
+				2A1BF9E21B058E64003549D7 /* Foundation.framework in Frameworks */,
+				2A1BF9E11B058E5C003549D7 /* Security.framework in Frameworks */,
+				2A1BF9E01B058E53003549D7 /* libz.dylib in Frameworks */,
+				2A1BF9DF1B058E4A003549D7 /* libstdc++.6.0.9.dylib in Frameworks */,
+				2A1BF9CE1B058DD1003549D7 /* MapKit.framework in Frameworks */,
 				2ACE03971B000B8A0091BD9D /* libiconv.dylib in Frameworks */,
 				2ACE03951B000B6E0091BD9D /* QuartzCore.framework in Frameworks */,
 				2ACE03931B000B630091BD9D /* CoreVideo.framework in Frameworks */,
+				2A1BF9C91B058752003549D7 /* MAMapKit.framework in Frameworks */,
 				2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */,
 				2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */,
-				2ACE03571AFC58890091BD9D /* MapKit.framework in Frameworks */,
 				2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */,
 				2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */,
 			);
@@ -108,6 +136,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1BF9CA1B0588B9003549D7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2A1BF9CB1B0588D3003549D7 /* APIKey.h */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		2ACE03161AFC47B90091BD9D = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +166,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A1BF9CA1B0588B9003549D7 /* Configuration */,
 				2ACE03A31B0016A50091BD9D /* Server */,
 				2ACE03991B000E100091BD9D /* WYPopoverController */,
 				2ACE03981B000D2A0091BD9D /* ViewController */,
@@ -172,13 +209,22 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2A1BF9DD1B058E34003549D7 /* Foundation.framework */,
+				2A1BF9DB1B058E2C003549D7 /* UIKit.framework */,
+				2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */,
+				2A1BF9D71B058E0E003549D7 /* OpenGLES.framework */,
+				2A1BF9D51B058E03003549D7 /* libz.dylib */,
+				2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */,
+				2A1BF9D11B058DED003549D7 /* Security.framework */,
+				2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */,
+				2A1BF9CC1B058CBE003549D7 /* MapKit.framework */,
+				2A1BF9C81B058752003549D7 /* MAMapKit.framework */,
 				2ACE03961B000B8A0091BD9D /* libiconv.dylib */,
 				2ACE03941B000B6E0091BD9D /* QuartzCore.framework */,
 				2ACE03921B000B630091BD9D /* CoreVideo.framework */,
 				2ACE03901B000B5C0091BD9D /* CoreMedia.framework */,
 				2ACE038E1B000B520091BD9D /* AVFoundation.framework */,
 				2ACE038C1B0009830091BD9D /* ZBar.framework */,
-				2ACE03531AFC58510091BD9D /* MapKit.framework */,
 				2ACE03511AFC584A0091BD9D /* CoreLocation.framework */,
 			);
 			name = framework;

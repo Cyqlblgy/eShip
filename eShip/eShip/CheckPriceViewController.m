@@ -136,7 +136,7 @@
         destinationpopoverController.delegate = self;
         destinationpopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
         CGRect rect = button1.bounds;
-        [destinationpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button1 permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+        [destinationpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button1 permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     }
     else{
         [self done:nil];
@@ -161,7 +161,7 @@
         itemtypepopoverController.delegate = self;
         itemtypepopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
         CGRect rect = button2.bounds;
-        [itemtypepopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button2 permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+        [itemtypepopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button2 permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     }
     else{
         [self done:nil];

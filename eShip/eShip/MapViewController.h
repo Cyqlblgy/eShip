@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MKMapView.h>
+#import <MAMapKit/MAMapView.h>
 
 @interface MapViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
+@property (weak, nonatomic) IBOutlet MAMapView *myMapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *startLocation;
 
