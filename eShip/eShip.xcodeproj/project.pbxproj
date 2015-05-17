@@ -152,6 +152,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A0AB2C11B091E2300F26262 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		2A1BF9CA1B0588B9003549D7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +192,6 @@
 		2ACE03161AFC47B90091BD9D = {
 			isa = PBXGroup;
 			children = (
-				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
 				2ACE03211AFC47B90091BD9D /* eShip */,
 				2ACE033B1AFC47B90091BD9D /* eShipTests */,
 				2ACE03201AFC47B90091BD9D /* Products */,
@@ -205,6 +211,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A0AB2C11B091E2300F26262 /* TableViewCells */,
 				2A1BF9ED1B059AC1003549D7 /* Assets */,
 				2A1BF9E91B059862003549D7 /* MAMapCustomize */,
 				2A1BF9CA1B0588B9003549D7 /* Configuration */,
@@ -250,6 +257,7 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
 				2A1BF9DD1B058E34003549D7 /* Foundation.framework */,
 				2A1BF9DB1B058E2C003549D7 /* UIKit.framework */,
 				2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */,
