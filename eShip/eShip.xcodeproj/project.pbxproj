@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
+		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
+		2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D61B0ADEB200F26262 /* BLBase64.m */; };
+		2A0AB2D91B0AE16E00F26262 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */; };
 		2A1BF9C91B058752003549D7 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9C81B058752003549D7 /* MAMapKit.framework */; };
 		2A1BF9CE1B058DD1003549D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CC1B058CBE003549D7 /* MapKit.framework */; };
 		2A1BF9DF1B058E4A003549D7 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */; };
@@ -59,6 +63,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eShipModel.xcdatamodel; sourceTree = "<group>"; };
+		2A0AB2D51B0ADEB200F26262 /* BLBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBase64.h; sourceTree = "<group>"; };
+		2A0AB2D61B0ADEB200F26262 /* BLBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBase64.m; sourceTree = "<group>"; };
+		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		2A1BF9C81B058752003549D7 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		2A1BF9CB1B0588D3003549D7 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		2A1BF9CC1B058CBE003549D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -122,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A0AB2D91B0AE16E00F26262 /* libcommonCrypto.dylib in Frameworks */,
+				2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */,
 				2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */,
 				2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */,
 				2A1BF9E41B058E73003549D7 /* CoreGraphics.framework in Frameworks */,
@@ -152,11 +163,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A0AB2C11B091E2300F26262 /* TableViewCells */ = {
+		2A0AB2D31B0AD62400F26262 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */,
 			);
-			name = TableViewCells;
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		2A0AB2D41B0ADE6100F26262 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				2A0AB2D51B0ADEB200F26262 /* BLBase64.h */,
+				2A0AB2D61B0ADEB200F26262 /* BLBase64.m */,
+			);
+			name = Base64;
 			sourceTree = "<group>";
 		};
 		2A1BF9CA1B0588B9003549D7 /* Configuration */ = {
@@ -211,11 +232,12 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
-				2A0AB2C11B091E2300F26262 /* TableViewCells */,
+				2A0AB2D41B0ADE6100F26262 /* Base64 */,
+				2A0AB2D31B0AD62400F26262 /* CoreData */,
 				2A1BF9ED1B059AC1003549D7 /* Assets */,
 				2A1BF9E91B059862003549D7 /* MAMapCustomize */,
 				2A1BF9CA1B0588B9003549D7 /* Configuration */,
-				2ACE03A31B0016A50091BD9D /* Server */,
+				2ACE03A31B0016A50091BD9D /* Network */,
 				2ACE03991B000E100091BD9D /* WYPopoverController */,
 				2ACE03981B000D2A0091BD9D /* ViewController */,
 				2ACE03261AFC47B90091BD9D /* AppDelegate.h */,
@@ -257,6 +279,8 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */,
+				2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */,
 				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
 				2A1BF9DD1B058E34003549D7 /* Foundation.framework */,
 				2A1BF9DB1B058E2C003549D7 /* UIKit.framework */,
@@ -311,11 +335,11 @@
 			path = WYPopoverController;
 			sourceTree = "<group>";
 		};
-		2ACE03A31B0016A50091BD9D /* Server */ = {
+		2ACE03A31B0016A50091BD9D /* Network */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Server;
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,8 +456,10 @@
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
+				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
+				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 			);
@@ -571,6 +597,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZBarSDK",
+					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -590,6 +617,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZBarSDK",
+					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -660,6 +688,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */,
+			);
+			currentVersion = 2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */;
+			path = eShipModel.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2ACE03171AFC47B90091BD9D /* Project object */;
 }
