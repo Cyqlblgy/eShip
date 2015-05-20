@@ -50,6 +50,9 @@
 		2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */; };
 		2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */; };
 		2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A81B0054F20091BD9D /* HomeViewController.m */; };
+		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
+		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
+		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,11 @@
 		2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPriceViewController.m; sourceTree = "<group>"; };
 		2ACE03A71B0054F20091BD9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		2ACE03A81B0054F20091BD9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
+		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
+		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2AE04ED21B0C2AE600AA9628 /* BLParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLParams.h; sourceTree = "<group>"; };
+		2AE04ED31B0C2AE600AA9628 /* BLParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLParams.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */,
 				2A0AB2D91B0AE16E00F26262 /* libcommonCrypto.dylib in Frameworks */,
 				2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */,
 				2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */,
@@ -232,6 +241,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04ED11B0C2A9800AA9628 /* Params */,
 				2A0AB2D41B0ADE6100F26262 /* Base64 */,
 				2A0AB2D31B0AD62400F26262 /* CoreData */,
 				2A1BF9ED1B059AC1003549D7 /* Assets */,
@@ -279,6 +289,7 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */,
 				2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */,
 				2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */,
 				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
@@ -338,8 +349,19 @@
 		2ACE03A31B0016A50091BD9D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */,
+				2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		2AE04ED11B0C2A9800AA9628 /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				2AE04ED21B0C2AE600AA9628 /* BLParams.h */,
+				2AE04ED31B0C2AE600AA9628 /* BLParams.m */,
+			);
+			name = Params;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +471,7 @@
 			files = (
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
+				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
@@ -461,6 +484,7 @@
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
+				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
