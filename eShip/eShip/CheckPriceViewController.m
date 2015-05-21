@@ -9,6 +9,8 @@
 #import "CheckPriceViewController.h"
 #import "WYPopoverController.h"
 #import "WYTableViewViewController.h"
+#import "BLNetwork.h"
+#import "BLParams.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -88,6 +90,18 @@
 }
 
 - (IBAction)SearchPrice:(id)sender {
+    
+    //Login sample
+    NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"coolboy", @"user_name",
+                                    @"ghdj562", @"password",
+                                    nil];
+    
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSURLResponse *x = response;
+        NSData *k = data;
+        NSError *e = connectionError;
+    }];
 }
 
 

@@ -12,6 +12,7 @@ const struct BLParamsStruct BLParameters =
 {
     .NetworkHttpMethodPost = @"POST",
     .NetworkHttpMethodGet = @"GET",
-    .NetworkHttpMethodPostLogin = @"POST/login"
+    .NetworkLogin = @"login",
+    .NetworkTrack = @"track"
 };
 

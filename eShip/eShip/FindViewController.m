@@ -9,6 +9,9 @@
 #import "FindViewController.h"
 #import "WYTableViewViewController.h"
 #import "CheckPriceViewController.h"
+#import "BLParams.h"
+#import "BLNetwork.h"
+#import "SVProgressHUD.h"
 
 @interface FindViewController (){
     ZBarReaderViewController *reader;
@@ -76,6 +79,25 @@
     else{
         [self done:nil];
     }
+}
+
+- (IBAction)startTracking:(id)sender {
+    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,@"fedex",@"773265733914"];
+    [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:request andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+        [SVProgressHUD dismiss];
+        if(res.statusCode == BLNetworkTrackSuccess){
+            NSError *e = nil;
+            NSDictionary *da = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingMutableContainers
+                                                                 error:&e];
+        }
+        else{
+            NSLog(@"Not found");
+        }
+    }];
+    
 }
 
 

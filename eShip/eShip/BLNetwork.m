@@ -11,17 +11,24 @@
 
 @implementation BLNetwork
 
-+(void)urlConnectionRequest:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andResponse:(NetworkHanlder)handler{
++(void)urlConnectionRequest:(NSString *)httpMethodType andrequestType:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andResponse:(NetworkHanlder)handler{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *url = [NSURL URLWithString:@"http://104.131.174.73:8080/useraccount"];
+        NSString *urlString =[[NSString alloc] initWithFormat:@"http://104.131.174.73:8080/useraccount/%@",requestType];
+        NSURL *url = [NSURL URLWithString:urlString];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [request setHTTPMethod:requestType];
-   //     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//        [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
-//        [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Accept"];
-   //     [request setHTTPBody:postData];
+        if(params){
+        NSError *error = nil;
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:params
+                                                           options:NSJSONWritingPrettyPrinted error:&error];
+        [request setHTTPBody:jsonData];
+        }
+        [request setHTTPMethod:httpMethodType];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        if(timeInterval){
         [request setTimeoutInterval:timeInterval]; //This value is in seconds...
+        }
         [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
         [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
         {

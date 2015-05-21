@@ -10,8 +10,6 @@
 		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
 		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
 		2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D61B0ADEB200F26262 /* BLBase64.m */; };
-		2A0AB2D91B0AE16E00F26262 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */; };
-		2A1BF9C91B058752003549D7 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9C81B058752003549D7 /* MAMapKit.framework */; };
 		2A1BF9CE1B058DD1003549D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CC1B058CBE003549D7 /* MapKit.framework */; };
 		2A1BF9DF1B058E4A003549D7 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */; };
 		2A1BF9E01B058E53003549D7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D51B058E03003549D7 /* libz.dylib */; };
@@ -21,7 +19,6 @@
 		2A1BF9E41B058E73003549D7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */; };
 		2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D71B058E0E003549D7 /* OpenGLES.framework */; };
 		2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */; };
-		2A1BF9E81B0592B7003549D7 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9E71B0592B7003549D7 /* AMap.bundle */; };
 		2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */; };
 		2A1BF9F21B059ADB003549D7 /* animatedCar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EE1B059ADB003549D7 /* animatedCar_1.png */; };
 		2A1BF9F31B059ADB003549D7 /* animatedCar_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EF1B059ADB003549D7 /* animatedCar_2.png */; };
@@ -39,7 +36,6 @@
 		2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE034C1AFC53BF0091BD9D /* FindViewController.m */; };
 		2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE034F1AFC53CE0091BD9D /* MineViewController.m */; };
 		2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03511AFC584A0091BD9D /* CoreLocation.framework */; };
-		2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038C1B0009830091BD9D /* ZBar.framework */; };
 		2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE038E1B000B520091BD9D /* AVFoundation.framework */; };
 		2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03901B000B5C0091BD9D /* CoreMedia.framework */; };
 		2ACE03931B000B630091BD9D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACE03921B000B630091BD9D /* CoreVideo.framework */; };
@@ -53,6 +49,14 @@
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
+		2AE04EE01B0D844F00AA9628 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04EDA1B0D843300AA9628 /* MAMapKit.framework */; };
+		2AE04EE11B0D844F00AA9628 /* SVProgressHUD.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */; };
+		2AE04EE21B0D844F00AA9628 /* ZBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04EDC1B0D843300AA9628 /* ZBar.framework */; };
+		2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04EE51B0D84A300AA9628 /* SVIndefiniteAnimatedView.m */; };
+		2AE04EEA1B0D84A300AA9628 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04EE81B0D84A300AA9628 /* SVProgressHUD.m */; };
+		2AE04EED1B0D864C00AA9628 /* AMap.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04EEB1B0D854D00AA9628 /* AMap.bundle */; };
+		2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EEB1B0D854D00AA9628 /* AMap.bundle */; };
+		2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +75,6 @@
 		2A0AB2D51B0ADEB200F26262 /* BLBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBase64.h; sourceTree = "<group>"; };
 		2A0AB2D61B0ADEB200F26262 /* BLBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBase64.m; sourceTree = "<group>"; };
 		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
-		2A1BF9C81B058752003549D7 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		2A1BF9CB1B0588D3003549D7 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		2A1BF9CC1B058CBE003549D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
@@ -82,7 +85,6 @@
 		2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2A1BF9DB1B058E2C003549D7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2A1BF9DD1B058E34003549D7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2A1BF9E71B0592B7003549D7 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle; sourceTree = "<group>"; };
 		2A1BF9EA1B05988F003549D7 /* MACustomizedAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomizedAnnotation.h; sourceTree = "<group>"; };
 		2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotation.m; sourceTree = "<group>"; };
 		2A1BF9EE1B059ADB003549D7 /* animatedCar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animatedCar_1.png; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 		2ACE034E1AFC53CE0091BD9D /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		2ACE034F1AFC53CE0091BD9D /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		2ACE03511AFC584A0091BD9D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2ACE038C1B0009830091BD9D /* ZBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZBar.framework; sourceTree = "<group>"; };
 		2ACE038E1B000B520091BD9D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2ACE03901B000B5C0091BD9D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2ACE03921B000B630091BD9D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -132,6 +133,15 @@
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2AE04ED21B0C2AE600AA9628 /* BLParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLParams.h; sourceTree = "<group>"; };
 		2AE04ED31B0C2AE600AA9628 /* BLParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLParams.m; sourceTree = "<group>"; };
+		2AE04EDA1B0D843300AA9628 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = eShip/Framework/MAMapKit.framework; sourceTree = "<group>"; };
+		2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = eShip/Framework/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		2AE04EDC1B0D843300AA9628 /* ZBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZBar.framework; path = eShip/Framework/ZBar.framework; sourceTree = "<group>"; };
+		2AE04EE41B0D84A300AA9628 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		2AE04EE51B0D84A300AA9628 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		2AE04EE61B0D84A300AA9628 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		2AE04EE71B0D84A300AA9628 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		2AE04EE81B0D84A300AA9628 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		2AE04EEB1B0D854D00AA9628 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = eShip/Framework/MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +149,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE04EED1B0D864C00AA9628 /* AMap.bundle in Frameworks */,
+				2AE04EE01B0D844F00AA9628 /* MAMapKit.framework in Frameworks */,
+				2AE04EE11B0D844F00AA9628 /* SVProgressHUD.bundle in Frameworks */,
+				2AE04EE21B0D844F00AA9628 /* ZBar.framework in Frameworks */,
 				2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */,
-				2A0AB2D91B0AE16E00F26262 /* libcommonCrypto.dylib in Frameworks */,
 				2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */,
 				2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */,
 				2A1BF9E51B058E7A003549D7 /* OpenGLES.framework in Frameworks */,
@@ -154,10 +167,8 @@
 				2ACE03971B000B8A0091BD9D /* libiconv.dylib in Frameworks */,
 				2ACE03951B000B6E0091BD9D /* QuartzCore.framework in Frameworks */,
 				2ACE03931B000B630091BD9D /* CoreVideo.framework in Frameworks */,
-				2A1BF9C91B058752003549D7 /* MAMapKit.framework in Frameworks */,
 				2ACE03911B000B5C0091BD9D /* CoreMedia.framework in Frameworks */,
 				2ACE038F1B000B520091BD9D /* AVFoundation.framework in Frameworks */,
-				2ACE038D1B0009830091BD9D /* ZBar.framework in Frameworks */,
 				2ACE03561AFC58820091BD9D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +252,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04EE31B0D845B00AA9628 /* SVProgressHUD */,
 				2AE04ED11B0C2A9800AA9628 /* Params */,
 				2A0AB2D41B0ADE6100F26262 /* Base64 */,
 				2A0AB2D31B0AD62400F26262 /* CoreData */,
@@ -289,10 +301,13 @@
 		2ACE03551AFC58660091BD9D /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04EEB1B0D854D00AA9628 /* AMap.bundle */,
+				2AE04EDA1B0D843300AA9628 /* MAMapKit.framework */,
+				2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */,
+				2AE04EDC1B0D843300AA9628 /* ZBar.framework */,
 				2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */,
 				2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */,
 				2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */,
-				2A1BF9E71B0592B7003549D7 /* AMap.bundle */,
 				2A1BF9DD1B058E34003549D7 /* Foundation.framework */,
 				2A1BF9DB1B058E2C003549D7 /* UIKit.framework */,
 				2A1BF9D91B058E1A003549D7 /* CoreGraphics.framework */,
@@ -302,13 +317,11 @@
 				2A1BF9D11B058DED003549D7 /* Security.framework */,
 				2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */,
 				2A1BF9CC1B058CBE003549D7 /* MapKit.framework */,
-				2A1BF9C81B058752003549D7 /* MAMapKit.framework */,
 				2ACE03961B000B8A0091BD9D /* libiconv.dylib */,
 				2ACE03941B000B6E0091BD9D /* QuartzCore.framework */,
 				2ACE03921B000B630091BD9D /* CoreVideo.framework */,
 				2ACE03901B000B5C0091BD9D /* CoreMedia.framework */,
 				2ACE038E1B000B520091BD9D /* AVFoundation.framework */,
-				2ACE038C1B0009830091BD9D /* ZBar.framework */,
 				2ACE03511AFC584A0091BD9D /* CoreLocation.framework */,
 			);
 			name = framework;
@@ -362,6 +375,18 @@
 				2AE04ED31B0C2AE600AA9628 /* BLParams.m */,
 			);
 			name = Params;
+			sourceTree = "<group>";
+		};
+		2AE04EE31B0D845B00AA9628 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2AE04EE41B0D84A300AA9628 /* SVIndefiniteAnimatedView.h */,
+				2AE04EE51B0D84A300AA9628 /* SVIndefiniteAnimatedView.m */,
+				2AE04EE61B0D84A300AA9628 /* SVProgressHUD-Prefix.pch */,
+				2AE04EE71B0D84A300AA9628 /* SVProgressHUD.h */,
+				2AE04EE81B0D84A300AA9628 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,9 +469,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */,
+				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
 				2A1BF9F51B059ADB003549D7 /* animatedCar_4.png in Resources */,
 				2A1BF9F31B059ADB003549D7 /* animatedCar_2.png in Resources */,
-				2A1BF9E81B0592B7003549D7 /* AMap.bundle in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
 				2A1BF9F41B059ADB003549D7 /* animatedCar_3.png in Resources */,
 				2ACE03331AFC47B90091BD9D /* LaunchScreen.xib in Resources */,
@@ -476,10 +502,12 @@
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
+				2AE04EEA1B0D84A300AA9628 /* SVProgressHUD.m in Sources */,
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
 				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
+				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
@@ -614,6 +642,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/eShip/Framework",
 				);
 				INFOPLIST_FILE = eShip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -624,6 +653,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -634,6 +664,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/eShip/Framework",
 				);
 				INFOPLIST_FILE = eShip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -644,6 +675,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
