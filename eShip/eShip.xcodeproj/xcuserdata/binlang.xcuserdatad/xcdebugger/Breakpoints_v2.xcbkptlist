@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "eShip/CheckPriceViewController.m"
-            timestampString = "453868715.762925"
+            timestampString = "453871537.548994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-SearchPrice:"
             landmarkType = "5">
          </BreakpointContent>

@@ -98,9 +98,10 @@
                                     nil];
     
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSURLResponse *x = response;
-        NSData *k = data;
-        NSError *e = connectionError;
+        NSError *e = nil;
+        NSDictionary *da = [NSJSONSerialization JSONObjectWithData:data
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&e];
     }];
 }
 
