@@ -57,6 +57,7 @@
 		2AE04EED1B0D864C00AA9628 /* AMap.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04EEB1B0D854D00AA9628 /* AMap.bundle */; };
 		2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EEB1B0D854D00AA9628 /* AMap.bundle */; };
 		2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */; };
+		2AE04F081B0EBF4300AA9628 /* BLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04F071B0EBF4300AA9628 /* BLCoreData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		2AE04EE71B0D84A300AA9628 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
 		2AE04EE81B0D84A300AA9628 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		2AE04EEB1B0D854D00AA9628 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = eShip/Framework/MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle; sourceTree = "<group>"; };
+		2AE04F061B0EBF4300AA9628 /* BLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCoreData.h; sourceTree = "<group>"; };
+		2AE04F071B0EBF4300AA9628 /* BLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCoreData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */,
+				2AE04F061B0EBF4300AA9628 /* BLCoreData.h */,
+				2AE04F071B0EBF4300AA9628 /* BLCoreData.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
 				2AE04EEA1B0D84A300AA9628 /* SVProgressHUD.m in Sources */,
+				2AE04F081B0EBF4300AA9628 /* BLCoreData.m in Sources */,
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,

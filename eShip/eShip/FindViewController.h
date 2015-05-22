@@ -10,7 +10,7 @@
 #import <ZBar/ZBarSDK.h>
 #import "WYPopoverController.h"
 
-@interface FindViewController : UIViewController <ZBarReaderDelegate,WYPopoverControllerDelegate>
+@interface FindViewController : UIViewController <ZBarReaderDelegate,WYPopoverControllerDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *shipNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *carrierTextField;

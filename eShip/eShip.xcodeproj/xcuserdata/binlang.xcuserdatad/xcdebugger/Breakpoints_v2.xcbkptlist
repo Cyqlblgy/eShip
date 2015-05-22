@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "eShip/CheckPriceViewController.m"
-            timestampString = "453871537.548994"
+            filePath = "eShip/FindViewController.m"
+            timestampString = "453950435.527935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-SearchPrice:"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-startTracking:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

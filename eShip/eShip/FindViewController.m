@@ -30,6 +30,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     CGRect frame = shipNumberTextField.frame;
+    shipNumberTextField.tag =0;
+    carrierTextField.tag =1;
     scanButton.frame = CGRectMake(frame.origin.x+frame.size.width+ 11 , frame.origin.y, 40, 40);
 }
 
@@ -61,7 +63,7 @@
     if(popoverController == nil && tableController == nil){
     tableController = [self.storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
     tableController.title = @"快递公司";
-    tableController.list = [[NSArray alloc] initWithObjects:@"申通",@"圆通",@"FedEX",@"UPS",@"韵达", nil];
+    tableController.list = [[NSArray alloc] initWithObjects:@"FedEX",@"UPS",nil];
     tableController.preferredContentSize = CGSizeMake(280, (tableController.list.count+1)*44);
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];
     barItem.title = @"完成";
@@ -82,9 +84,9 @@
 }
 
 - (IBAction)startTracking:(id)sender {
-    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,@"fedex",@"773265733914"];
+    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"773265733914"];
     [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:request andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:@"track?carrier=fedex&trackingNum=123456789012" andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         [SVProgressHUD dismiss];
         if(res.statusCode == BLNetworkTrackSuccess){
@@ -141,4 +143,29 @@
     }
 }
 
+
+#pragma UITextfieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if(textField.tag==1){
+        [self getCarrierList:nil];
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [self.view endEditing:YES];
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
+}
 @end
