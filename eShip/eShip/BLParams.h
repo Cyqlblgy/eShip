@@ -23,6 +23,7 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkHttpMethodGet;
     __unsafe_unretained NSString * const NetworkLogin;
     __unsafe_unretained NSString * const NetworkTrack;
+    __unsafe_unretained NSString * const NetworkRegister;
 };
 
 extern const struct BLParamsStruct BLParameters;

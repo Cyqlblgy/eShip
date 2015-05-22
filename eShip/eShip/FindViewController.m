@@ -84,7 +84,7 @@
 }
 
 - (IBAction)startTracking:(id)sender {
-    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"773265733914"];
+//    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"773265733914"];
     [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:@"track?carrier=fedex&trackingNum=123456789012" andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
@@ -99,7 +99,20 @@
             NSLog(@"Not found");
         }
     }];
+
     
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://104.131.174.73:8080/useraccount/track?carrier=ups&trackingNum=1Z0459AV0325470229"]
+//                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+//                                                       timeoutInterval:10];
+//    
+//    [request setHTTPMethod: @"GET"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//    NSError *requestError;
+//    NSURLResponse *urlResponse = nil;
+//    
+    
+   // NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
 }
 
 
