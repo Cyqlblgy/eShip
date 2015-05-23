@@ -87,7 +87,8 @@
 }
 
 - (IBAction)startTracking:(id)sender {
-    NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"123456789012"];
+    [self.view endEditing:YES];
+    NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,shipNumberTextField.text.lowercaseString];
     [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
@@ -184,6 +185,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if(textField.tag==1){
         [self getCarrierList:nil];
+        [self.view endEditing:YES];
         return NO;
     }
     else{

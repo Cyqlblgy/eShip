@@ -35,6 +35,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self configureAPIKey];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
+    [UINavigationBar appearance].translucent = YES;
     return YES;
 }
 

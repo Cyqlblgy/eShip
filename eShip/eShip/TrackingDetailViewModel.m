@@ -49,19 +49,19 @@
         cityLabel.text = [[NSString alloc] initWithFormat:@"城市： %@", _city];
     }
     else{
-        cityLabel.text = @"Unknow city";
+        cityLabel.text = @"城市： Unknow city";
     }
     if(_state != nil){
         stateLabel.text = [[NSString alloc] initWithFormat:@"省份： %@", _state];
     }
     else{
-        stateLabel.text = @"Unknow state";
+        stateLabel.text = @"省份： Unknow state";
     }
     if(_country !=nil){
         countryLabel.text = [[NSString alloc] initWithFormat:@"国家： %@", _country];
     }
     else{
-        countryLabel.text = @"Unknow country";
+        countryLabel.text = @"国家： Unknow country";
     }
     desLabel.text = [[NSString alloc] initWithFormat:@"描述： %@", _des];
     [self addSubview:dateLabel];
