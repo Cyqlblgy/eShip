@@ -9,13 +9,19 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    BLNetworkTrackSuccess = 400,
-    BLNetworkTrackNotFound = 404
+    BLNetworkTrackSuccess = 200,
+    BLNetworkTrackCarrierNotFound = 400,
+    BLNetworkTrackNumberNotFound = 404
 } BLNetworkTrackResponseCode;
 
 typedef enum {
     BLNetworkLoginSuccess = 200,
 } BLNetworkLoginResponseCode;
+
+typedef enum {
+    BLNetworkRegisterSuccess = 201,
+    BLNetworkRegisterDuplicateUserNamrorEmail = 409
+} BLNetworkRegisterResponseCode;
 
 struct BLParamsStruct
 {

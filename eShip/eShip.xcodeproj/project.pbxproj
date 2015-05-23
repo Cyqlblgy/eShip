@@ -58,6 +58,8 @@
 		2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EEB1B0D854D00AA9628 /* AMap.bundle */; };
 		2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE04EDB1B0D843300AA9628 /* SVProgressHUD.bundle */; };
 		2AE04F081B0EBF4300AA9628 /* BLCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04F071B0EBF4300AA9628 /* BLCoreData.m */; };
+		2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04F1D1B11059B00AA9628 /* TrackingDetailViewController.m */; };
+		2AE04F281B111EF900AA9628 /* TrackingDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04F271B111EF900AA9628 /* TrackingDetailViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,10 @@
 		2AE04EEB1B0D854D00AA9628 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = eShip/Framework/MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle; sourceTree = "<group>"; };
 		2AE04F061B0EBF4300AA9628 /* BLCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCoreData.h; sourceTree = "<group>"; };
 		2AE04F071B0EBF4300AA9628 /* BLCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCoreData.m; sourceTree = "<group>"; };
+		2AE04F1C1B11059B00AA9628 /* TrackingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingDetailViewController.h; sourceTree = "<group>"; };
+		2AE04F1D1B11059B00AA9628 /* TrackingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingDetailViewController.m; sourceTree = "<group>"; };
+		2AE04F261B111EF900AA9628 /* TrackingDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingDetailViewModel.h; sourceTree = "<group>"; };
+		2AE04F271B111EF900AA9628 /* TrackingDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingDetailViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +263,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2AE04F251B111EC900AA9628 /* ViewModel */,
 				2AE04EE31B0D845B00AA9628 /* SVProgressHUD */,
 				2AE04ED11B0C2A9800AA9628 /* Params */,
 				2A0AB2D41B0ADE6100F26262 /* Base64 */,
@@ -347,6 +354,8 @@
 				2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */,
 				2ACE03A71B0054F20091BD9D /* HomeViewController.h */,
 				2ACE03A81B0054F20091BD9D /* HomeViewController.m */,
+				2AE04F1C1B11059B00AA9628 /* TrackingDetailViewController.h */,
+				2AE04F1D1B11059B00AA9628 /* TrackingDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -392,6 +401,15 @@
 				2AE04EE81B0D84A300AA9628 /* SVProgressHUD.m */,
 			);
 			name = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		2AE04F251B111EC900AA9628 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2AE04F261B111EF900AA9628 /* TrackingDetailViewModel.h */,
+				2AE04F271B111EF900AA9628 /* TrackingDetailViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +520,7 @@
 			files = (
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
+				2AE04F281B111EF900AA9628 /* TrackingDetailViewModel.m in Sources */,
 				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
@@ -516,6 +535,7 @@
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
+				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,

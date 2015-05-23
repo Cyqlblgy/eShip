@@ -12,11 +12,13 @@
 #import "BLParams.h"
 #import "BLNetwork.h"
 #import "SVProgressHUD.h"
+#import "TrackingDetailViewController.h"
 
 @interface FindViewController (){
     ZBarReaderViewController *reader;
     WYPopoverController* popoverController;
     WYTableViewViewController *tableController;
+    NSDictionary *detailData;
 }
 
 @end
@@ -40,6 +42,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    detailData = nil;
    [self.navigationController navigationBar].hidden = NO;
 }
 
@@ -84,35 +87,42 @@
 }
 
 - (IBAction)startTracking:(id)sender {
-//    NSString *request = [[NSString alloc] initWithFormat:@"%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"773265733914"];
+    NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,@"123456789012"];
     [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:@"track?carrier=fedex&trackingNum=123456789012" andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         [SVProgressHUD dismiss];
         if(res.statusCode == BLNetworkTrackSuccess){
             NSError *e = nil;
-            NSDictionary *da = [NSJSONSerialization JSONObjectWithData:data
+            detailData = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers
                                                                  error:&e];
+            [self performSegueWithIdentifier:@"trackIdentifier" sender:self];
         }
         else{
-            NSLog(@"Not found");
+            NSString *errorMessage= nil;
+            NSString *errorTitle = @"出错了";
+        if(res.statusCode == BLNetworkTrackCarrierNotFound){
+            errorMessage = @"无此快递公司";
+        }
+        else if(res.statusCode == BLNetworkTrackNumberNotFound){
+           errorMessage = @"无此快递号";
+        }
+        else{
+            errorMessage = @"追踪过程中出错了";
+        }
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:errorTitle
+                                          message:errorMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:nil];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
-
-    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://104.131.174.73:8080/useraccount/track?carrier=ups&trackingNum=1Z0459AV0325470229"]
-//                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-//                                                       timeoutInterval:10];
-//    
-//    [request setHTTPMethod: @"GET"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    NSError *requestError;
-//    NSURLResponse *urlResponse = nil;
-//    
-    
-   // NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
 }
 
 
@@ -124,6 +134,19 @@
         carrierTextField.text = tableController.selectedOne;
     }
     tableController = nil;
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    return detailData != nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"trackIdentifier"])
+    {
+        TrackingDetailViewController *vc = [segue destinationViewController];
+        vc.parcelDetail = detailData;
+        vc.carrier = carrierTextField.text;
+    }
 }
 
 

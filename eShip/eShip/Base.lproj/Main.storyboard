@@ -65,6 +65,7 @@
                                 </state>
                                 <connections>
                                     <action selector="startTracking:" destination="wdc-5q-Lba" eventType="touchUpInside" id="62n-KJ-Oio"/>
+                                    <segue destination="5rp-Qu-BFL" kind="push" identifier="trackIdentifier" id="0fA-li-ng4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Yk-K9-iLM" userLabel="getListButton">
@@ -103,6 +104,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53c-xI-zCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="937"/>
+        </scene>
+        <!--快递详情-->
+        <scene sceneID="Z0K-BG-RbL">
+            <objects>
+                <viewController storyboardIdentifier="trackDetailVC" id="5rp-Qu-BFL" customClass="TrackingDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvL-xP-umO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="agI-fe-FT2">
+                                <rect key="frame" x="0.0" y="65" width="320" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYI-5u-VeX" userLabel="shipDateLabel">
+                                        <rect key="frame" x="85" y="40" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRt-LK-hGm" userLabel="deliverDateLabel">
+                                        <rect key="frame" x="85" y="70" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LiF-fy-vEd" userLabel="statusLabel">
+                                        <rect key="frame" x="85" y="100" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FFm-Qb-g6k" userLabel="carrierAndNumberLabel">
+                                        <rect key="frame" x="85" y="10" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mpY-eA-jB0">
+                                <rect key="frame" x="0.0" y="205" width="320" height="314"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="快递详情" id="88U-uw-ljm"/>
+                    <connections>
+                        <outlet property="CarrierAndNumberLabel" destination="FFm-Qb-g6k" id="NSh-ON-KEI"/>
+                        <outlet property="deliverDateLabel" destination="bRt-LK-hGm" id="uWa-Xj-TxS"/>
+                        <outlet property="scrollView" destination="mpY-eA-jB0" id="mRd-w3-kZg"/>
+                        <outlet property="shipDateLabel" destination="LYI-5u-VeX" id="ubl-wB-gFh"/>
+                        <outlet property="statusLabel" destination="LiF-fy-vEd" id="rak-8A-4VM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bga-8m-i9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="937"/>
         </scene>
         <!--Table View View Controller-->
         <scene sceneID="aCe-Ii-eBq">

@@ -154,10 +154,10 @@
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"blang01", @"user_name",@"langbin0001@gmail.com",@"email",@"123456789", @"password",[NSNull null], @"phone",nil];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        if(res.statusCode == 201){
+        if(res.statusCode == BLNetworkRegisterSuccess){
             NSLog(@"Succeed");
         }
-        else if(res.statusCode == 409){
+        else if(res.statusCode == BLNetworkRegisterDuplicateUserNamrorEmail){
             NSLog(@"Duplicate username or email");
         }
     }];
