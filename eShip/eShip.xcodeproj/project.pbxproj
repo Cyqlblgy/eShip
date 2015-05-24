@@ -46,6 +46,7 @@
 		2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A11B0010340091BD9D /* WYTableViewViewController.m */; };
 		2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */; };
 		2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A81B0054F20091BD9D /* HomeViewController.m */; };
+		2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
@@ -131,6 +132,8 @@
 		2ACE03A51B001A880091BD9D /* CheckPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckPriceViewController.m; sourceTree = "<group>"; };
 		2ACE03A71B0054F20091BD9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		2ACE03A81B0054F20091BD9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		2AD298C21B126BC800823518 /* LoginAndRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAndRegisterViewController.h; sourceTree = "<group>"; };
+		2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -356,6 +359,8 @@
 				2ACE03A81B0054F20091BD9D /* HomeViewController.m */,
 				2AE04F1C1B11059B00AA9628 /* TrackingDetailViewController.h */,
 				2AE04F1D1B11059B00AA9628 /* TrackingDetailViewController.m */,
+				2AD298C21B126BC800823518 /* LoginAndRegisterViewController.h */,
+				2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
+				2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */,
 				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,

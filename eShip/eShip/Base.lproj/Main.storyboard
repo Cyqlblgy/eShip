@@ -287,20 +287,6 @@
             </objects>
             <point key="canvasLocation" x="2290" y="-812"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1q1-Bu-1vC">
-            <objects>
-                <viewController id="vmk-J8-kNG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dnZ-jn-Kk3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zts-Jv-gOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2672" y="-812"/>
-        </scene>
         <!--Settings View Controller-->
         <scene sceneID="PZ4-kX-dQV">
             <objects>
@@ -309,16 +295,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="FIV-4q-Zr0">
-                                <rect key="frame" x="5" y="5" width="310" height="450"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="FIV-4q-Zr0">
+                                <rect key="frame" x="5" y="5" width="310" height="420"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2qp-BT-RIm">
-                                        <rect key="frame" x="0.0" y="86" width="310" height="55"/>
+                                        <rect key="frame" x="0.0" y="86" width="310" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qp-BT-RIm" id="HxQ-Wm-P6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -328,17 +314,130 @@
                                     <outlet property="delegate" destination="0vm-Ic-Zd7" id="bHq-67-Zra"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="xQQ-ps-bpj">
+                                <rect key="frame" x="0.0" y="420" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="afz-ch-GhM" userLabel="currentLabel">
+                                        <rect key="frame" x="0.0" y="60" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="usJ-2j-LH6" userLabel="loginButton">
+                                        <rect key="frame" x="15" y="0.0" width="87" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Ovf-YZ-8Yf" kind="push" identifier="logID" id="eOm-Hn-t2D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CSX-ZO-x1e" userLabel="registerButton">
+                                        <rect key="frame" x="205" y="0.0" width="100" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Ovf-YZ-8Yf" kind="push" identifier="registerID" id="agr-sh-bga"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="sJT-g3-hfj"/>
                     <connections>
+                        <outlet property="currentLabel" destination="afz-ch-GhM" id="J1j-1h-Ycy"/>
+                        <outlet property="loginButton" destination="usJ-2j-LH6" id="Zkm-rb-Qil"/>
                         <outlet property="mytableView" destination="FIV-4q-Zr0" id="jFN-t5-4O8"/>
+                        <outlet property="registerButton" destination="CSX-ZO-x1e" id="NHh-Cj-zGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9w-pf-1c7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2290" y="-203"/>
+        </scene>
+        <!--Login And Register View Controller-->
+        <scene sceneID="3nF-xD-qQA">
+            <objects>
+                <viewController id="Ovf-YZ-8Yf" customClass="LoginAndRegisterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8O-MW-fzH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="密码" minimumFontSize="17" id="MhM-OR-jeK" userLabel="PasswordTextField">
+                                <rect key="frame" x="46" y="208" width="229" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="hqD-Je-RAF"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="邮箱" minimumFontSize="17" id="UEK-kQ-r1U" userLabel="EmailTextField">
+                                <rect key="frame" x="46" y="265" width="229" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="edf-Lt-bvY"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="电话号码" minimumFontSize="17" id="leE-Gd-NDS" userLabel="PhoneNumberTextField">
+                                <rect key="frame" x="46" y="321" width="229" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="fa0-kr-2nj"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="thV-7x-E0u" userLabel="LoginButton">
+                                <rect key="frame" x="68" y="436" width="184" height="55"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginOrRegister:" destination="Ovf-YZ-8Yf" eventType="touchUpInside" id="B0H-es-5t2"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="用户名" minimumFontSize="17" id="Bas-IH-6gV" userLabel="UserNameTextField">
+                                <rect key="frame" x="46" y="151" width="229" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="L8B-s5-aya"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CAq-aK-uX1"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="UEK-kQ-r1U" id="zSk-FX-2v1"/>
+                        <outlet property="loginButton" destination="thV-7x-E0u" id="nYb-NG-Jkx"/>
+                        <outlet property="passwordTextField" destination="MhM-OR-jeK" id="o6I-eR-jNT"/>
+                        <outlet property="phoneNumberTextField" destination="leE-Gd-NDS" id="DU1-bf-yMD"/>
+                        <outlet property="userNameTextField" destination="Bas-IH-6gV" id="KLp-Ie-qeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dvz-dq-DyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2700" y="-203"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -579,4 +678,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="agr-sh-bga"/>
+    </inferredMetricsTieBreakers>
 </document>
