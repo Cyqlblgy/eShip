@@ -243,13 +243,43 @@
                                     <action selector="SearchPrice:" destination="E2C-AN-6w1" eventType="touchUpInside" id="5Gk-PX-FrJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1ot-rK-Tpr">
+                                <rect key="frame" x="258" y="160" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g5e-iU-KDG">
+                                <rect key="frame" x="258" y="220" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KW8-tY-cYl">
+                                <rect key="frame" x="258" y="101" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1MN-xh-a60"/>
                     <connections>
+                        <outlet property="destinationButton" destination="1ot-rK-Tpr" id="Qnh-nP-KEM"/>
                         <outlet property="destinationPlaceTextField" destination="6km-nD-zVq" id="tpM-Tw-JiI"/>
+                        <outlet property="itemTypeButton" destination="g5e-iU-KDG" id="xCR-IA-BXU"/>
                         <outlet property="itemTypeTextField" destination="A6u-mJ-XLG" id="OZb-GK-kg0"/>
+                        <outlet property="originalButton" destination="KW8-tY-cYl" id="p6G-ma-EeN"/>
                         <outlet property="originalPlaceTextField" destination="641-zO-Mng" id="z1k-K8-Ay7"/>
                         <outlet property="searchButton" destination="Vx2-gj-mg7" id="VTv-FI-oeh"/>
                     </connections>

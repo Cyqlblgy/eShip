@@ -15,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *destinationPlaceTextField;
 @property (weak, nonatomic) IBOutlet UITextField *itemTypeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *originalButton;
+@property (weak, nonatomic) IBOutlet UIButton *destinationButton;
+@property (weak, nonatomic) IBOutlet UIButton *itemTypeButton;
+
+
 - (IBAction)SearchPrice:(id)sender;
 
 @end

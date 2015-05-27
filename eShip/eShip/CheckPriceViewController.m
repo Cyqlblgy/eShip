@@ -13,6 +13,7 @@
 #import "BLParams.h"
 #import "BLCoreData.h"
 #import "BLBase64.h"
+#import "TSLocateView.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -21,32 +22,29 @@
     WYTableViewViewController *originalTableController;
     WYTableViewViewController *destinationTableController;
     WYTableViewViewController *itemtypeTableController;
-    UIButton *button,*button1,*button2;
+   // UIButton *button,*button1,*button2;
 }
 
 @end
 
 @implementation CheckPriceViewController
 
-@synthesize originalPlaceTextField,destinationPlaceTextField,itemTypeTextField,searchButton;
+@synthesize originalPlaceTextField,destinationPlaceTextField,itemTypeTextField,searchButton,originalButton,destinationButton,itemTypeButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"运费查询";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
-    [button setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(getOriginalList) forControlEvents:UIControlEventTouchUpInside];
-    button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button1 setFrame:CGRectMake(0, 0, 60, destinationPlaceTextField.frame.size.height)];
-    [button1 setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [button1 addTarget:self action:@selector(getDestinationList) forControlEvents:UIControlEventTouchUpInside];
-    button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button2 setFrame:CGRectMake(0, 0, 60, itemTypeTextField.frame.size.height)];
-    [button2 setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [button2 addTarget:self action:@selector(getItemTypeList) forControlEvents:UIControlEventTouchUpInside];
+    [originalButton setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
+    [originalButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+    [originalButton addTarget:self action:@selector(showCityAndProvincePicker) forControlEvents:UIControlEventTouchUpInside];
+    [destinationButton setFrame:CGRectMake(0, 0, 60, destinationPlaceTextField.frame.size.height)];
+    [destinationButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+    [destinationButton addTarget:self action:@selector(getDestinationList) forControlEvents:UIControlEventTouchUpInside];
+    [itemTypeButton setFrame:CGRectMake(0, 0, 60, itemTypeTextField.frame.size.height)];
+    [itemTypeButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
+    [itemTypeButton addTarget:self action:@selector(getItemTypeList) forControlEvents:UIControlEventTouchUpInside];
 
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
@@ -54,7 +52,7 @@
     [view addSubview:label];
     originalPlaceTextField.leftView = view;
     originalPlaceTextField.leftViewMode = UITextFieldViewModeAlways;
-    originalPlaceTextField.rightView = button;
+    originalPlaceTextField.rightView = originalButton;
     originalPlaceTextField.rightViewMode = UITextFieldViewModeAlways;
     
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
@@ -63,7 +61,7 @@
     [view1 addSubview:label1];
     destinationPlaceTextField.leftView = view1;
     destinationPlaceTextField.leftViewMode = UITextFieldViewModeAlways;
-    destinationPlaceTextField.rightView = button1;
+    destinationPlaceTextField.rightView = destinationButton;
     destinationPlaceTextField.rightViewMode = UITextFieldViewModeAlways;
 
     
@@ -73,7 +71,7 @@
     [view2 addSubview:label2];
     itemTypeTextField.leftView = view2;
     itemTypeTextField.leftViewMode = UITextFieldViewModeAlways;
-    itemTypeTextField.rightView = button2;
+    itemTypeTextField.rightView = itemTypeButton;
     itemTypeTextField.rightViewMode= UITextFieldViewModeAlways;
     // Do any additional setup after loading the view.
 }
@@ -92,67 +90,58 @@
 }
 
 - (IBAction)SearchPrice:(id)sender {
-    
-//    //Login sample
-//    NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    @"coolboy", @"user_name",
-//                                    @"ghdj562", @"password",
-//                                    nil];
-//    
-//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//        if(connectionError == nil){
-//            NSError *error =nil;
-//            NSDictionary *da = [NSJSONSerialization JSONObjectWithData:data
-//                                                               options:NSJSONReadingMutableContainers
-//                                                                 error:&error];
-//            if(error == nil){
-//            BLCoreData *blcd = [BLCoreData sharedInstance];
-//                NSManagedObjectContext *context = blcd.managedObjectContext;
-//                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//                
-//                NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:context];
-//                [fetchRequest setEntity:entity];
-//                NSError *er= nil;
-//                NSArray *result = [context executeFetchRequest:fetchRequest error:&er];
-//                if (error) {
-//                    NSLog(@"Unable to execute fetch request.");
-//                    NSLog(@"%@, %@", error, error.localizedDescription);
-//                    
-//                } else {
-//                    NSLog(@"%@", result);
-//                    NSManagedObject *cu = (NSManagedObject *)result[0];
-//                    for(NSManagedObject *h in result){
-//                        [context deleteObject:h];
-//                    }
-//                    NSManagedObject *currentUser = [NSEntityDescription
-//                                                    insertNewObjectForEntityForName:@"Account"
-//                                                    inManagedObjectContext:context];
-//                    NSString *basedUserName = [BLBase64 base64StringFromText:[da objectForKey:@"user_name"]];
-//                    NSString *basedPassword = [BLBase64 base64StringFromText:@"ghdj562"];
-//                    [currentUser setValue:basedUserName forKey:@"userName"];
-//                    [currentUser setValue:basedPassword forKey:@"passWord"];
-//                    if([da objectForKey:@"email"]){
-//                        [currentUser setValue:[da objectForKey:@"email"] forKey:@"email"];
-//                    }
-//                    if(![[da objectForKey:@"phone"] isKindOfClass:[NSNull class]]){
-//                        [currentUser setValue:[da objectForKey:@"phone"] forKey:@"phone"];
-//                    }
-//                    NSString *user_id = [[NSNumber numberWithLong:[[da objectForKey:@"user_id"] longValue]] stringValue];
-//                    [currentUser setValue:user_id forKey:@"userID"];
-//                    NSString *register_dae = [[NSNumber numberWithLong:[[da objectForKey:@"register_date"] longValue]] stringValue];
-//                    [currentUser setValue:register_dae forKey:@"registerDate"];
-//                    NSError *e = nil;
-//                    if (![context save:&e]) {
-//                        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-//                    }
-//
-//                }
-//            }
-//        }
-//        
-//    }];
-    
-    
+    NSData *plainData = [@"zhouhao:950288" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64String = [plainData base64EncodedStringWithOptions:0];
+    NSString *x = [[NSString alloc] initWithFormat:@"Basic %@",base64String];
+    NSArray *streetLines1 = [[NSArray alloc] initWithObjects:@"东川路800号", nil];
+    NSDictionary *senderAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"Shanghai",@"city",
+                                   @"SH",@"stateOrProvinceCode",
+                                   @"200240",@"postalCode",
+                                   [NSNull null],@"urbanizationCode",
+                                   @"CN",@"countryCode",
+                                   [NSNull null],@"countryName",
+                                   [NSNumber numberWithBool:NO],@"residential",
+                                   streetLines1,@"streetLines",
+                                   nil];
+    NSArray *streetLines2 = [[NSArray alloc] initWithObjects:@"269 Mill Rd", nil];
+    NSDictionary *receiverAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"Chelmsford",@"city",
+                                   @"MA",@"stateOrProvinceCode",
+                                   @"01824",@"postalCode",
+                                   [NSNull null],@"urbanizationCode",
+                                   @"US",@"countryCode",
+                                   [NSNull null],@"countryName",
+                                   [NSNumber numberWithBool:NO],@"residential",
+                                   streetLines2,@"streetLines",
+                                   nil];
+    NSDictionary *size = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     [NSNumber numberWithInt:10],@"length",
+                                     [NSNumber numberWithInt:10],@"width",
+                                     [NSNumber numberWithInt:10],@"height",
+                                     @"CM",@"unit",
+                                     nil];
+    NSDictionary *weight = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          [NSNumber numberWithFloat:1.1999999999999999555910790149937383830547332763671875],@"weight",
+                          @"KG",@"unit",
+                          nil];
+    NSDictionary *value = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"CNY",@"currency",
+                            [NSNumber numberWithFloat:3000],@"amount",
+                            nil];
+    long long i = (long long)[[NSDate date] timeIntervalSince1970]* 1000.0;
+    NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    senderAddress,@"senderAddress",
+                                    receiverAddress,@"recipientAddress",
+                                    size,@"size",
+                                    weight,@"weight",
+                                    value,@"value",
+                                    [NSNumber numberWithLongLong:i],@"shipTime",
+                                    nil];
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:@"user/rate" andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSData *x = data;
+        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+    }];
 }
 
 
@@ -175,8 +164,8 @@
         originalpopoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
         originalpopoverController.delegate = self;
         originalpopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
-        CGRect rect = button.bounds;
-        [originalpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+        CGRect rect = originalButton.bounds;
+        [originalpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:originalButton permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
     }
     else{
         [self done:nil];
@@ -200,8 +189,8 @@
         destinationpopoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
         destinationpopoverController.delegate = self;
         destinationpopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
-        CGRect rect = button1.bounds;
-        [destinationpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button1 permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
+        CGRect rect = destinationButton.bounds;
+        [destinationpopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:destinationButton permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     }
     else{
         [self done:nil];
@@ -225,8 +214,8 @@
         itemtypepopoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
         itemtypepopoverController.delegate = self;
         itemtypepopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
-        CGRect rect = button2.bounds;
-        [itemtypepopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:button2 permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
+        CGRect rect = itemTypeButton.bounds;
+        [itemtypepopoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:itemTypeButton permittedArrowDirections:WYPopoverArrowDirectionUp animated:YES];
     }
     else{
         [self done:nil];
@@ -304,5 +293,11 @@
         }
         itemtypeTableController = nil;
     }
+}
+
+
+- (void)showCityAndProvincePicker{
+    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    [locateView showInView:self.view];
 }
 @end
