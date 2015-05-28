@@ -44,7 +44,6 @@
 		2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03A81B0054F20091BD9D /* HomeViewController.m */; };
 		2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */; };
 		2AD299141B155FC500823518 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299131B155FC500823518 /* LogViewController.m */; };
-		2AD299181B1578AE00823518 /* ProvincesAndCities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299171B1578AE00823518 /* ProvincesAndCities.plist */; };
 		2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2991B1B157D3400823518 /* TSLocateView.m */; };
 		2AD2991E1B157D3400823518 /* TSLocateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD2991C1B157D3400823518 /* TSLocateView.xib */; };
 		2AD2992A1B157EB500823518 /* animatedCar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD2991F1B157EB500823518 /* animatedCar_1.png */; };
@@ -58,6 +57,10 @@
 		2AD299321B157EB500823518 /* btn_021.disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299271B157EB500823518 /* btn_021.disable@2x.png */; };
 		2AD299331B157EB500823518 /* btn_021.press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299281B157EB500823518 /* btn_021.press@2x.png */; };
 		2AD299341B157EB500823518 /* btn_021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299291B157EB500823518 /* btn_021@2x.png */; };
+		2AD299561B169ECC00823518 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299551B169ECC00823518 /* AddressViewController.m */; };
+		2AD299581B16ABC400823518 /* AddressList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299571B16ABC400823518 /* AddressList.plist */; };
+		2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995B1B16B66800823518 /* BLRateObject.m */; };
+		2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995E1B16BF9400823518 /* ItemViewController.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
@@ -143,7 +146,6 @@
 		2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
 		2AD299121B155FC500823518 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
 		2AD299131B155FC500823518 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
-		2AD299171B1578AE00823518 /* ProvincesAndCities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProvincesAndCities.plist; sourceTree = "<group>"; };
 		2AD2991A1B157D3400823518 /* TSLocateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLocateView.h; sourceTree = "<group>"; };
 		2AD2991B1B157D3400823518 /* TSLocateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLocateView.m; sourceTree = "<group>"; };
 		2AD2991C1B157D3400823518 /* TSLocateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSLocateView.xib; sourceTree = "<group>"; };
@@ -158,6 +160,13 @@
 		2AD299271B157EB500823518 /* btn_021.disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_021.disable@2x.png"; path = "Assets/btn_021.disable@2x.png"; sourceTree = "<group>"; };
 		2AD299281B157EB500823518 /* btn_021.press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_021.press@2x.png"; path = "Assets/btn_021.press@2x.png"; sourceTree = "<group>"; };
 		2AD299291B157EB500823518 /* btn_021@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_021@2x.png"; path = "Assets/btn_021@2x.png"; sourceTree = "<group>"; };
+		2AD299541B169ECC00823518 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		2AD299551B169ECC00823518 /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
+		2AD299571B16ABC400823518 /* AddressList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AddressList.plist; path = Assets/AddressList.plist; sourceTree = "<group>"; };
+		2AD2995A1B16B66800823518 /* BLRateObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLRateObject.h; sourceTree = "<group>"; };
+		2AD2995B1B16B66800823518 /* BLRateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLRateObject.m; sourceTree = "<group>"; };
+		2AD2995D1B16BF9400823518 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		2AD2995E1B16BF9400823518 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -271,7 +280,7 @@
 				2AD299271B157EB500823518 /* btn_021.disable@2x.png */,
 				2AD299281B157EB500823518 /* btn_021.press@2x.png */,
 				2AD299291B157EB500823518 /* btn_021@2x.png */,
-				2AD299171B1578AE00823518 /* ProvincesAndCities.plist */,
+				2AD299571B16ABC400823518 /* AddressList.plist */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -298,6 +307,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2AD299591B16B63400823518 /* BLObjects */,
 				2AD299191B157D3400823518 /* PickerView */,
 				2AE04F251B111EC900AA9628 /* ViewModel */,
 				2AE04EE31B0D845B00AA9628 /* SVProgressHUD */,
@@ -396,6 +406,10 @@
 				2AD298C31B126BC800823518 /* LoginAndRegisterViewController.m */,
 				2AD299121B155FC500823518 /* LogViewController.h */,
 				2AD299131B155FC500823518 /* LogViewController.m */,
+				2AD299541B169ECC00823518 /* AddressViewController.h */,
+				2AD299551B169ECC00823518 /* AddressViewController.m */,
+				2AD2995D1B16BF9400823518 /* ItemViewController.h */,
+				2AD2995E1B16BF9400823518 /* ItemViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -430,6 +444,15 @@
 				2AD2991C1B157D3400823518 /* TSLocateView.xib */,
 			);
 			path = PickerView;
+			sourceTree = "<group>";
+		};
+		2AD299591B16B63400823518 /* BLObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2AD2995A1B16B66800823518 /* BLRateObject.h */,
+				2AD2995B1B16B66800823518 /* BLRateObject.m */,
+			);
+			name = BLObjects;
 			sourceTree = "<group>";
 		};
 		2AE04ED11B0C2A9800AA9628 /* Params */ = {
@@ -542,13 +565,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD299581B16ABC400823518 /* AddressList.plist in Resources */,
 				2AD2992B1B157EB500823518 /* animatedCar_2.png in Resources */,
 				2AD299341B157EB500823518 /* btn_021@2x.png in Resources */,
 				2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */,
 				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
 				2AD2992F1B157EB500823518 /* btn_020.disable@2x.png in Resources */,
 				2AD2991E1B157D3400823518 /* TSLocateView.xib in Resources */,
-				2AD299181B1578AE00823518 /* ProvincesAndCities.plist in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
 				2AD2992A1B157EB500823518 /* animatedCar_1.png in Resources */,
 				2AD299311B157EB500823518 /* btn_020@2x.png in Resources */,
@@ -580,6 +603,7 @@
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
 				2AE04F281B111EF900AA9628 /* TrackingDetailViewModel.m in Sources */,
+				2AD299561B169ECC00823518 /* AddressViewController.m in Sources */,
 				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
@@ -593,11 +617,13 @@
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
 				2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */,
 				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
+				2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */,
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
+				2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,

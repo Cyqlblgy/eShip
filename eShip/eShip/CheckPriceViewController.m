@@ -14,6 +14,8 @@
 #import "BLCoreData.h"
 #import "BLBase64.h"
 #import "TSLocateView.h"
+#import "AddressViewController.h"
+#import "ItemViewController.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -29,7 +31,7 @@
 
 @implementation CheckPriceViewController
 
-@synthesize originalPlaceTextField,destinationPlaceTextField,itemTypeTextField,searchButton,originalButton,destinationButton,itemTypeButton;
+@synthesize originalPlaceTextField,destinationPlaceTextField,itemTypeTextField,searchButton,originalButton,destinationButton,itemTypeButton,rateObject;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,13 +40,10 @@
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     [originalButton setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
     [originalButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [originalButton addTarget:self action:@selector(showCityAndProvincePicker) forControlEvents:UIControlEventTouchUpInside];
     [destinationButton setFrame:CGRectMake(0, 0, 60, destinationPlaceTextField.frame.size.height)];
     [destinationButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [destinationButton addTarget:self action:@selector(getDestinationList) forControlEvents:UIControlEventTouchUpInside];
     [itemTypeButton setFrame:CGRectMake(0, 0, 60, itemTypeTextField.frame.size.height)];
     [itemTypeButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [itemTypeButton addTarget:self action:@selector(getItemTypeList) forControlEvents:UIControlEventTouchUpInside];
 
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
@@ -73,16 +72,25 @@
     itemTypeTextField.leftViewMode = UITextFieldViewModeAlways;
     itemTypeTextField.rightView = itemTypeButton;
     itemTypeTextField.rightViewMode= UITextFieldViewModeAlways;
-    // Do any additional setup after loading the view.
+    
+    rateObject = [[BLRateObject alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
+    if(rateObject.originalAddress){
+        originalPlaceTextField.text = [[NSString alloc] initWithFormat:@"%@ %@",[rateObject.originalAddress objectForKey:@"countryName"],[rateObject.originalAddress objectForKey:@"city"]];
+    }
+    if(rateObject.destinationAddress){
+        destinationPlaceTextField.text = [[NSString alloc] initWithFormat:@"%@ %@",[rateObject.destinationAddress objectForKey:@"countryName"],[rateObject.destinationAddress objectForKey:@"city"]];
+    }
+    if(rateObject.size){
+        itemTypeTextField.text = [[NSString alloc] initWithFormat:@"%@*%@*%@ %@",[rateObject.size objectForKey:@"length"],[rateObject.size objectForKey:@"width"],[rateObject.size objectForKey:@"height"], [rateObject.size objectForKey:@"unit"]];
+    }
 }
 
 - (void)goBack{
@@ -93,55 +101,73 @@
     NSData *plainData = [@"zhouhao:950288" dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64String = [plainData base64EncodedStringWithOptions:0];
     NSString *x = [[NSString alloc] initWithFormat:@"Basic %@",base64String];
-    NSArray *streetLines1 = [[NSArray alloc] initWithObjects:@"东川路800号", nil];
-    NSDictionary *senderAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                   @"Shanghai",@"city",
-                                   @"SH",@"stateOrProvinceCode",
-                                   @"200240",@"postalCode",
-                                   [NSNull null],@"urbanizationCode",
-                                   @"CN",@"countryCode",
-                                   [NSNull null],@"countryName",
-                                   [NSNumber numberWithBool:NO],@"residential",
-                                   streetLines1,@"streetLines",
-                                   nil];
-    NSArray *streetLines2 = [[NSArray alloc] initWithObjects:@"269 Mill Rd", nil];
-    NSDictionary *receiverAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                   @"Chelmsford",@"city",
-                                   @"MA",@"stateOrProvinceCode",
-                                   @"01824",@"postalCode",
-                                   [NSNull null],@"urbanizationCode",
-                                   @"US",@"countryCode",
-                                   [NSNull null],@"countryName",
-                                   [NSNumber numberWithBool:NO],@"residential",
-                                   streetLines2,@"streetLines",
-                                   nil];
-    NSDictionary *size = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     [NSNumber numberWithInt:10],@"length",
-                                     [NSNumber numberWithInt:10],@"width",
-                                     [NSNumber numberWithInt:10],@"height",
-                                     @"CM",@"unit",
-                                     nil];
-    NSDictionary *weight = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [NSNumber numberWithFloat:1.1999999999999999555910790149937383830547332763671875],@"weight",
-                          @"KG",@"unit",
-                          nil];
-    NSDictionary *value = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"CNY",@"currency",
-                            [NSNumber numberWithFloat:3000],@"amount",
-                            nil];
+//    NSArray *streetLines1 = [[NSArray alloc] initWithObjects:@"东川路800号", nil];
+//    NSDictionary *senderAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                   @"Shanghai",@"city",
+//                                   @"SH",@"stateOrProvinceCode",
+//                                   @"200240",@"postalCode",
+//                                   [NSNull null],@"urbanizationCode",
+//                                   @"CN",@"countryCode",
+//                                   [NSNull null],@"countryName",
+//                                   [NSNumber numberWithBool:NO],@"residential",
+//                                   streetLines1,@"streetLines",
+//                                   nil];
+//    NSArray *streetLines2 = [[NSArray alloc] initWithObjects:@"269 Mill Rd", nil];
+//    NSDictionary *receiverAddress = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                   @"Chelmsford",@"city",
+//                                   @"MA",@"stateOrProvinceCode",
+//                                   @"01824",@"postalCode",
+//                                   [NSNull null],@"urbanizationCode",
+//                                   @"US",@"countryCode",
+//                                   [NSNull null],@"countryName",
+//                                   [NSNumber numberWithBool:NO],@"residential",
+//                                   streetLines2,@"streetLines",
+//                                   nil];
+//    NSDictionary *size = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                     [NSNumber numberWithInt:10],@"length",
+//                                     [NSNumber numberWithInt:10],@"width",
+//                                     [NSNumber numberWithInt:10],@"height",
+//                                     @"CM",@"unit",
+//                                     nil];
+//    NSDictionary *weight = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                          [NSNumber numberWithFloat:1.1999999999999999555910790149937383830547332763671875],@"weight",
+//                          @"KG",@"unit",
+//                          nil];
+//    NSDictionary *value = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                            @"CNY",@"currency",
+//                            [NSNumber numberWithFloat:3000],@"amount",
+//                            nil];
     long long i = (long long)[[NSDate date] timeIntervalSince1970]* 1000.0;
     NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    senderAddress,@"senderAddress",
-                                    receiverAddress,@"recipientAddress",
-                                    size,@"size",
-                                    weight,@"weight",
-                                    value,@"value",
+                                    rateObject.originalAddress,@"senderAddress",
+                                    rateObject.destinationAddress,@"recipientAddress",
+                                    rateObject.size,@"size",
+                                    rateObject.weight,@"weight",
+                                    rateObject.value,@"value",
                                     [NSNumber numberWithLongLong:i],@"shipTime",
                                     nil];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:@"user/rate" andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSData *x = data;
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"originalAddress"])
+    {
+        AddressViewController *vc = [segue destinationViewController];
+        vc.rateObject = rateObject;
+        vc.isOriginal = YES;
+    }
+    else if([[segue identifier] isEqualToString:@"destinationAddress"]){
+        AddressViewController *vc = [segue destinationViewController];
+        vc.rateObject = rateObject;
+        vc.isOriginal = NO;
+    }
+    else{
+        ItemViewController *vc = [segue destinationViewController];
+        vc.rateObject = rateObject;
+    }
 }
 
 
@@ -295,9 +321,10 @@
     }
 }
 
+#pragma UITextFieldDelegate
 
-- (void)showCityAndProvincePicker{
-    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
-    [locateView showInView:self.view];
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    return NO;
 }
+
 @end

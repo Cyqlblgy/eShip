@@ -19,9 +19,12 @@
         self.titleLabel.text = title;
         self.locatePicker.dataSource = self;
         self.locatePicker.delegate = self;
-        //加载数据
-        provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ProvincesAndCities.plist" ofType:nil]];
+        countries = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"AddressList.plist" ofType:nil]];
+        provinces = [[countries objectAtIndex:0] objectForKey:@"States"];
         cities = [[provinces objectAtIndex:0] objectForKey:@"Cities"];
+        self.country = [[countries objectAtIndex:0] objectForKey:@"Country"];
+        self.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
+        self.city = [[cities objectAtIndex:0] objectForKey:@"city"];
     }
     return self;
 }
@@ -46,16 +49,19 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     switch (component) {
         case 0:
-            return [provinces count];
+            return [countries count];
             break;
         case 1:
+            return [provinces count];
+            break;
+        case 2:
             return [cities count];
             break;
         default:
@@ -68,9 +74,12 @@
 {
     switch (component) {
         case 0:
-            return [[provinces objectAtIndex:row] objectForKey:@"State"];
+            return [[countries objectAtIndex:row] objectForKey:@"Country"];
             break;
         case 1:
+            return [[provinces objectAtIndex:row] objectForKey:@"State"];
+            break;
+        case 2:
             return [[cities objectAtIndex:row] objectForKey:@"city"];
             break;
         default:
@@ -82,11 +91,22 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     switch (component) {
         case 0:
+            provinces = [[countries objectAtIndex:row] objectForKey:@"States"];
             cities = [[provinces objectAtIndex:row] objectForKey:@"Cities"];
             [self.locatePicker selectRow:0 inComponent:1 animated:NO];
             [self.locatePicker reloadComponent:1];
+            self.country = [[countries objectAtIndex:row] objectForKey:@"Country"];
+            self.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
             break;
         case 1:
+            cities = [[provinces objectAtIndex:row] objectForKey:@"Cities"];
+            [self.locatePicker selectRow:0 inComponent:2 animated:NO];
+            [self.locatePicker reloadComponent:2];
+            self.state = [[provinces objectAtIndex:row] objectForKey:@"State"];
+            self.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+            break;
+        case 2:
+            self.city = [[cities objectAtIndex:row] objectForKey:@"city"];
             break;
         default:
             break;
