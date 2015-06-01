@@ -62,6 +62,9 @@
 		2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995B1B16B66800823518 /* BLRateObject.m */; };
 		2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995E1B16BF9400823518 /* ItemViewController.m */; };
 		2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2997C1B1BEF1700823518 /* BLAddressObject.m */; };
+		2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299801B1C070B00823518 /* ShipTableViewCell.m */; };
+		2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299811B1C070B00823518 /* ShipTableViewCell.xib */; };
+		2AD299861B1C07E800823518 /* ShipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299851B1C07E800823518 /* ShipViewController.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
@@ -170,6 +173,11 @@
 		2AD2995E1B16BF9400823518 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		2AD2997B1B1BEF1700823518 /* BLAddressObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddressObject.h; sourceTree = "<group>"; };
 		2AD2997C1B1BEF1700823518 /* BLAddressObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddressObject.m; sourceTree = "<group>"; };
+		2AD2997F1B1C070B00823518 /* ShipTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipTableViewCell.h; path = TableViewCell/ShipTableViewCell.h; sourceTree = "<group>"; };
+		2AD299801B1C070B00823518 /* ShipTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipTableViewCell.m; path = TableViewCell/ShipTableViewCell.m; sourceTree = "<group>"; };
+		2AD299811B1C070B00823518 /* ShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShipTableViewCell.xib; path = TableViewCell/ShipTableViewCell.xib; sourceTree = "<group>"; };
+		2AD299841B1C07E800823518 /* ShipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipViewController.h; sourceTree = "<group>"; };
+		2AD299851B1C07E800823518 /* ShipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipViewController.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -310,6 +318,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2AD2997E1B1C06C600823518 /* TableViewCell */,
 				2AD299591B16B63400823518 /* BLObjects */,
 				2AD299191B157D3400823518 /* PickerView */,
 				2AE04F251B111EC900AA9628 /* ViewModel */,
@@ -413,6 +422,8 @@
 				2AD299551B169ECC00823518 /* AddressViewController.m */,
 				2AD2995D1B16BF9400823518 /* ItemViewController.h */,
 				2AD2995E1B16BF9400823518 /* ItemViewController.m */,
+				2AD299841B1C07E800823518 /* ShipViewController.h */,
+				2AD299851B1C07E800823518 /* ShipViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -458,6 +469,16 @@
 				2AD2997C1B1BEF1700823518 /* BLAddressObject.m */,
 			);
 			name = BLObjects;
+			sourceTree = "<group>";
+		};
+		2AD2997E1B1C06C600823518 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2AD2997F1B1C070B00823518 /* ShipTableViewCell.h */,
+				2AD299801B1C070B00823518 /* ShipTableViewCell.m */,
+				2AD299811B1C070B00823518 /* ShipTableViewCell.xib */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		2AE04ED11B0C2A9800AA9628 /* Params */ = {
@@ -577,6 +598,7 @@
 				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
 				2AD2992F1B157EB500823518 /* btn_020.disable@2x.png in Resources */,
 				2AD2991E1B157D3400823518 /* TSLocateView.xib in Resources */,
+				2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
 				2AD2992A1B157EB500823518 /* animatedCar_1.png in Resources */,
 				2AD299311B157EB500823518 /* btn_020@2x.png in Resources */,
@@ -625,6 +647,7 @@
 				2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */,
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
+				2AD299861B1C07E800823518 /* ShipViewController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */,
 				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
@@ -632,6 +655,7 @@
 				2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
+				2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 				2AD299141B155FC500823518 /* LogViewController.m in Sources */,
 			);

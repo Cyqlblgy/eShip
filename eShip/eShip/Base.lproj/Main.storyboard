@@ -196,6 +196,45 @@
             </objects>
             <point key="canvasLocation" x="1754" y="885"/>
         </scene>
+        <!--Ship View Controller-->
+        <scene sceneID="bVT-kY-8No">
+            <objects>
+                <viewController id="hdU-pc-rrU" customClass="ShipViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AB5-mU-htI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="PX4-HF-35b">
+                                <rect key="frame" x="0.0" y="78" width="320" height="429"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShipCell" id="Zfn-oY-KOu" customClass="ShipTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zfn-oY-KOu" id="UAq-M7-VCz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hdU-pc-rrU" id="Ce2-gd-FMg"/>
+                                    <outlet property="delegate" destination="hdU-pc-rrU" id="vf7-MS-MrB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3fM-I3-vda"/>
+                    <connections>
+                        <outlet property="tableView" destination="PX4-HF-35b" id="Z5b-mA-MF5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFs-u5-IBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="-1510"/>
+        </scene>
         <!--Check Price View Controller-->
         <scene sceneID="tbc-mz-VhO">
             <objects>
@@ -241,6 +280,7 @@
                                 </state>
                                 <connections>
                                     <action selector="SearchPrice:" destination="E2C-AN-6w1" eventType="touchUpInside" id="5Gk-PX-FrJ"/>
+                                    <segue destination="hdU-pc-rrU" kind="push" identifier="checkIdentifier" id="AM9-eA-Adn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1ot-rK-Tpr">
@@ -264,7 +304,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6NQ-fB-OIu" kind="push" id="CYM-0E-gtZ"/>
+                                    <segue destination="6NQ-fB-OIu" kind="push" identifier="itemIdentifier" id="CYM-0E-gtZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KW8-tY-cYl">

@@ -19,6 +19,10 @@ typedef enum {
 } BLNetworkLoginResponseCode;
 
 typedef enum {
+    BLNetworkRateSuccess = 200,
+} BLNetworkRateResponseCode;
+
+typedef enum {
     BLNetworkRegisterSuccess = 201,
     BLNetworkRegisterDuplicateUserNamrorEmail = 409
 } BLNetworkRegisterResponseCode;

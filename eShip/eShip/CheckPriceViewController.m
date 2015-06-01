@@ -16,6 +16,7 @@
 #import "TSLocateView.h"
 #import "AddressViewController.h"
 #import "ItemViewController.h"
+#import "ShipViewController.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -24,6 +25,7 @@
     WYTableViewViewController *originalTableController;
     WYTableViewViewController *destinationTableController;
     WYTableViewViewController *itemtypeTableController;
+    NSArray *rateResults;
    // UIButton *button,*button1,*button2;
 }
 
@@ -152,9 +154,26 @@
                                     [NSNumber numberWithLongLong:i],@"shipTime",
                                     nil];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:@"user/rate" andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSData *x = data;
+        NSError *e = nil;
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+        if(res.statusCode == BLNetworkRateSuccess){
+         rateResults = [NSJSONSerialization JSONObjectWithData:data
+                                        options:NSJSONReadingMutableContainers
+                                          error:&e];
+            if(rateResults.count != 0){
+               [self performSegueWithIdentifier:@"checkIdentifier" sender:self];
+            }
+        }
     }];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if([identifier isEqualToString:@"originalAddress"] || [identifier isEqualToString:@"destinationAddress"] || [identifier isEqualToString:@"itemIdentifier"]){
+        return YES;
+    }
+    else{
+        return rateResults!=nil;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -169,10 +188,15 @@
         vc.rateObject = rateObject;
         vc.isOriginal = NO;
     }
-    else{
+    else if([[segue identifier] isEqualToString:@"itemIdentifier"]){
         ItemViewController *vc = [segue destinationViewController];
         vc.rateObject = rateObject;
     }
+    else if([[segue identifier] isEqualToString:@"checkIdentifier"]){
+        ShipViewController *vc = [segue destinationViewController];
+        vc.shipInfo = rateResults;
+    }
+    
 }
 
 
