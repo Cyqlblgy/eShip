@@ -10,7 +10,10 @@
 #import "TSLocateView.h"
 #import "CheckPriceViewController.h"
 
-@interface AddressViewController ()
+@interface AddressViewController (){
+    NSString *provinceCode;
+    NSString *countryCode;
+}
 
 @end
 
@@ -78,13 +81,19 @@
 
 
 - (IBAction)saveAddress:(id)sender {
-    NSArray *streelines = [[NSArray alloc] initWithObjects:addressTextFiedl1.text,addressTextField2.text,nil];
+    NSArray *streelines ;
+    if(![addressTextField2.text isEqualToString:@""] && addressTextField2.text != nil){
+    streelines= [[NSArray alloc] initWithObjects:addressTextFiedl1.text,addressTextField2.text,nil];
+    }
+    else{
+    streelines= [[NSArray alloc] initWithObjects:addressTextFiedl1.text,nil];
+    }
     NSDictionary *Address = [[NSDictionary alloc] initWithObjectsAndKeys:
                              cityTextField.text,@"city",
-                             @"SH",@"stateOrProvinceCode",
+                             provinceCode,@"stateOrProvinceCode",
                              zipCodeTextField.text,@"postalCode",
                              [NSNull null],@"urbanizationCode",
-                             @"CN",@"countryCode",
+                             countryCode,@"countryCode",
                              countryTextField.text,@"countryName",
                              [NSNumber numberWithBool:NO],@"residential",
                              streelines,@"streetLines",
@@ -153,9 +162,11 @@
         NSLog(@"Cancel");
     }else {
         TSLocateView *locateView = (TSLocateView *)actionSheet;
-        countryTextField.text = locateView.country;
-        stateTextField.text = locateView.state;
-        cityTextField.text = locateView.city;
+        countryTextField.text = locateView.address.country;
+        stateTextField.text = locateView.address.state;
+        cityTextField.text = locateView.address.city;
+        provinceCode = locateView.address.provinceCode;
+        countryCode = locateView.address.countryCode;
     }
 }
 @end

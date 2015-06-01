@@ -10,6 +10,7 @@
 
 @synthesize titleLabel;
 @synthesize locatePicker;
+@synthesize address;
 
 - (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
 {
@@ -22,9 +23,17 @@
         countries = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"AddressList.plist" ofType:nil]];
         provinces = [[countries objectAtIndex:0] objectForKey:@"States"];
         cities = [[provinces objectAtIndex:0] objectForKey:@"Cities"];
-        self.country = [[countries objectAtIndex:0] objectForKey:@"Country"];
-        self.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
-        self.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+        address = [[BLAddressObject alloc] init];
+        address.country = [[countries objectAtIndex:0] objectForKey:@"Country"];
+        address.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
+        address.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+        address.countryCode = [[countries objectAtIndex:0] objectForKey:@"CountryCode"];
+        if([[provinces objectAtIndex:0] objectForKey:@"ProvinceCode"]){
+            address.provinceCode = [[provinces objectAtIndex:0] objectForKey:@"ProvinceCode"];
+        }
+        else{
+            address.provinceCode = [[cities objectAtIndex:0] objectForKey:@"ProvinceCode"];
+        }
     }
     return self;
 }
@@ -92,21 +101,39 @@
     switch (component) {
         case 0:
             provinces = [[countries objectAtIndex:row] objectForKey:@"States"];
-            cities = [[provinces objectAtIndex:row] objectForKey:@"Cities"];
+            cities = [[provinces objectAtIndex:0] objectForKey:@"Cities"];
             [self.locatePicker selectRow:0 inComponent:1 animated:NO];
             [self.locatePicker reloadComponent:1];
-            self.country = [[countries objectAtIndex:row] objectForKey:@"Country"];
-            self.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
+            [self.locatePicker reloadComponent:2];
+            address.country = [[countries objectAtIndex:row] objectForKey:@"Country"];
+            address.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
+            address.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+            address.countryCode = [[countries objectAtIndex:row] objectForKey:@"CountryCode"];
+            if([[provinces objectAtIndex:0] objectForKey:@"ProvinceCode"]){
+                address.provinceCode = [[provinces objectAtIndex:0] objectForKey:@"ProvinceCode"];
+            }
+            else{
+                address.provinceCode = [[cities objectAtIndex:0] objectForKey:@"ProvinceCode"];
+            }
             break;
         case 1:
             cities = [[provinces objectAtIndex:row] objectForKey:@"Cities"];
             [self.locatePicker selectRow:0 inComponent:2 animated:NO];
             [self.locatePicker reloadComponent:2];
-            self.state = [[provinces objectAtIndex:row] objectForKey:@"State"];
-            self.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+            address.state = [[provinces objectAtIndex:row] objectForKey:@"State"];
+            address.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+            if([[provinces objectAtIndex:row] objectForKey:@"ProvinceCode"]){
+                address.provinceCode = [[provinces objectAtIndex:row] objectForKey:@"ProvinceCode"];
+            }
+            else{
+                address.provinceCode = [[cities objectAtIndex:0] objectForKey:@"ProvinceCode"];
+            }
             break;
         case 2:
-            self.city = [[cities objectAtIndex:row] objectForKey:@"city"];
+            address.city = [[cities objectAtIndex:row] objectForKey:@"city"];
+            if([[cities objectAtIndex:row] objectForKey:@"ProvinceCode"]){
+                address.provinceCode = [[cities objectAtIndex:row] objectForKey:@"ProvinceCode"];
+            }
             break;
         default:
             break;

@@ -138,9 +138,14 @@
 //                            [NSNumber numberWithFloat:3000],@"amount",
 //                            nil];
     long long i = (long long)[[NSDate date] timeIntervalSince1970]* 1000.0;
+    NSMutableDictionary *originalAddress1 = [rateObject.originalAddress mutableCopy];
+    [originalAddress1 setValue:[NSNull null] forKey:@"countryName"];
+    NSMutableDictionary *destinyAddress1 = [rateObject.destinationAddress mutableCopy];
+    [destinyAddress1 setValue:[NSNull null] forKey:@"countryName"];
     NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    rateObject.originalAddress,@"senderAddress",
-                                    rateObject.destinationAddress,@"recipientAddress",
+                                    originalAddress1,@"senderAddress",
+                                    destinyAddress1,@"recipientAddress",
+                                  //  receiverAddress,@"recipientAddress",
                                     rateObject.size,@"size",
                                     rateObject.weight,@"weight",
                                     rateObject.value,@"value",

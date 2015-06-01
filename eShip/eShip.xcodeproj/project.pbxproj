@@ -61,6 +61,7 @@
 		2AD299581B16ABC400823518 /* AddressList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299571B16ABC400823518 /* AddressList.plist */; };
 		2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995B1B16B66800823518 /* BLRateObject.m */; };
 		2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2995E1B16BF9400823518 /* ItemViewController.m */; };
+		2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2997C1B1BEF1700823518 /* BLAddressObject.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
@@ -167,6 +168,8 @@
 		2AD2995B1B16B66800823518 /* BLRateObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLRateObject.m; sourceTree = "<group>"; };
 		2AD2995D1B16BF9400823518 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		2AD2995E1B16BF9400823518 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		2AD2997B1B1BEF1700823518 /* BLAddressObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLAddressObject.h; sourceTree = "<group>"; };
+		2AD2997C1B1BEF1700823518 /* BLAddressObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLAddressObject.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -451,6 +454,8 @@
 			children = (
 				2AD2995A1B16B66800823518 /* BLRateObject.h */,
 				2AD2995B1B16B66800823518 /* BLRateObject.m */,
+				2AD2997B1B1BEF1700823518 /* BLAddressObject.h */,
+				2AD2997C1B1BEF1700823518 /* BLAddressObject.m */,
 			);
 			name = BLObjects;
 			sourceTree = "<group>";
@@ -621,6 +626,7 @@
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
+				2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */,
 				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
 				2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */,

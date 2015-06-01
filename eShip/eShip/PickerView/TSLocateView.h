@@ -5,6 +5,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "BLAddressObject.h"
 
 @interface TSLocateView : UIActionSheet<UIPickerViewDelegate, UIPickerViewDataSource> {
 @private
@@ -16,9 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIPickerView *locatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *pickButton;
-@property (strong, nonatomic) NSString *country;
-@property (strong, nonatomic) NSString *state;
-@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) BLAddressObject *address;
 
 - (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
 
