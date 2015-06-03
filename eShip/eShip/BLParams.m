@@ -14,6 +14,8 @@ const struct BLParamsStruct BLParameters =
     .NetworkHttpMethodGet = @"GET",
     .NetworkLogin = @"login",
     .NetworkTrack = @"track",
-    .NetworkRegister = @"register"
+    .NetworkRegister = @"register",
+    .NetworkRate = @"user/rate",
+    .NetworkShip = @"user/ship/fedex",
 };
 

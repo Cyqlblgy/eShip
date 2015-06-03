@@ -27,6 +27,10 @@ typedef enum {
     BLNetworkRegisterDuplicateUserNamrorEmail = 409
 } BLNetworkRegisterResponseCode;
 
+typedef enum {
+    BLNetworkShipSuccess = 200,
+} BLNetworkShipResponseCode;
+
 struct BLParamsStruct
 {
     __unsafe_unretained NSString * const NetworkHttpMethodPost;
@@ -34,6 +38,8 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkLogin;
     __unsafe_unretained NSString * const NetworkTrack;
     __unsafe_unretained NSString * const NetworkRegister;
+    __unsafe_unretained NSString * const NetworkRate;
+    __unsafe_unretained NSString * const NetworkShip;
 };
 
 extern const struct BLParamsStruct BLParameters;

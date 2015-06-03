@@ -47,7 +47,7 @@
                           [lengthSegment titleForSegmentAtIndex:lengthSegment.selectedSegmentIndex],@"unit",
                              nil];
     NSDictionary *weight = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            [NSNumber numberWithFloat:weightTextField.text.floatValue],@"weight",
+                            [NSNumber numberWithInt:weightTextField.text.intValue],@"weight",
                             [weightSegment titleForSegmentAtIndex:weightSegment.selectedSegmentIndex],@"unit",
                             nil];
     NSDictionary *value = [[NSDictionary alloc] initWithObjectsAndKeys:

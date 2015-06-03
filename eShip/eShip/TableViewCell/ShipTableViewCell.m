@@ -11,6 +11,7 @@
 @implementation ShipTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

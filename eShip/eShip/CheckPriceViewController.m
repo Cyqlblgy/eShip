@@ -16,7 +16,7 @@
 #import "TSLocateView.h"
 #import "AddressViewController.h"
 #import "ItemViewController.h"
-#import "ShipViewController.h"
+#import "RateResultViewController.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -76,6 +76,25 @@
     itemTypeTextField.rightViewMode= UITextFieldViewModeAlways;
     
     rateObject = [[BLRateObject alloc] init];
+    NSDictionary *rate1 = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"USD",@"currency",
+                          @"117.29",@"amount",
+                          nil];
+    NSDictionary *fe = [[NSDictionary alloc] initWithObjectsAndKeys:
+                        @"Fedex",@"carrier",
+                          rate1 ,@"rate",
+                        [NSNumber numberWithInt:1],@"transitDays",
+                        nil];
+    NSDictionary *rate2 = [[NSDictionary alloc] initWithObjectsAndKeys:
+                           @"RMB",@"currency",
+                           @"558.63",@"amount",
+                           nil];
+    NSDictionary *fe1 = [[NSDictionary alloc] initWithObjectsAndKeys:
+                        @"UPS",@"carrier",
+                        rate2 ,@"rate",
+                        [NSNumber numberWithInt:1],@"transitDays",
+                        nil];
+   // rateResults = [[NSArray alloc] initWithObjects:fe,fe1,nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -153,7 +172,7 @@
                                     rateObject.value,@"value",
                                     [NSNumber numberWithLongLong:i],@"shipTime",
                                     nil];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:@"user/rate" andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSError *e = nil;
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         if(res.statusCode == BLNetworkRateSuccess){
@@ -193,8 +212,9 @@
         vc.rateObject = rateObject;
     }
     else if([[segue identifier] isEqualToString:@"checkIdentifier"]){
-        ShipViewController *vc = [segue destinationViewController];
+        RateResultViewController *vc = [segue destinationViewController];
         vc.shipInfo = rateResults;
+        vc.rateObject = rateObject;
     }
     
 }

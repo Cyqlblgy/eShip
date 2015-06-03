@@ -21,6 +21,7 @@
 		2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */; };
 		2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */; };
 		2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */; };
+		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
 		2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE032A1AFC47B90091BD9D /* MapViewController.m */; };
@@ -64,7 +65,10 @@
 		2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD2997C1B1BEF1700823518 /* BLAddressObject.m */; };
 		2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299801B1C070B00823518 /* ShipTableViewCell.m */; };
 		2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299811B1C070B00823518 /* ShipTableViewCell.xib */; };
-		2AD299861B1C07E800823518 /* ShipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299851B1C07E800823518 /* ShipViewController.m */; };
+		2AD299861B1C07E800823518 /* RateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299851B1C07E800823518 /* RateResultViewController.m */; };
+		2AD75FFA1B1D4E6C00948EF1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FF91B1D4E6C00948EF1 /* ContactViewController.m */; };
+		2AD75FFD1B1D521400948EF1 /* BLShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FFC1B1D521400948EF1 /* BLShipObject.m */; };
+		2AD760001B1D57D400948EF1 /* ShipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FFF1B1D57D400948EF1 /* ShipViewController.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
 		2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ED31B0C2AE600AA9628 /* BLParams.m */; };
@@ -111,6 +115,8 @@
 		2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotation.m; sourceTree = "<group>"; };
 		2A1BF9F61B059BBA003549D7 /* MACustomizedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomizedAnnotationView.h; sourceTree = "<group>"; };
 		2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotationView.m; sourceTree = "<group>"; };
+		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
+		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ACE03231AFC47B90091BD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ACE03241AFC47B90091BD9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,8 +182,14 @@
 		2AD2997F1B1C070B00823518 /* ShipTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipTableViewCell.h; path = TableViewCell/ShipTableViewCell.h; sourceTree = "<group>"; };
 		2AD299801B1C070B00823518 /* ShipTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipTableViewCell.m; path = TableViewCell/ShipTableViewCell.m; sourceTree = "<group>"; };
 		2AD299811B1C070B00823518 /* ShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShipTableViewCell.xib; path = TableViewCell/ShipTableViewCell.xib; sourceTree = "<group>"; };
-		2AD299841B1C07E800823518 /* ShipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipViewController.h; sourceTree = "<group>"; };
-		2AD299851B1C07E800823518 /* ShipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipViewController.m; sourceTree = "<group>"; };
+		2AD299841B1C07E800823518 /* RateResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateResultViewController.h; sourceTree = "<group>"; };
+		2AD299851B1C07E800823518 /* RateResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateResultViewController.m; sourceTree = "<group>"; };
+		2AD75FF81B1D4E6C00948EF1 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		2AD75FF91B1D4E6C00948EF1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		2AD75FFB1B1D521400948EF1 /* BLShipObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShipObject.h; sourceTree = "<group>"; };
+		2AD75FFC1B1D521400948EF1 /* BLShipObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShipObject.m; sourceTree = "<group>"; };
+		2AD75FFE1B1D57D400948EF1 /* ShipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipViewController.h; sourceTree = "<group>"; };
+		2AD75FFF1B1D57D400948EF1 /* ShipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipViewController.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
 		2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLNetwork.m; sourceTree = "<group>"; };
 		2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -422,8 +434,14 @@
 				2AD299551B169ECC00823518 /* AddressViewController.m */,
 				2AD2995D1B16BF9400823518 /* ItemViewController.h */,
 				2AD2995E1B16BF9400823518 /* ItemViewController.m */,
-				2AD299841B1C07E800823518 /* ShipViewController.h */,
-				2AD299851B1C07E800823518 /* ShipViewController.m */,
+				2AD299841B1C07E800823518 /* RateResultViewController.h */,
+				2AD299851B1C07E800823518 /* RateResultViewController.m */,
+				2AD75FF81B1D4E6C00948EF1 /* ContactViewController.h */,
+				2AD75FF91B1D4E6C00948EF1 /* ContactViewController.m */,
+				2AD75FFE1B1D57D400948EF1 /* ShipViewController.h */,
+				2AD75FFF1B1D57D400948EF1 /* ShipViewController.m */,
+				2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */,
+				2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -467,6 +485,8 @@
 				2AD2995B1B16B66800823518 /* BLRateObject.m */,
 				2AD2997B1B1BEF1700823518 /* BLAddressObject.h */,
 				2AD2997C1B1BEF1700823518 /* BLAddressObject.m */,
+				2AD75FFB1B1D521400948EF1 /* BLShipObject.h */,
+				2AD75FFC1B1D521400948EF1 /* BLShipObject.m */,
 			);
 			name = BLObjects;
 			sourceTree = "<group>";
@@ -642,17 +662,21 @@
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
+				2AD75FFD1B1D521400948EF1 /* BLShipObject.m in Sources */,
 				2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */,
 				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
+				2AD75FFA1B1D4E6C00948EF1 /* ContactViewController.m in Sources */,
 				2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */,
+				2AD760001B1D57D400948EF1 /* ShipViewController.m in Sources */,
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
-				2AD299861B1C07E800823518 /* ShipViewController.m in Sources */,
+				2AD299861B1C07E800823518 /* RateResultViewController.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */,
 				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
 				2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */,
 				2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */,
+				2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */,
