@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MAMapKit/MAMapView.h>
+#import "TheSidebarController.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<TheSidebarControllerDelegate>
 
 @property (strong, nonatomic) MAMapView *myMapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;

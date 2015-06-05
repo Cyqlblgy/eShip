@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *checkingView;
 @property (weak, nonatomic) IBOutlet UIView *shippingView;
 @property (weak, nonatomic) IBOutlet UIView *mapView;
+- (IBAction)showMap:(id)sender;
 
 
 @end

@@ -87,6 +87,20 @@
                     [alert addAction:ok];
                     [self presentViewController:alert animated:YES completion:nil];
                 }
+                else{
+                    UIAlertController * alert=   [UIAlertController
+                                                  alertControllerWithTitle:@"出错了"
+                                                  message:@"在邮寄过程中出错了，请稍后再试"
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction* ok = [UIAlertAction
+                                         actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction *action){
+                                             [self.navigationController popToRootViewControllerAnimated:YES];
+                                         }];
+                    [alert addAction:ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
     }];
 
     
@@ -128,7 +142,12 @@
 #pragma TextViewDelegate implementation
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    return YES;
+    if([text isEqualToString:@"\n"]){
+        [textView resignFirstResponder];
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{

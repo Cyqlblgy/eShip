@@ -54,6 +54,20 @@
    //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"shipVC"] animated:YES];
 }
 
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = textField.frame.origin.y / 2; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 #pragma TextFieldDelegate implementation
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -61,9 +75,12 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    [self.view endEditing:YES];
+    [self animateTextField: textField up: NO];
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self animateTextField: textField up: YES];
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     return YES;

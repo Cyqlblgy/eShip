@@ -10,6 +10,17 @@
 		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
 		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
 		2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D61B0ADEB200F26262 /* BLBase64.m */; };
+		2A18F1AC1B213A670034B76E /* SidebarAirbnbAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */; };
+		2A18F1AD1B213A670034B76E /* SidebarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19F1B213A670034B76E /* SidebarAnimation.m */; };
+		2A18F1AE1B213A670034B76E /* SidebarFacebookAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A11B213A670034B76E /* SidebarFacebookAnimation.m */; };
+		2A18F1AF1B213A670034B76E /* SidebarFeedlyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A31B213A670034B76E /* SidebarFeedlyAnimation.m */; };
+		2A18F1B01B213A670034B76E /* SidebarFlipboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A51B213A670034B76E /* SidebarFlipboardAnimation.m */; };
+		2A18F1B11B213A670034B76E /* SidebarLuvocracyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A71B213A670034B76E /* SidebarLuvocracyAnimation.m */; };
+		2A18F1B21B213A670034B76E /* SidebarWunderlistAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A91B213A670034B76E /* SidebarWunderlistAnimation.m */; };
+		2A18F1B31B213A670034B76E /* TheSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1AB1B213A670034B76E /* TheSidebarController.m */; };
+		2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1B51B213B850034B76E /* LeftViewController.m */; };
+		2A18F1B91B213B850034B76E /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1B71B213B850034B76E /* RightViewController.m */; };
+		2A18F1BB1B213BF00034B76E /* left-sidebar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A18F1BA1B213BF00034B76E /* left-sidebar@2x.png */; };
 		2A1BF9CE1B058DD1003549D7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CC1B058CBE003549D7 /* MapKit.framework */; };
 		2A1BF9DF1B058E4A003549D7 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */; };
 		2A1BF9E01B058E53003549D7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D51B058E03003549D7 /* libz.dylib */; };
@@ -101,6 +112,27 @@
 		2A0AB2D51B0ADEB200F26262 /* BLBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBase64.h; sourceTree = "<group>"; };
 		2A0AB2D61B0ADEB200F26262 /* BLBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBase64.m; sourceTree = "<group>"; };
 		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		2A18F19C1B213A670034B76E /* SidebarAirbnbAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAirbnbAnimation.h; sourceTree = "<group>"; };
+		2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAirbnbAnimation.m; sourceTree = "<group>"; };
+		2A18F19E1B213A670034B76E /* SidebarAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAnimation.h; sourceTree = "<group>"; };
+		2A18F19F1B213A670034B76E /* SidebarAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAnimation.m; sourceTree = "<group>"; };
+		2A18F1A01B213A670034B76E /* SidebarFacebookAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFacebookAnimation.h; sourceTree = "<group>"; };
+		2A18F1A11B213A670034B76E /* SidebarFacebookAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFacebookAnimation.m; sourceTree = "<group>"; };
+		2A18F1A21B213A670034B76E /* SidebarFeedlyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFeedlyAnimation.h; sourceTree = "<group>"; };
+		2A18F1A31B213A670034B76E /* SidebarFeedlyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFeedlyAnimation.m; sourceTree = "<group>"; };
+		2A18F1A41B213A670034B76E /* SidebarFlipboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFlipboardAnimation.h; sourceTree = "<group>"; };
+		2A18F1A51B213A670034B76E /* SidebarFlipboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFlipboardAnimation.m; sourceTree = "<group>"; };
+		2A18F1A61B213A670034B76E /* SidebarLuvocracyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarLuvocracyAnimation.h; sourceTree = "<group>"; };
+		2A18F1A71B213A670034B76E /* SidebarLuvocracyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarLuvocracyAnimation.m; sourceTree = "<group>"; };
+		2A18F1A81B213A670034B76E /* SidebarWunderlistAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarWunderlistAnimation.h; sourceTree = "<group>"; };
+		2A18F1A91B213A670034B76E /* SidebarWunderlistAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarWunderlistAnimation.m; sourceTree = "<group>"; };
+		2A18F1AA1B213A670034B76E /* TheSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheSidebarController.h; sourceTree = "<group>"; };
+		2A18F1AB1B213A670034B76E /* TheSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheSidebarController.m; sourceTree = "<group>"; };
+		2A18F1B41B213B850034B76E /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		2A18F1B51B213B850034B76E /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		2A18F1B61B213B850034B76E /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		2A18F1B71B213B850034B76E /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		2A18F1BA1B213BF00034B76E /* left-sidebar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "left-sidebar@2x.png"; path = "Assets/left-sidebar@2x.png"; sourceTree = "<group>"; };
 		2A1BF9CB1B0588D3003549D7 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		2A1BF9CC1B058CBE003549D7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2A1BF9CF1B058DE6003549D7 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
@@ -270,6 +302,37 @@
 			name = Base64;
 			sourceTree = "<group>";
 		};
+		2A18F19A1B213A670034B76E /* TheSidebarController */ = {
+			isa = PBXGroup;
+			children = (
+				2A18F19B1B213A670034B76E /* Animations */,
+				2A18F1AA1B213A670034B76E /* TheSidebarController.h */,
+				2A18F1AB1B213A670034B76E /* TheSidebarController.m */,
+			);
+			path = TheSidebarController;
+			sourceTree = "<group>";
+		};
+		2A18F19B1B213A670034B76E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				2A18F19C1B213A670034B76E /* SidebarAirbnbAnimation.h */,
+				2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */,
+				2A18F19E1B213A670034B76E /* SidebarAnimation.h */,
+				2A18F19F1B213A670034B76E /* SidebarAnimation.m */,
+				2A18F1A01B213A670034B76E /* SidebarFacebookAnimation.h */,
+				2A18F1A11B213A670034B76E /* SidebarFacebookAnimation.m */,
+				2A18F1A21B213A670034B76E /* SidebarFeedlyAnimation.h */,
+				2A18F1A31B213A670034B76E /* SidebarFeedlyAnimation.m */,
+				2A18F1A41B213A670034B76E /* SidebarFlipboardAnimation.h */,
+				2A18F1A51B213A670034B76E /* SidebarFlipboardAnimation.m */,
+				2A18F1A61B213A670034B76E /* SidebarLuvocracyAnimation.h */,
+				2A18F1A71B213A670034B76E /* SidebarLuvocracyAnimation.m */,
+				2A18F1A81B213A670034B76E /* SidebarWunderlistAnimation.h */,
+				2A18F1A91B213A670034B76E /* SidebarWunderlistAnimation.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		2A1BF9CA1B0588B9003549D7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +355,7 @@
 		2A1BF9ED1B059AC1003549D7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2A18F1BA1B213BF00034B76E /* left-sidebar@2x.png */,
 				2AD2991F1B157EB500823518 /* animatedCar_1.png */,
 				2AD299201B157EB500823518 /* animatedCar_2.png */,
 				2AD299211B157EB500823518 /* animatedCar_3.png */,
@@ -330,6 +394,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A18F19A1B213A670034B76E /* TheSidebarController */,
 				2AD2997E1B1C06C600823518 /* TableViewCell */,
 				2AD299591B16B63400823518 /* BLObjects */,
 				2AD299191B157D3400823518 /* PickerView */,
@@ -412,6 +477,10 @@
 		2ACE03981B000D2A0091BD9D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2A18F1B41B213B850034B76E /* LeftViewController.h */,
+				2A18F1B51B213B850034B76E /* LeftViewController.m */,
+				2A18F1B61B213B850034B76E /* RightViewController.h */,
+				2A18F1B71B213B850034B76E /* RightViewController.m */,
 				2ACE03481AFC50A40091BD9D /* SettingsViewController.h */,
 				2ACE03491AFC50A40091BD9D /* SettingsViewController.m */,
 				2ACE03291AFC47B90091BD9D /* MapViewController.h */,
@@ -617,6 +686,7 @@
 				2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */,
 				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
 				2AD2992F1B157EB500823518 /* btn_020.disable@2x.png in Resources */,
+				2A18F1BB1B213BF00034B76E /* left-sidebar@2x.png in Resources */,
 				2AD2991E1B157D3400823518 /* TSLocateView.xib in Resources */,
 				2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
@@ -647,8 +717,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A18F1AF1B213A670034B76E /* SidebarFeedlyAnimation.m in Sources */,
+				2A18F1AD1B213A670034B76E /* SidebarAnimation.m in Sources */,
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
+				2A18F1B01B213A670034B76E /* SidebarFlipboardAnimation.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
+				2A18F1B91B213B850034B76E /* RightViewController.m in Sources */,
 				2AE04F281B111EF900AA9628 /* TrackingDetailViewModel.m in Sources */,
 				2AD299561B169ECC00823518 /* AddressViewController.m in Sources */,
 				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
@@ -658,11 +732,13 @@
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,
 				2AE04EEA1B0D84A300AA9628 /* SVProgressHUD.m in Sources */,
+				2A18F1AC1B213A670034B76E /* SidebarAirbnbAnimation.m in Sources */,
 				2AE04F081B0EBF4300AA9628 /* BLCoreData.m in Sources */,
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
 				2AD75FFD1B1D521400948EF1 /* BLShipObject.m in Sources */,
+				2A18F1B31B213A670034B76E /* TheSidebarController.m in Sources */,
 				2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */,
 				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
 				2AD75FFA1B1D4E6C00948EF1 /* ContactViewController.m in Sources */,
@@ -670,7 +746,10 @@
 				2AD760001B1D57D400948EF1 /* ShipViewController.m in Sources */,
 				2AE04EE91B0D84A300AA9628 /* SVIndefiniteAnimatedView.m in Sources */,
 				2ACE039E1B000E100091BD9D /* WYPopoverController.m in Sources */,
+				2A18F1AE1B213A670034B76E /* SidebarFacebookAnimation.m in Sources */,
 				2AD299861B1C07E800823518 /* RateResultViewController.m in Sources */,
+				2A18F1B11B213A670034B76E /* SidebarLuvocracyAnimation.m in Sources */,
+				2A18F1B21B213A670034B76E /* SidebarWunderlistAnimation.m in Sources */,
 				2ACE03501AFC53CE0091BD9D /* MineViewController.m in Sources */,
 				2AD2997D1B1BEF1700823518 /* BLAddressObject.m in Sources */,
 				2AE04F1E1B11059B00AA9628 /* TrackingDetailViewController.m in Sources */,
@@ -680,6 +759,7 @@
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */,
+				2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 				2AD299141B155FC500823518 /* LogViewController.m in Sources */,
 			);

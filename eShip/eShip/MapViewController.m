@@ -15,6 +15,7 @@
 #import <MAMapKit/MAAnnotationView.h>
 #import <MAMapKit/MAAnnotation.h>
 #import <MAMapKit/MAMapKit.h>
+#import "TheSidebarController.h"
 
 @interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate>{
     NSMutableArray *locations;
@@ -34,9 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"eShip";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     myMapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 60, screenFrame.size.width, screenFrame.size.height-110)];
     myMapView.delegate = self;
@@ -77,6 +75,9 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
+//    self.navigationItem.title = @"eShip";
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +87,17 @@
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)showLeftSide{
+    if(self.sidebarController.sidebarIsPresenting)
+    {
+        [self.sidebarController dismissSidebarViewController];
+    }
+    else
+    {
+        [self.sidebarController presentLeftSidebarViewControllerWithStyle:SidebarTransitionStyleWunderlist];
+    }
 }
 
 - (void)startUpdatingLocation{
@@ -203,6 +215,27 @@
         myMapView.showsUserLocation = YES;
         
     }
+}
+
+#pragma mark - TheSidebarController Delegate Methods
+- (void)sidebarController:(TheSidebarController *)sidebarController willShowViewController:(UIViewController *)viewController
+{
+    NSLog(@"sidebarController:%@ willShowViewController:%@", sidebarController, viewController);
+}
+
+- (void)sidebarController:(TheSidebarController *)sidebarController didShowViewController:(UIViewController *)viewController
+{
+    NSLog(@"sidebarController:%@ didShowViewController:%@", sidebarController, viewController);
+}
+
+- (void)sidebarController:(TheSidebarController *)sidebarController willHideViewController:(UIViewController *)viewController
+{
+    NSLog(@"sidebarController:%@ willHideViewController:%@", sidebarController, viewController);
+}
+
+- (void)sidebarController:(TheSidebarController *)sidebarController didHideViewController:(UIViewController *)viewController
+{
+    NSLog(@"sidebarController:%@ didHideViewController:%@", sidebarController, viewController);
 }
 
 #pragma MKAnnotation

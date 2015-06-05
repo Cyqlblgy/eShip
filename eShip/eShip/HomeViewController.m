@@ -8,8 +8,11 @@
 
 #import "HomeViewController.h"
 #import "FindViewController.h"
+#import "TheSidebarController.h"
+#import "LeftViewController.h"
+#import "MapViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<TheSidebarControllerDelegate>
 
 @end
 
@@ -35,6 +38,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if([identifier isEqualToString:@"mapID"]){
+        MapViewController *mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"mapVC"];
+        
+        LeftViewController *leftViewController = [[LeftViewController alloc] init];
+        leftViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left-sidebar"]];
+        
+        TheSidebarController *sidebarController = [[TheSidebarController alloc] initWithContentViewController:mapVC leftSidebarViewController:leftViewController];
+        sidebarController.navigationItem.title = @"eShip";
+        sidebarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:mapVC action:@selector(goBack)];
+        sidebarController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:mapVC action:@selector(showLeftSide)];
+        sidebarController.delegate = mapVC;
+        sidebarController.view.backgroundColor = [UIColor blackColor];// colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+        [self.navigationController pushViewController:sidebarController animated:NO];
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}
+
+
+
 
 /*
 #pragma mark - Navigation
