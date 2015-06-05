@@ -40,6 +40,7 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkRegister;
     __unsafe_unretained NSString * const NetworkRate;
     __unsafe_unretained NSString * const NetworkShip;
+    __unsafe_unretained NSString * const NetworkGetLabel;
 };
 
 extern const struct BLParamsStruct BLParameters;

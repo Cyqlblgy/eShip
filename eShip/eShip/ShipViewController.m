@@ -158,7 +158,7 @@
                                     [NSNumber numberWithInt:1],@"packageNum",
                                     packageLineitems,@"packageLineItems",
                                     nil];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkShip andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkShip andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         NSData *wwww= data;
 //        if(res.statusCode == BLNetworkRateSuccess){

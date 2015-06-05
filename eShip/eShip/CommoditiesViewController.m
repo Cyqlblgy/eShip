@@ -65,7 +65,7 @@
                                     [NSNumber numberWithInt:1],@"packageNum",
                                     shipObject.packageLineitems,@"packageLineItems",
                                     nil];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkShip andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkShip andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         NSError *e = nil;
                 if(res.statusCode == BLNetworkShipSuccess){

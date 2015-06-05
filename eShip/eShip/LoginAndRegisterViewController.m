@@ -141,7 +141,7 @@
                                             passwordTextField.text, @"password",
                                             nil];
         
-            [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                 NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
                 UIAlertController *alert;
                 if(connectionError == nil && res.statusCode == BLNetworkLoginSuccess){
@@ -177,7 +177,7 @@
     }
     else{
         NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:userNameTextField.text, @"user_name",emailTextField.text,@"email",passwordTextField.text, @"password",phoneNumberTextField.text, @"phone",nil];
-        [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+        [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
             NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
             UIAlertController *alert;
             if(res.statusCode == BLNetworkRegisterSuccess){

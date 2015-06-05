@@ -12,5 +12,5 @@ typedef void (^NetworkHanlder)(NSURLResponse* response, NSData* data, NSError* c
 
 @interface BLNetwork : NSObject
 
-+(void)urlConnectionRequest:(NSString *)httpMethodType andrequestType:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andAuthorization:(NSString *)authorization andResponse:(NetworkHanlder)handler;
++(void)urlConnectionRequest:(NSString *)httpMethodType andrequestType:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andAcceptType:(NSString *)acceptType andAuthorization:(NSString *)authorization andResponse:(NetworkHanlder)handler;
 @end

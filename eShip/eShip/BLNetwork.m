@@ -11,7 +11,7 @@
 
 @implementation BLNetwork
 
-+(void)urlConnectionRequest:(NSString *)httpMethodType andrequestType:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andAuthorization:(NSString *)authorization andResponse:(NetworkHanlder)handler{
++(void)urlConnectionRequest:(NSString *)httpMethodType andrequestType:(NSString *)requestType andParams:(NSDictionary *)params andMaxTimeOut:(NSTimeInterval)timeInterval andAcceptType:(NSString *)acceptType andAuthorization:(NSString *)authorization andResponse:(NetworkHanlder)handler{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *urlString =[[NSString alloc] initWithFormat:@"http://104.131.174.73:8080/useraccount/%@",requestType];
         NSURL *url = [NSURL URLWithString:urlString];
@@ -27,8 +27,15 @@
         if(authorization){
         [request setValue:authorization forHTTPHeaderField:@"Authorization"];
         }
+        
+        if(acceptType){
+        [request setValue:acceptType forHTTPHeaderField:@"Accept"];
+        [request setValue:acceptType forHTTPHeaderField:@"Content-type"];
+        }
+        else{
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        }
         if(timeInterval){
         [request setTimeoutInterval:timeInterval]; //This value is in seconds...
         }

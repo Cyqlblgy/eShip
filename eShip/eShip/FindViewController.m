@@ -90,7 +90,7 @@
     [self.view endEditing:YES];
     NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,shipNumberTextField.text.lowercaseString];
     [SVProgressHUD showWithStatus:@"Tracking" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         [SVProgressHUD dismiss];
         if(res.statusCode == BLNetworkTrackSuccess){

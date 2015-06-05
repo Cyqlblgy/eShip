@@ -172,7 +172,7 @@
                                     rateObject.value,@"value",
                                     [NSNumber numberWithLongLong:i],@"shipTime",
                                     nil];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSError *e = nil;
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         if(res.statusCode == BLNetworkRateSuccess){
