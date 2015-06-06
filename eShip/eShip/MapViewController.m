@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
-    myMapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 60, screenFrame.size.width, screenFrame.size.height-110)];
+    myMapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 60, screenFrame.size.width, screenFrame.size.height-70)];
     myMapView.delegate = self;
     long1 = 116.492479;
     long2 = 116.715633;
@@ -75,9 +75,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
-//    self.navigationItem.title = @"eShip";
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.title = @"eShip";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showLeftSide)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +87,7 @@
 }
 
 - (void)goBack{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)showLeftSide{
