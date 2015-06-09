@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
-    myMapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 60, screenFrame.size.width, screenFrame.size.height-70)];
+    myMapView = [[MAMapView alloc] initWithFrame:screenFrame];
     myMapView.delegate = self;
     long1 = 116.492479;
     long2 = 116.715633;
@@ -76,9 +76,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
     self.navigationItem.title = @"eShip";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showLeftSide)];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:22.0],NSFontAttributeName, nil]];
+    UIBarButtonItem *aButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(buttonTapped)];
+    self.navigationItem.rightBarButtonItem = aButton;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeftSide)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +89,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)goBack{
+- (void)buttonTapped{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

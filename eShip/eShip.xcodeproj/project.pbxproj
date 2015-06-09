@@ -33,6 +33,7 @@
 		2A1BF9E61B058E82003549D7 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1BF9D31B058DFC003549D7 /* libstdc++.dylib */; };
 		2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */; };
 		2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */; };
+		2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -150,6 +151,8 @@
 		2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotation.m; sourceTree = "<group>"; };
 		2A1BF9F61B059BBA003549D7 /* MACustomizedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomizedAnnotationView.h; sourceTree = "<group>"; };
 		2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotationView.m; sourceTree = "<group>"; };
+		2A1F2ADB1B2673BB004FA9D6 /* CRGradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGradientNavigationBar.h; sourceTree = "<group>"; };
+		2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGradientNavigationBar.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,6 +378,15 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		2A1F2ADA1B2673BB004FA9D6 /* CRGradientNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A1F2ADB1B2673BB004FA9D6 /* CRGradientNavigationBar.h */,
+				2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */,
+			);
+			path = CRGradientNavigationBar;
+			sourceTree = "<group>";
+		};
 		2ACE03161AFC47B90091BD9D = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +409,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A1F2ADA1B2673BB004FA9D6 /* CRGradientNavigationBar */,
 				2A18F19A1B213A670034B76E /* TheSidebarController */,
 				2AD2997E1B1C06C600823518 /* TableViewCell */,
 				2AD299591B16B63400823518 /* BLObjects */,
@@ -733,6 +746,7 @@
 				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A18F1BE1B21482C0034B76E /* CommentsViewController.m in Sources */,
+				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */,
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,

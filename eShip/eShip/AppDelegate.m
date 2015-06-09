@@ -10,6 +10,11 @@
 #import "APIKey.h"
 #import <MAMapKit/MAMapKit.h>
 #import <CoreData/CoreData.h>
+#import "TheSidebarController.h"
+#import "LeftViewController.h"
+#import "MapViewController.h"
+#import "CRGradientNavigationBar.h"
+#define UIColorFromRGB(rgbValue)[UIColor colorWithRed:((float)((rgbValue&0xFF0000)>>16))/255.0 green:((float)((rgbValue&0xFF00)>>8))/255.0 blue:((float)(rgbValue&0xFF))/255.0 alpha:1.0]
 
 @interface AppDelegate ()
 
@@ -35,8 +40,34 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self configureAPIKey];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
-    [UINavigationBar appearance].translucent = YES;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithNavigationBarClass:[CRGradientNavigationBar class] toolbarClass:nil];
+    
+    UIColor *firstColor = UIColorFromRGB(0x52EDC7);
+    UIColor *secondColor = UIColorFromRGB(0x5AC8FB);
+    
+    NSArray *colors = [NSArray arrayWithObjects:(id)firstColor.CGColor, (id)secondColor.CGColor, nil];
+    
+    [[CRGradientNavigationBar appearance] setBarTintGradientColors:colors];
+    [[navigationController navigationBar] setTranslucent:NO]; // Remember, the default value is YES.
+    MapViewController *contentViewController = [[MapViewController alloc] init];
+    [navigationController setViewControllers:@[contentViewController]];
+    navigationController.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    navigationController.view.layer.shadowOffset = (CGSize){0.0, 0.0};
+    navigationController.view.layer.shadowOpacity = 0.8;
+    navigationController.view.layer.shadowRadius = 10.0;
+    
+    LeftViewController *leftSidebarViewController = [[LeftViewController alloc] init];
+    leftSidebarViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left-menu.png"]];
+    
+    TheSidebarController *sidebarController = [[TheSidebarController alloc] initWithContentViewController:navigationController leftSidebarViewController:leftSidebarViewController];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = sidebarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
