@@ -211,6 +211,53 @@
             </objects>
             <point key="canvasLocation" x="2286" y="885"/>
         </scene>
+        <!--Left View Controller-->
+        <scene sceneID="Zes-dm-q5f">
+            <objects>
+                <viewController storyboardIdentifier="leftVC" id="Iqh-2g-nez" customClass="LeftViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lba-xS-mZC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="4n3-Xw-7x7">
+                                <rect key="frame" x="0.0" y="218" width="320" height="252"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Iqh-2g-nez" id="JKe-0w-xFv"/>
+                                    <outlet property="delegate" destination="Iqh-2g-nez" id="K6b-f0-Qgi"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qSL-ov-gqp">
+                                <rect key="frame" x="47" y="68" width="108" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <state key="normal" image="Logo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jak-yu-meW">
+                                <rect key="frame" x="68" y="176" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoButton" destination="qSL-ov-gqp" id="lz3-ir-xhi"/>
+                        <outlet property="mytableView" destination="4n3-Xw-7x7" id="8gq-LD-rAH"/>
+                        <outlet property="nameLabel" destination="jak-yu-meW" id="CmV-aS-8g3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RW3-ss-bWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="841" y="-2918"/>
+        </scene>
         <!--Contact View Controller-->
         <scene sceneID="4B8-lg-vA4">
             <objects>
@@ -941,7 +988,7 @@
         <!--Mine View Controller-->
         <scene sceneID="osw-5A-eX8">
             <objects>
-                <viewController id="fxn-Ga-n2A" customClass="MineViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MineVC" id="fxn-Ga-n2A" customClass="MineViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ix-Mr-zFe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -970,7 +1017,7 @@
         <!--Settings View Controller-->
         <scene sceneID="PZ4-kX-dQV">
             <objects>
-                <viewController id="0vm-Ic-Zd7" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="0vm-Ic-Zd7" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S5L-Xn-Zbn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -981,7 +1028,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2qp-BT-RIm">
-                                        <rect key="frame" x="0.0" y="22" width="310" height="50"/>
+                                        <rect key="frame" x="0.0" y="86" width="310" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qp-BT-RIm" id="HxQ-Wm-P6Y">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="49"/>
@@ -1358,7 +1405,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mine" width="32" height="32"/>
+        <image name="Logo" width="100" height="100"/>
+        <image name="Mine" width="1024" height="1024"/>
         <image name="Settings" width="32" height="32"/>
         <image name="carrier" width="128" height="74"/>
         <image name="home" width="32" height="32"/>

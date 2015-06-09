@@ -40,7 +40,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self configureAPIKey];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -59,11 +58,12 @@
     navigationController.view.layer.shadowOffset = (CGSize){0.0, 0.0};
     navigationController.view.layer.shadowOpacity = 0.8;
     navigationController.view.layer.shadowRadius = 10.0;
-    
-    LeftViewController *leftSidebarViewController = [[LeftViewController alloc] init];
-    leftSidebarViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left-menu.png"]];
-    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    LeftViewController *leftSidebarViewController = (LeftViewController *)[mainStoryboard
+                                                                           instantiateViewControllerWithIdentifier: @"leftVC"];
     TheSidebarController *sidebarController = [[TheSidebarController alloc] initWithContentViewController:navigationController leftSidebarViewController:leftSidebarViewController];
+    sidebarController.delegate = contentViewController;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = sidebarController;

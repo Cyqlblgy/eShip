@@ -16,8 +16,9 @@
 #import <MAMapKit/MAAnnotation.h>
 #import <MAMapKit/MAMapKit.h>
 #import "TheSidebarController.h"
+#import "FindViewController.h"
 
-@interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate>{
+@interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate>{
     NSMutableArray *locations;
     NSMutableArray *users;
     NSMutableArray *currentusers;
@@ -25,6 +26,7 @@
     MACustomizedAnnotation *annotation1;
     MACustomizedAnnotation *annotation2;
     NSMutableArray *carImages;
+    UITapGestureRecognizer *tapGesture;
 }
 
 @end
@@ -35,9 +37,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeftSide)];
+    tapGesture.numberOfTouchesRequired = 1;
+    tapGesture.numberOfTapsRequired = 1;
+    [tapGesture setDelegate:self];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     myMapView = [[MAMapView alloc] initWithFrame:screenFrame];
     myMapView.delegate = self;
+    [self.view addGestureRecognizer:tapGesture];
     long1 = 116.492479;
     long2 = 116.715633;
     lat1 = 39.948691;
@@ -73,6 +80,10 @@
     
 }
 
+- (void)dealloc{
+   [self.view removeGestureRecognizer:tapGesture];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
     self.navigationItem.title = @"eShip";
@@ -90,16 +101,20 @@
 }
 
 - (void)buttonTapped{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    FindViewController *contactVC = [[FindViewController alloc] init];
+    [self.sidebarController.navigationController pushViewController:contactVC animated:YES];
 }
 
 - (void)showLeftSide{
     if(self.sidebarController.sidebarIsPresenting)
     {
+        
         [self.sidebarController dismissSidebarViewController];
+       
     }
     else
     {
+        
         [self.sidebarController presentLeftSidebarViewControllerWithStyle:SidebarTransitionStyleWunderlist];
     }
 }
@@ -127,6 +142,17 @@
     annotation2.title            = @"AutoNavi";
     // annotation1.subtitle         = [NSString stringWithFormat:@"Car: %lu images",(unsigned long)[self.animatedCarAnnotation.animatedImages count]];
     [myMapView addAnnotation:annotation2];
+}
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    if(self.sidebarController.sidebarIsPresenting){
+        return YES;
+    }
+    else{
+        return NO;
+    }
 }
 
 

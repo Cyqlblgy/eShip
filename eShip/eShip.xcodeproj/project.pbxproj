@@ -34,6 +34,8 @@
 		2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9EB1B05988F003549D7 /* MACustomizedAnnotation.m */; };
 		2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */; };
 		2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */; };
+		2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */; };
+		2A1F2AE21B2688CE004FA9D6 /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -153,6 +155,9 @@
 		2A1BF9F71B059BBA003549D7 /* MACustomizedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomizedAnnotationView.m; sourceTree = "<group>"; };
 		2A1F2ADB1B2673BB004FA9D6 /* CRGradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGradientNavigationBar.h; sourceTree = "<group>"; };
 		2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGradientNavigationBar.m; sourceTree = "<group>"; };
+		2A1F2ADE1B2688CE004FA9D6 /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -584,6 +589,9 @@
 				2AD2997F1B1C070B00823518 /* ShipTableViewCell.h */,
 				2AD299801B1C070B00823518 /* ShipTableViewCell.m */,
 				2AD299811B1C070B00823518 /* ShipTableViewCell.xib */,
+				2A1F2ADE1B2688CE004FA9D6 /* LeftTableViewCell.h */,
+				2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */,
+				2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -716,6 +724,7 @@
 				2AD299331B157EB500823518 /* btn_021.press@2x.png in Resources */,
 				2ACE03301AFC47B90091BD9D /* Images.xcassets in Resources */,
 				2AD2992C1B157EB500823518 /* animatedCar_3.png in Resources */,
+				2A1F2AE21B2688CE004FA9D6 /* LeftTableViewCell.xib in Resources */,
 				2AD2992D1B157EB500823518 /* animatedCar_4.png in Resources */,
 				2AD299301B157EB500823518 /* btn_020.press@2x.png in Resources */,
 			);
@@ -779,6 +788,7 @@
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */,
+				2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */,
 				2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 				2AD299141B155FC500823518 /* LogViewController.m in Sources */,
