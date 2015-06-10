@@ -17,6 +17,7 @@
 #import "AddressViewController.h"
 #import "ItemViewController.h"
 #import "RateResultViewController.h"
+#import "SVProgressHUD.h"
 
 @interface CheckPriceViewController (){
     WYPopoverController* originalpopoverController;
@@ -38,8 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"运费查询";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [originalButton setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
     [originalButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
     [destinationButton setFrame:CGRectMake(0, 0, 60, destinationPlaceTextField.frame.size.height)];
@@ -47,7 +48,7 @@
     [itemTypeButton setFrame:CGRectMake(0, 0, 60, itemTypeTextField.frame.size.height)];
     [itemTypeButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
     label.text = @"原寄地";
     [view addSubview:label];
@@ -55,8 +56,9 @@
     originalPlaceTextField.leftViewMode = UITextFieldViewModeAlways;
     originalPlaceTextField.rightView = originalButton;
     originalPlaceTextField.rightViewMode = UITextFieldViewModeAlways;
+    originalPlaceTextField.tag = 0;
     
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
     label1.text = @"目的地";
     [view1 addSubview:label1];
@@ -64,16 +66,21 @@
     destinationPlaceTextField.leftViewMode = UITextFieldViewModeAlways;
     destinationPlaceTextField.rightView = destinationButton;
     destinationPlaceTextField.rightViewMode = UITextFieldViewModeAlways;
+    destinationPlaceTextField.tag = 1;
 
     
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 160, originalPlaceTextField.frame.size.height)];
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
-    label2.text = @"物品类型";
+    label2.text = @"物品";
     [view2 addSubview:label2];
     itemTypeTextField.leftView = view2;
     itemTypeTextField.leftViewMode = UITextFieldViewModeAlways;
     itemTypeTextField.rightView = itemTypeButton;
     itemTypeTextField.rightViewMode= UITextFieldViewModeAlways;
+    itemTypeTextField.tag = 2;
+    
+    searchButton.layer.cornerRadius = 5;
+    searchButton.layer.masksToBounds = YES;
     
     rateObject = [[BLRateObject alloc] init];
     NSDictionary *rate1 = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -112,6 +119,7 @@
     if(rateObject.size){
         itemTypeTextField.text = [[NSString alloc] initWithFormat:@"%@*%@*%@ %@",[rateObject.size objectForKey:@"length"],[rateObject.size objectForKey:@"width"],[rateObject.size objectForKey:@"height"], [rateObject.size objectForKey:@"unit"]];
     }
+    searchButton.enabled = rateObject.size && rateObject.originalAddress && rateObject.destinationAddress;
 }
 
 - (void)goBack{
@@ -172,7 +180,9 @@
                                     rateObject.value,@"value",
                                     [NSNumber numberWithLongLong:i],@"shipTime",
                                     nil];
+    [SVProgressHUD showWithStatus:@"查询价格中" maskType:SVProgressHUDMaskTypeGradient];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [SVProgressHUD dismiss];
         NSError *e = nil;
         NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
         if(res.statusCode == BLNetworkRateSuccess){
@@ -373,6 +383,15 @@
 #pragma UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if(textField.tag == 0){
+        [self performSegueWithIdentifier:@"originalAddress" sender:self];
+    }
+    else if(textField.tag == 1){
+        [self performSegueWithIdentifier:@"destinationAddress" sender:self];
+    }
+    else if(textField.tag == 2){
+        [self performSegueWithIdentifier:@"itemIdentifier" sender:self];
+    }
     return NO;
 }
 

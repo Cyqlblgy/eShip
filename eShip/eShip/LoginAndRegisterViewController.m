@@ -70,6 +70,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     UIBarButtonItem *bButton = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = bButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     passwordTextField.returnKeyType = UIReturnKeyNext;
     [loginButton setTitle:@"注册" forState:UIControlStateNormal];
     self.navigationItem.title = @"注册";

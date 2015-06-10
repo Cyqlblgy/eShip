@@ -29,7 +29,7 @@
         }
         
         if(acceptType){
-        [request setValue:acceptType forHTTPHeaderField:@"Accept"];
+      //  [request setValue:acceptType forHTTPHeaderField:@"Accept"];
         [request setValue:acceptType forHTTPHeaderField:@"Content-type"];
         }
         else{

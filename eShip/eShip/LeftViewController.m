@@ -49,9 +49,9 @@
 {
 //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissThisViewController)];
 //    [self.view addGestureRecognizer:tapGesture];
-    menuItems = @[@"地图", @"查件", @"我的", @"设置"];
-    imageNames = @[@"Map.png",@"track.png",@"login.png",@"Mine.png"];
-    vcNames = @[@"findVC",@"MineVC",@"SettingsVC"];
+    menuItems = @[@"地图", @"查件", @"寄件",@"我的", @"设置"];
+    imageNames = @[@"Map.png",@"track.png",@"track.png",@"login.png",@"Mine.png"];
+    vcNames = @[@"findVC",@"checkPriceVC",@"MineVC",@"SettingsVC"];
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50*menuItems.count);
     UIGraphicsBeginImageContext(self.view.frame.size);

@@ -145,7 +145,7 @@
 }
 
 - (void)forgetPassword{
-
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"commentcVC"] animated:YES];
 }
 
 - (void)updateLayout{
