@@ -9,13 +9,15 @@
 #import "LoginAndRegisterViewController.h"
 #import "BLNetwork.h"
 #import "BLParams.h"
+#import "TheSidebarController.h"
+#import "LeftViewController.h"
 
 @interface LoginAndRegisterViewController ()
 
 @end
 
 @implementation LoginAndRegisterViewController
-@synthesize loginButton,passwordTextField,userNameTextField,isLogin,emailTextField,phoneNumberTextField;
+@synthesize loginButton,passwordTextField,userNameTextField,emailTextField,phoneNumberTextField;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,23 +61,22 @@
     phoneNumberTextField.leftView = leftViewForPhene;
     phoneNumberTextField.leftViewMode = UITextFieldViewModeAlways;
     phoneNumberTextField.tag = 3;
-    // Do any additional setup after loading the view.
+    
+    
+    loginButton.layer.cornerRadius = 5;
+    loginButton.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    if(isLogin){
-        [phoneNumberTextField setHidden:YES];
-        [emailTextField setHidden:YES];
-        loginButton.frame =CGRectMake(loginButton.frame.origin.x, loginButton.frame.origin.y - 2*emailTextField.frame.size.height, loginButton.frame.size.width, loginButton.frame.size.height);
-        passwordTextField.returnKeyType = UIReturnKeyDone;
-        [loginButton setTitle:@"登陆" forState:UIControlStateNormal];
-        self.navigationItem.title = @"登陆";
-    }
-    else{
-        passwordTextField.returnKeyType = UIReturnKeyNext;
-        [loginButton setTitle:@"注册" forState:UIControlStateNormal];
-        self.navigationItem.title = @"注册";
-    }
+    UIBarButtonItem *bButton = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = bButton;
+    passwordTextField.returnKeyType = UIReturnKeyNext;
+    [loginButton setTitle:@"注册" forState:UIControlStateNormal];
+    self.navigationItem.title = @"注册";
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,76 +135,40 @@
 */
 
 - (IBAction)loginOrRegister:(id)sender {
-    if(isLogin){
-            //Login sample
-            NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            userNameTextField.text, @"user_name",
-                                            passwordTextField.text, @"password",
-                                            nil];
-        
-            [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-                UIAlertController *alert;
-                if(connectionError == nil && res.statusCode == BLNetworkLoginSuccess){
-//                    NSError *error =nil;
-//                    NSDictionary *da = [NSJSONSerialization JSONObjectWithData:data
-//                                                                       options:NSJSONReadingMutableContainers
-//                                                                         error:&error];
-//                    if(error == nil){
-                        alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Success"
-                                  message:@"登陆成功"
-                                  preferredStyle:UIAlertControllerStyleAlert];
-                    [self saveCurrentUser];
-//                    }
-                }
-                else{
-                    alert=   [UIAlertController
-                              alertControllerWithTitle:@"Failed"
-                              message:@"登陆失败"
-                              preferredStyle:UIAlertControllerStyleAlert];
-                }
-                UIAlertAction* ok = [UIAlertAction
-                                     actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleDefault
-                                     handler:^(UIAlertAction *action){
-                                         [self.navigationController popViewControllerAnimated:YES];
-                                     }];
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
-
-            }];
-
-    }
-    else{
         NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:userNameTextField.text, @"user_name",emailTextField.text,@"email",passwordTextField.text, @"password",phoneNumberTextField.text, @"phone",nil];
         [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
             NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
             UIAlertController *alert;
+            UIAlertAction* ok;
             if(res.statusCode == BLNetworkRegisterSuccess){
                 alert=   [UIAlertController
                           alertControllerWithTitle:@"Success"
                           message:@"注册成功"
                           preferredStyle:UIAlertControllerStyleAlert];
                 [self saveCurrentUser];
+                ok =                 [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction *action){
+                                          [self.navigationController popToRootViewControllerAnimated:YES];
+                                      }];
+                LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+                [vc updateLabel];
             }
             else if(res.statusCode == BLNetworkRegisterDuplicateUserNamrorEmail){
                 alert=   [UIAlertController
                           alertControllerWithTitle:@"Failed"
                           message:@"注册失败"
                           preferredStyle:UIAlertControllerStyleAlert];
+                ok =                 [UIAlertAction
+                                      actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                      handler:nil];
+
             }
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"OK"
-                                 style:UIAlertActionStyleDefault
-                                 handler:^(UIAlertAction *action){
-                                     [self.navigationController popViewControllerAnimated:YES];
-                                 }];
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
         }];
-    }
-    
 }
 
 

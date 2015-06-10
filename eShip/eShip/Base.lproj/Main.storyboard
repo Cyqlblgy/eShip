@@ -258,6 +258,97 @@
             </objects>
             <point key="canvasLocation" x="841" y="-2918"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="8bS-n7-umY">
+            <objects>
+                <viewController storyboardIdentifier="loginVC" id="1L3-Vy-bda" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zl1-gn-UxI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="alO-qe-DRb">
+                                <rect key="frame" x="19" y="142" width="283" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16078431904315948" green="0.89803928136825562" blue="0.37647062540054321" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="登录">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="1L3-Vy-bda" eventType="touchUpInside" id="zlW-ZH-994"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名/邮箱" minimumFontSize="17" id="chI-LQ-9lX" userLabel="UserNameTextField">
+                                <rect key="frame" x="0.0" y="32" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1L3-Vy-bda" id="WVp-cd-CcD"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" id="HTS-Ul-gMm" userLabel="PasswordTextField">
+                                <rect key="frame" x="0.0" y="76" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1L3-Vy-bda" id="qXg-hi-uJX"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第三方登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Twu-6K-b8s">
+                                <rect key="frame" x="0.0" y="308" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Aio-N2-391">
+                                <rect key="frame" x="19" y="349" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" image="qq">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0S8-m0-qUs">
+                                <rect key="frame" x="95" y="349" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" image="weibo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fVK-M7-42U">
+                                <rect key="frame" x="254" y="349" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" image="renren">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ksd-FZ-a5i">
+                                <rect key="frame" x="173" y="349" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" image="wechat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="alO-qe-DRb" id="kfr-Dj-JC0"/>
+                        <outlet property="pwTextField" destination="HTS-Ul-gMm" id="4ZW-Ix-o2k"/>
+                        <outlet property="qqLogin" destination="Aio-N2-391" id="5nW-gU-FrY"/>
+                        <outlet property="renrenLogin" destination="fVK-M7-42U" id="R9y-jh-KY2"/>
+                        <outlet property="unTextField" destination="chI-LQ-9lX" id="8K6-5A-9tq"/>
+                        <outlet property="wechatLogin" destination="Ksd-FZ-a5i" id="vb4-Qw-Zvb"/>
+                        <outlet property="weiboLogin" destination="0S8-m0-qUs" id="7zZ-64-JW0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PkT-f0-gkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1215" y="-2918"/>
+        </scene>
         <!--Contact View Controller-->
         <scene sceneID="4B8-lg-vA4">
             <objects>
@@ -1097,40 +1188,49 @@
         <!--Login And Register View Controller-->
         <scene sceneID="3nF-xD-qQA">
             <objects>
-                <viewController id="Ovf-YZ-8Yf" customClass="LoginAndRegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerVC" id="Ovf-YZ-8Yf" customClass="LoginAndRegisterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J8O-MW-fzH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="密码" minimumFontSize="17" id="MhM-OR-jeK" userLabel="PasswordTextField">
-                                <rect key="frame" x="46" y="208" width="229" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" id="MhM-OR-jeK" userLabel="PasswordTextField">
+                                <rect key="frame" x="0.0" y="82" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="Ovf-YZ-8Yf" id="hqD-Je-RAF"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="邮箱" minimumFontSize="17" id="UEK-kQ-r1U" userLabel="EmailTextField">
-                                <rect key="frame" x="46" y="265" width="229" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱" minimumFontSize="17" id="UEK-kQ-r1U" userLabel="EmailTextField">
+                                <rect key="frame" x="0.0" y="126" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="Ovf-YZ-8Yf" id="edf-Lt-bvY"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="电话号码" minimumFontSize="17" id="leE-Gd-NDS" userLabel="PhoneNumberTextField">
-                                <rect key="frame" x="46" y="321" width="229" height="57"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="电话号码(选填)" minimumFontSize="17" id="leE-Gd-NDS" userLabel="PhoneNumberTextField">
+                                <rect key="frame" x="0.0" y="170" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="Ovf-YZ-8Yf" id="fa0-kr-2nj"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" minimumFontSize="17" id="Bas-IH-6gV" userLabel="UserNameTextField">
+                                <rect key="frame" x="0.0" y="38" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="L8B-s5-aya"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="thV-7x-E0u" userLabel="LoginButton">
-                                <rect key="frame" x="68" y="436" width="184" height="55"/>
+                                <rect key="frame" x="25" y="241" width="270" height="55"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal">
@@ -1141,15 +1241,6 @@
                                     <action selector="loginOrRegister:" destination="Ovf-YZ-8Yf" eventType="touchUpInside" id="B0H-es-5t2"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="用户名" minimumFontSize="17" id="Bas-IH-6gV" userLabel="UserNameTextField">
-                                <rect key="frame" x="46" y="151" width="229" height="57"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Ovf-YZ-8Yf" id="L8B-s5-aya"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1417,8 +1508,12 @@
         <image name="homeTrack" width="60" height="64"/>
         <image name="message" width="32" height="32"/>
         <image name="next" width="40" height="40"/>
+        <image name="qq" width="400" height="300"/>
+        <image name="renren" width="240" height="240"/>
         <image name="scanner" width="40" height="40"/>
         <image name="shipNumber" width="570" height="194"/>
+        <image name="wechat" width="500" height="500"/>
+        <image name="weibo" width="119" height="119"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

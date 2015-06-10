@@ -32,6 +32,7 @@
     NSArray *menuItems;
     NSArray *imageNames;
     NSArray *vcNames;
+    UIImage *image;
 }
 
 - (void)dismissThisViewController;
@@ -53,12 +54,44 @@
     vcNames = @[@"findVC",@"MineVC",@"SettingsVC"];
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50*menuItems.count);
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"leftBG.png"] drawInRect:self.view.bounds];
+     image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     logoButton.imageView.layer.cornerRadius = 50;
     logoButton.imageView.clipsToBounds = YES;
-    nameLabel.text = @"coolboy";
+    [logoButton addTarget:self action:@selector(goLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self updateLabel];
+}
+
+- (void)updateLabel{
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
+    if(currentUser){
+        NSString *userName =  [currentUser valueForKey:@"userName"];
+        nameLabel.text = userName;
+    }
+    else{
+        nameLabel.text = @"未登录";
+    }
+}
+
+- (void)goLogin{
+   [self.sidebarController dismissSidebarViewController];
+    UINavigationController *contentNC = (UINavigationController *)self.sidebarController.contentViewController;
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
+    if(currentUser == nil){
+        [contentNC pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:NO];
+    }
+    else{
+        [contentNC pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"] animated:NO];
+    }
+
+    
+    
 }
 
 #pragma mark - Table view data source
@@ -82,6 +115,7 @@
     }
     cell.label.text = [menuItems objectAtIndex:indexPath.row];
     cell.leftimageView.image = [UIImage imageNamed:[imageNames objectAtIndex:indexPath.row]];
+    cell.backgroundColor =[UIColor colorWithPatternImage:image];
     return cell;
 }
 

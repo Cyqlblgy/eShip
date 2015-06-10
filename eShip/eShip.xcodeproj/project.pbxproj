@@ -36,6 +36,7 @@
 		2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADC1B2673BB004FA9D6 /* CRGradientNavigationBar.m */; };
 		2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */; };
 		2A1F2AE21B2688CE004FA9D6 /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */; };
+		2A1F2B0A1B27B57F004FA9D6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -158,6 +159,8 @@
 		2A1F2ADE1B2688CE004FA9D6 /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
 		2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
 		2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
+		2A1F2B081B27B57F004FA9D6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -534,6 +537,8 @@
 				2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */,
 				2A18F1BC1B21482C0034B76E /* CommentsViewController.h */,
 				2A18F1BD1B21482C0034B76E /* CommentsViewController.m */,
+				2A1F2B081B27B57F004FA9D6 /* LoginViewController.h */,
+				2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				2AE04ED41B0C2AE600AA9628 /* BLParams.m in Sources */,
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A18F1BE1B21482C0034B76E /* CommentsViewController.m in Sources */,
+				2A1F2B0A1B27B57F004FA9D6 /* LoginViewController.m in Sources */,
 				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */,

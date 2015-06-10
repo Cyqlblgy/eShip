@@ -28,4 +28,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *mytableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+-(void)updateLabel;
+
 @end

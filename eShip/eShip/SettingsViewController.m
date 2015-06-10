@@ -96,7 +96,6 @@
     if([segue.identifier isEqualToString:@"logID"]){
         if([loginButton.currentTitle isEqualToString:@"登陆"]){
             LoginAndRegisterViewController *vc = [segue destinationViewController];
-            vc.isLogin = YES;
         }
         else{
             //[self logOff];
@@ -106,7 +105,6 @@
     else if([segue.identifier isEqualToString:@"registerID"]){
         if([registerButton.currentTitle isEqualToString:@"注册"]){
             LoginAndRegisterViewController *vc = [segue destinationViewController];
-            vc.isLogin = NO;
         }
         else{
            // [self forgetPassword];

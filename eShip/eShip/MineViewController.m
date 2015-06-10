@@ -23,6 +23,12 @@
     imageNameArray = [[NSArray alloc] initWithObjects:@"taobao.png",@"tianmao.png",@"amazon.png",@"ebay.png",nil];
     self.navigationItem.title = @"我的";
     self.navigationItem.leftBarButtonItem = nil;
+    UIBarButtonItem *bButton = [[UIBarButtonItem alloc]initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = bButton;
+}
+
+- (void)goBack{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

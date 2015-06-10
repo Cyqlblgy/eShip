@@ -86,8 +86,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
-    self.navigationItem.title = @"eShip";
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:22.0],NSFontAttributeName, nil]];
+    self.navigationItem.title = @"驿站";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:22.0f],NSFontAttributeName, nil]];
     UIBarButtonItem *aButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(buttonTapped)];
     self.navigationItem.rightBarButtonItem = aButton;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeftSide)];

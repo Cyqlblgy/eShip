@@ -16,7 +16,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (nonatomic, assign) BOOL isLogin;
 - (IBAction)loginOrRegister:(id)sender;
 
 @end
