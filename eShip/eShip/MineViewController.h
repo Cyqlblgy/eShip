@@ -11,4 +11,8 @@
 @interface MineViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *mytableView;
+
+
+
+
 @end

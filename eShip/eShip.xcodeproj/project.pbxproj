@@ -37,6 +37,10 @@
 		2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */; };
 		2A1F2AE21B2688CE004FA9D6 /* LeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */; };
 		2A1F2B0A1B27B57F004FA9D6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */; };
+		2A1F2B341B28E225004FA9D6 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B321B28E225004FA9D6 /* MineTableViewCell.m */; };
+		2A1F2B351B28E225004FA9D6 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2B331B28E225004FA9D6 /* MineTableViewCell.xib */; };
+		2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */; };
+		2A1F2B3A1B28EDA0004FA9D6 /* MineNextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -161,6 +165,12 @@
 		2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftTableViewCell.xib; sourceTree = "<group>"; };
 		2A1F2B081B27B57F004FA9D6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2A1F2B311B28E225004FA9D6 /* MineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
+		2A1F2B321B28E225004FA9D6 /* MineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
+		2A1F2B331B28E225004FA9D6 /* MineTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineTableViewCell.xib; sourceTree = "<group>"; };
+		2A1F2B361B28EDA0004FA9D6 /* MineNextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNextTableViewCell.h; sourceTree = "<group>"; };
+		2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNextTableViewCell.m; sourceTree = "<group>"; };
+		2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineNextTableViewCell.xib; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -597,6 +607,12 @@
 				2A1F2ADE1B2688CE004FA9D6 /* LeftTableViewCell.h */,
 				2A1F2ADF1B2688CE004FA9D6 /* LeftTableViewCell.m */,
 				2A1F2AE01B2688CE004FA9D6 /* LeftTableViewCell.xib */,
+				2A1F2B311B28E225004FA9D6 /* MineTableViewCell.h */,
+				2A1F2B321B28E225004FA9D6 /* MineTableViewCell.m */,
+				2A1F2B331B28E225004FA9D6 /* MineTableViewCell.xib */,
+				2A1F2B361B28EDA0004FA9D6 /* MineNextTableViewCell.h */,
+				2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */,
+				2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -713,6 +729,7 @@
 			files = (
 				2AD299581B16ABC400823518 /* AddressList.plist in Resources */,
 				2AD2992B1B157EB500823518 /* animatedCar_2.png in Resources */,
+				2A1F2B351B28E225004FA9D6 /* MineTableViewCell.xib in Resources */,
 				2AD299341B157EB500823518 /* btn_021@2x.png in Resources */,
 				2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */,
 				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
@@ -721,6 +738,7 @@
 				2AD2991E1B157D3400823518 /* TSLocateView.xib in Resources */,
 				2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */,
 				2ACE032E1AFC47B90091BD9D /* Main.storyboard in Resources */,
+				2A1F2B3A1B28EDA0004FA9D6 /* MineNextTableViewCell.xib in Resources */,
 				2AD2992A1B157EB500823518 /* animatedCar_1.png in Resources */,
 				2AD299311B157EB500823518 /* btn_020@2x.png in Resources */,
 				2AD2992E1B157EB500823518 /* bg_023@2x.png in Resources */,
@@ -751,6 +769,7 @@
 			files = (
 				2A18F1AF1B213A670034B76E /* SidebarFeedlyAnimation.m in Sources */,
 				2A18F1AD1B213A670034B76E /* SidebarAnimation.m in Sources */,
+				2A1F2B341B28E225004FA9D6 /* MineTableViewCell.m in Sources */,
 				2ACE032B1AFC47B90091BD9D /* MapViewController.m in Sources */,
 				2A18F1B01B213A670034B76E /* SidebarFlipboardAnimation.m in Sources */,
 				2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */,
@@ -797,6 +816,7 @@
 				2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */,
 				2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
+				2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */,
 				2AD299141B155FC500823518 /* LogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

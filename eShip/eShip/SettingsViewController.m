@@ -18,7 +18,7 @@
 
 @implementation SettingsViewController
 
-@synthesize mytableView,currentLabel,registerButton,loginButton;
+@synthesize mytableView,currentLabel,loginButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,16 +28,25 @@
     self.navigationItem.leftBarButtonItem = nil;
     loginButton.backgroundColor = [UIColor lightGrayColor];
     loginButton.tag = 0;
-    registerButton.tag = 1;
-    registerButton.backgroundColor = [UIColor lightGrayColor];
+    loginButton.layer.cornerRadius = 5;
+    loginButton.layer.masksToBounds = YES;
     currentLabel.backgroundColor = [UIColor whiteColor];
     currentLabel.textColor = [UIColor lightGrayColor];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
+    UIBarButtonItem *bButton = [[UIBarButtonItem alloc]initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = bButton;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     [self updateLayout];
 }
+
+- (void)goBack{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -92,49 +101,49 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"logID"]){
-        if([loginButton.currentTitle isEqualToString:@"登陆"]){
-            LoginAndRegisterViewController *vc = [segue destinationViewController];
-        }
-        else{
-            //[self logOff];
-        }
-    
-    }
-    else if([segue.identifier isEqualToString:@"registerID"]){
-        if([registerButton.currentTitle isEqualToString:@"注册"]){
-            LoginAndRegisterViewController *vc = [segue destinationViewController];
-        }
-        else{
-           // [self forgetPassword];
-        }
-      
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if([segue.identifier isEqualToString:@"logID"]){
+//        if([loginButton.currentTitle isEqualToString:@"登陆"]){
+//            LoginAndRegisterViewController *vc = [segue destinationViewController];
+//        }
+//        else if([loginButton.currentTitle isEqualToString:@"注册"]){
+//            //[self logOff];
+//        }
+//    
+//    }
+//    else if([segue.identifier isEqualToString:@"registerID"]){
+//        if([registerButton.currentTitle isEqualToString:@"注册"]){
+//            LoginAndRegisterViewController *vc = [segue destinationViewController];
+//        }
+//        else{
+//           // [self forgetPassword];
+//        }
+//      
+//    }
+//}
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if([identifier isEqualToString:@"logID"]){
-        if([loginButton.currentTitle isEqualToString:@"登陆"]){
-            return YES;
-        }
-        else{
-            [self logOff];
-            [self updateLayout];
-            return NO;
-        }
-    }
-    else if([identifier isEqualToString:@"registerID"]){
-        if([registerButton.currentTitle isEqualToString:@"注册"]){
-            return YES;
-        }
-        else{
-            [self forgetPassword];
-            return NO;
-        }
-    }
-    return NO;
-}
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+//    if([identifier isEqualToString:@"logID"]){
+//        if([loginButton.currentTitle isEqualToString:@"登陆"]){
+//            return YES;
+//        }
+//        else{
+//            [self logOff];
+//            [self updateLayout];
+//            return NO;
+//        }
+//    }
+//    else if([identifier isEqualToString:@"registerID"]){
+//        if([registerButton.currentTitle isEqualToString:@"注册"]){
+//            return YES;
+//        }
+//        else{
+//            [self forgetPassword];
+//            return NO;
+//        }
+//    }
+//    return NO;
+//}
 
 
 #pragma Private methods
@@ -144,23 +153,26 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (void)forgetPassword{
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"commentcVC"] animated:YES];
-}
-
 - (void)updateLayout{
     NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
     if(currentUser == nil){
         [loginButton setTitle:@"登陆" forState:UIControlStateNormal];
-        [registerButton setTitle:@"注册" forState:UIControlStateNormal];
         currentLabel.text = @"当前无用户登录，请登录或者注册";
     }
     else{
         NSString *userName =  [currentUser valueForKey:@"userName"];
-        [loginButton setTitle:@"注销" forState:UIControlStateNormal];
-        [registerButton setTitle:@"忘记密码" forState:UIControlStateNormal];
+        [loginButton setTitle:@"退出当前账户" forState:UIControlStateNormal];
         currentLabel.text = [[NSString alloc] initWithFormat:@"当前登录用户 ：%@", userName];;
     }
 }
 
+- (IBAction)logAction:(id)sender {
+    if([loginButton.currentTitle isEqualToString:@"登陆"]){
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+    }
+    else if([loginButton.currentTitle isEqualToString:@"退出当前账户"]){
+        [self logOff];
+    }
+    [self updateLayout];
+}
 @end

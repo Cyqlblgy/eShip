@@ -79,7 +79,7 @@
 }
 
 - (void)goBack{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)goRegister{
@@ -92,6 +92,7 @@
 }
 
 - (IBAction)login:(id)sender {
+    [self.view endEditing:YES];
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     unTextField.text, @"user_name",
                                     pwTextField.text, @"password",

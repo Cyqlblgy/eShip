@@ -15,12 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *shipNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *carrierTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
-@property (weak, nonatomic) IBOutlet UIButton *getListButton;
-@property (weak, nonatomic) IBOutlet UIButton *scanButton;
-
-- (IBAction)scanNumber:(id)sender;
-
-- (IBAction)getCarrierList:(id)sender;
 
 - (IBAction)startTracking:(id)sender;
 

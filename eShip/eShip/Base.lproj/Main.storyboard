@@ -43,36 +43,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipNumber" id="0Ha-ce-HiQ" userLabel="shipNumberImage">
-                                <rect key="frame" x="33" y="116" width="60" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="输入运单号码" textAlignment="center" minimumFontSize="17" id="rK5-Gw-1iv" userLabel="shipNumberTextfield">
-                                <rect key="frame" x="101" y="116" width="138" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入运单号码" textAlignment="center" minimumFontSize="17" id="rK5-Gw-1iv" userLabel="shipNumberTextfield">
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="wdc-5q-Lba" id="2Kl-3a-Wvr"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="选择快递公司" textAlignment="center" minimumFontSize="17" id="q6Q-hy-y1q" userLabel="carrierTextField">
-                                <rect key="frame" x="101" y="177" width="138" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择快递公司" textAlignment="center" minimumFontSize="17" id="q6Q-hy-y1q" userLabel="carrierTextField">
+                                <rect key="frame" x="0.0" y="94" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="wdc-5q-Lba" id="5Bl-WV-1u7"/>
                                 </connections>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrier" id="fNl-LC-X9b" userLabel="carrierImage">
-                                <rect key="frame" x="33" y="177" width="60" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sB4-Y2-DI8" userLabel="searchButton">
-                                <rect key="frame" x="33" y="259" width="254" height="48"/>
+                                <rect key="frame" x="33" y="171" width="254" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.16078431900000001" green="0.8980392814" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="查询">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,35 +75,12 @@
                                     <segue destination="5rp-Qu-BFL" kind="push" identifier="trackIdentifier" id="0fA-li-ng4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Yk-K9-iLM" userLabel="getListButton">
-                                <rect key="frame" x="250" y="177" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="next">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCarrierList:" destination="wdc-5q-Lba" eventType="touchUpInside" id="rHv-RX-yJd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="la4-67-hYS" userLabel="scanButton">
-                                <rect key="frame" x="250" y="116" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <state key="normal" image="scanner">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="scanNumber:" destination="wdc-5q-Lba" eventType="touchUpInside" id="yNe-P6-6EU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Q1-F3-8m0"/>
                     <connections>
                         <outlet property="carrierTextField" destination="q6Q-hy-y1q" id="DqK-lc-FcT"/>
-                        <outlet property="getListButton" destination="9Yk-K9-iLM" id="KRo-pA-7Vc"/>
-                        <outlet property="scanButton" destination="la4-67-hYS" id="Ljj-Qm-FC4"/>
                         <outlet property="searchButton" destination="sB4-Y2-DI8" id="apz-KT-MXU"/>
                         <outlet property="shipNumberTextField" destination="rK5-Gw-1iv" id="Ufu-Ov-p5n"/>
                     </connections>
@@ -129,32 +98,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="agI-fe-FT2">
-                                <rect key="frame" x="0.0" y="65" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FFm-Qb-g6k" userLabel="carrierAndNumberLabel">
+                                        <rect key="frame" x="5" y="17" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYI-5u-VeX" userLabel="shipDateLabel">
-                                        <rect key="frame" x="85" y="40" width="150" height="21"/>
+                                        <rect key="frame" x="5" y="52" width="150" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRt-LK-hGm" userLabel="deliverDateLabel">
-                                        <rect key="frame" x="85" y="70" width="150" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <rect key="frame" x="163" y="52" width="150" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LiF-fy-vEd" userLabel="statusLabel">
-                                        <rect key="frame" x="85" y="100" width="150" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FFm-Qb-g6k" userLabel="carrierAndNumberLabel">
-                                        <rect key="frame" x="85" y="10" width="150" height="21"/>
+                                        <rect key="frame" x="162" y="17" width="150" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,7 +133,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mpY-eA-jB0">
-                                <rect key="frame" x="0.0" y="205" width="320" height="314"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="484"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
@@ -239,8 +208,15 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jak-yu-meW">
-                                <rect key="frame" x="68" y="176" width="67" height="21"/>
+                                <rect key="frame" x="58" y="176" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eShip V1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wiV-ZD-nlA">
+                                <rect key="frame" x="47" y="535" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1076,10 +1052,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="OnQ-c8-iHa">
-                                <rect key="frame" x="5" y="10" width="310" height="550"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="OnQ-c8-iHa">
+                                <rect key="frame" x="2" y="0.0" width="316" height="550"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="fxn-Ga-n2A" id="urp-mg-PZj"/>
                                     <outlet property="delegate" destination="fxn-Ga-n2A" id="LF3-6K-VIH"/>
@@ -1106,7 +1082,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="FIV-4q-Zr0">
-                                <rect key="frame" x="5" y="5" width="310" height="420"/>
+                                <rect key="frame" x="5" y="5" width="310" height="380"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1125,7 +1101,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="xQQ-ps-bpj">
-                                <rect key="frame" x="0.0" y="420" width="320" height="100"/>
+                                <rect key="frame" x="-5" y="393" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="afz-ch-GhM" userLabel="currentLabel">
@@ -1135,8 +1111,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="usJ-2j-LH6" userLabel="loginButton">
-                                        <rect key="frame" x="15" y="0.0" width="87" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="usJ-2j-LH6" userLabel="logButton">
+                                        <rect key="frame" x="18" y="0.0" width="285" height="45"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal">
@@ -1144,19 +1120,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ovf-YZ-8Yf" kind="push" identifier="logID" id="eOm-Hn-t2D"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CSX-ZO-x1e" userLabel="registerButton">
-                                        <rect key="frame" x="205" y="0.0" width="100" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Ovf-YZ-8Yf" kind="push" identifier="registerID" id="agr-sh-bga"/>
+                                            <action selector="logAction:" destination="0vm-Ic-Zd7" eventType="touchUpInside" id="A6i-0v-OLK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1170,7 +1134,6 @@
                         <outlet property="currentLabel" destination="afz-ch-GhM" id="J1j-1h-Ycy"/>
                         <outlet property="loginButton" destination="usJ-2j-LH6" id="Zkm-rb-Qil"/>
                         <outlet property="mytableView" destination="FIV-4q-Zr0" id="jFN-t5-4O8"/>
-                        <outlet property="registerButton" destination="CSX-ZO-x1e" id="NHh-Cj-zGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9w-pf-1c7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1288,9 +1251,6 @@
                                         <state key="normal" image="homeTrack">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="wdc-5q-Lba" kind="push" id="Yve-l8-Idq"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快件追踪" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OgZ-5K-2X4">
                                         <rect key="frame" x="38" y="81" width="100" height="21"/>
@@ -1488,7 +1448,6 @@
         <image name="Logo" width="100" height="100"/>
         <image name="Mine" width="1024" height="1024"/>
         <image name="Settings" width="32" height="32"/>
-        <image name="carrier" width="128" height="74"/>
         <image name="home" width="32" height="32"/>
         <image name="homeBackground" width="408" height="303"/>
         <image name="homeCheck" width="60" height="60"/>
@@ -1496,11 +1455,8 @@
         <image name="homeShip" width="60" height="60"/>
         <image name="homeTrack" width="60" height="64"/>
         <image name="message" width="32" height="32"/>
-        <image name="next" width="40" height="40"/>
         <image name="qq" width="400" height="300"/>
         <image name="renren" width="240" height="240"/>
-        <image name="scanner" width="40" height="40"/>
-        <image name="shipNumber" width="570" height="194"/>
         <image name="wechat" width="500" height="500"/>
         <image name="weibo" width="119" height="119"/>
     </resources>
@@ -1510,7 +1466,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eOm-Hn-t2D"/>
         <segue reference="nee-hG-zX9"/>
     </inferredMetricsTieBreakers>
 </document>

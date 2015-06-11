@@ -14,8 +14,11 @@
    self = [super initWithFrame:frame];
     [self setParams:params];
     [self addLabels];
-    self.layer.borderColor = [UIColor greenColor].CGColor;
+    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.layer.borderWidth = 3.5f;
+    self.layer.cornerRadius = 5;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor lightGrayColor];
    return  self;
 }
 
