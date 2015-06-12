@@ -27,7 +27,7 @@
     WYTableViewViewController *destinationTableController;
     WYTableViewViewController *itemtypeTableController;
     NSArray *rateResults;
-   // UIButton *button,*button1,*button2;
+    NSString *usrnm,*pswd;
 }
 
 @end
@@ -38,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"运费查询";
+    self.navigationItem.title = @"预约寄件";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [originalButton setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
@@ -71,7 +71,7 @@
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
-    label2.text = @"物品";
+    label2.text = @"包裹信息";
     [view2 addSubview:label2];
     itemTypeTextField.leftView = view2;
     itemTypeTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -120,6 +120,29 @@
         itemTypeTextField.text = [[NSString alloc] initWithFormat:@"%@*%@*%@ %@",[rateObject.size objectForKey:@"length"],[rateObject.size objectForKey:@"width"],[rateObject.size objectForKey:@"height"], [rateObject.size objectForKey:@"unit"]];
     }
     searchButton.enabled = rateObject.size && rateObject.originalAddress && rateObject.destinationAddress;
+    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
+    if(currentUser){
+        usrnm =  [currentUser valueForKey:@"userName"];
+        pswd = [currentUser valueForKey:@"passWord"];
+    }
+    else{
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"未登录"
+                                      message:@"请先登录再进行查询"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction *action){
+                                 [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+                             }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    rateResults = nil;
 }
 
 - (void)goBack{
@@ -127,7 +150,8 @@
 }
 
 - (IBAction)SearchPrice:(id)sender {
-    NSData *plainData = [@"zhouhao:950288" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authStr = [[NSString alloc] initWithFormat:@"%@:%@",usrnm,pswd];
+    NSData *plainData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64String = [plainData base64EncodedStringWithOptions:0];
     NSString *x = [[NSString alloc] initWithFormat:@"Basic %@",base64String];
 //    NSArray *streetLines1 = [[NSArray alloc] initWithObjects:@"东川路800号", nil];
@@ -174,7 +198,6 @@
     NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     originalAddress1,@"senderAddress",
                                     destinyAddress1,@"recipientAddress",
-                                  //  receiverAddress,@"recipientAddress",
                                     rateObject.size,@"size",
                                     rateObject.weight,@"weight",
                                     rateObject.value,@"value",

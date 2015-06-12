@@ -19,5 +19,6 @@
 @property (nonatomic, assign) BOOL isOriginal;
 @property (weak, nonatomic) BLRateObject *rateObject;
 - (IBAction)saveAddress:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end

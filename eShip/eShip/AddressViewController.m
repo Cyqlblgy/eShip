@@ -18,7 +18,7 @@
 @end
 
 @implementation AddressViewController
-@synthesize stateTextField,countryTextField,cityTextField,addressTextFiedl1,addressTextField2,zipCodeTextField,isOriginal,rateObject;
+@synthesize stateTextField,countryTextField,cityTextField,addressTextFiedl1,addressTextField2,zipCodeTextField,isOriginal,rateObject,confirmButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +32,8 @@
     countryTextField.tag = 3;
     stateTextField.tag = 4;
     cityTextField.tag = 5;
+    confirmButton.layer.cornerRadius = 5;
+    confirmButton.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{

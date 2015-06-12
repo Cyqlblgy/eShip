@@ -42,7 +42,7 @@
     passwordTextField.tag = 1;
     loginButton.backgroundColor = [UIColor lightGrayColor];
     
-    UIImage *emailImage = [UIImage imageNamed:@"userName"];
+    UIImage *emailImage = [UIImage imageNamed:@"email"];
     UIView *leftViewForEmail = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, emailImage.size.height)];
     UIImageView *imageViewForEmail = [[UIImageView alloc] initWithFrame:CGRectMake(60,0,emailImage.size.width, emailImage.size.height)];
     [imageViewForEmail setCenter:leftViewForEmail.center];
@@ -52,7 +52,7 @@
     emailTextField.leftViewMode = UITextFieldViewModeAlways;
     emailTextField.tag = 2;
     
-    UIImage *phoneImage = [UIImage imageNamed:@"passWord"];
+    UIImage *phoneImage = [UIImage imageNamed:@"phone"];
     UIView *leftViewForPhene = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, phoneImage.size.height)];
     UIImageView *imageViewForPhone = [[UIImageView alloc] initWithFrame:CGRectMake(60,0,phoneImage.size.width, phoneImage.size.height)];
     [imageViewForPhone setCenter:leftViewForPhene.center];

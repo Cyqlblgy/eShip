@@ -10,17 +10,29 @@
 #import "ShipTableViewCell.h"
 #import "ContactViewController.h"
 
-@interface RateResultViewController ()
+@interface RateResultViewController (){
+    int counter;
+    NSMutableArray *realInfo;
+}
 
 @end
 
 @implementation RateResultViewController
 
-@synthesize shipInfo,rateObject;
+@synthesize shipInfo,rateObject,mytableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    realInfo = [[NSMutableArray alloc] init];
+    for(int i = 0; i<shipInfo.count; i++){
+        NSDictionary *info = [shipInfo objectAtIndex:i];
+        if(![[info valueForKey:@"carrier"] isKindOfClass:[NSNull class]] && ![[info valueForKey:@"rate"] isKindOfClass:[NSNull class]] && ![[info valueForKey:@"transitDays"] isKindOfClass:[NSNull class]]){
+            [realInfo addObject:info];
+        }
+    }
     self.navigationItem.title = @"查询结果";
+    CGRect frame = mytableView.frame;
+    mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 100*(realInfo.count+1));
     // Do any additional setup after loading the view.
 }
 
@@ -34,7 +46,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return shipInfo.count;
+    return realInfo.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,7 +58,7 @@
     if (cell == nil) {
         cell = (ShipTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"ShipTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
-    NSDictionary *textDic = [shipInfo objectAtIndex:indexPath.row];
+    NSDictionary *textDic = [realInfo objectAtIndex:indexPath.row];
     int time = [[textDic valueForKey:@"transitDays"] intValue];
     NSString *carrier = [textDic valueForKey:@"carrier"];
     NSDictionary *costDic = [textDic valueForKey:@"rate"];

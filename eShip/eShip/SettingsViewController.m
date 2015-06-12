@@ -168,7 +168,8 @@
 
 - (IBAction)logAction:(id)sender {
     if([loginButton.currentTitle isEqualToString:@"登陆"]){
-        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"commentcVC"] animated:YES];
+       // [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
     }
     else if([loginButton.currentTitle isEqualToString:@"退出当前账户"]){
         [self logOff];

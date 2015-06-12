@@ -10,7 +10,9 @@
 #import "BLNetwork.h"
 #import "BLParams.h"
 
-@interface CommentsViewController ()<UIDocumentInteractionControllerDelegate>
+@interface CommentsViewController ()<UIDocumentInteractionControllerDelegate>{
+    BOOL isShown;
+}
 
 @end
 
@@ -18,7 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isShown = NO;
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if(isShown){
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,8 +65,10 @@
             NSURL *URL = [NSURL fileURLWithPath:newFilePath];
             
             if (URL) {
+                isShown = YES;
                 // Initialize Document Interaction Controller
-                 UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+                UIDocumentInteractionController *documentInteractionController = [[UIDocumentInteractionController alloc] init];
+                documentInteractionController.URL = URL;
                 
                 // Configure Document Interaction Controller
                 [documentInteractionController setDelegate:self];
@@ -70,6 +81,7 @@
 }
 
 - (UIViewController *) documentInteractionControllerViewControllerForPreview: (UIDocumentInteractionController *) controller {
-    return self;
+    return self.navigationController;
 }
+
 @end

@@ -10,7 +10,7 @@
 #import "BLRateObject.h"
 
 @interface RateResultViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *mytableView;
 @property (strong, nonatomic) NSArray *shipInfo;
 @property (nonatomic, strong) BLRateObject *rateObject;
 @end
