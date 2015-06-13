@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
 		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
-		2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D61B0ADEB200F26262 /* BLBase64.m */; };
 		2A18F1AC1B213A670034B76E /* SidebarAirbnbAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */; };
 		2A18F1AD1B213A670034B76E /* SidebarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19F1B213A670034B76E /* SidebarAnimation.m */; };
 		2A18F1AE1B213A670034B76E /* SidebarFacebookAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A11B213A670034B76E /* SidebarFacebookAnimation.m */; };
@@ -42,6 +41,7 @@
 		2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */; };
 		2A1F2B3A1B28EDA0004FA9D6 /* MineNextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */; };
 		2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */; };
+		2A1F2BA21B2C9E2E004FA9D6 /* BLUPSShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -88,7 +88,7 @@
 		2AD299831B1C070B00823518 /* ShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD299811B1C070B00823518 /* ShipTableViewCell.xib */; };
 		2AD299861B1C07E800823518 /* RateResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD299851B1C07E800823518 /* RateResultViewController.m */; };
 		2AD75FFA1B1D4E6C00948EF1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FF91B1D4E6C00948EF1 /* ContactViewController.m */; };
-		2AD75FFD1B1D521400948EF1 /* BLShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FFC1B1D521400948EF1 /* BLShipObject.m */; };
+		2AD75FFD1B1D521400948EF1 /* BLFedexShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FFC1B1D521400948EF1 /* BLFedexShipObject.m */; };
 		2AD760001B1D57D400948EF1 /* ShipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD75FFF1B1D57D400948EF1 /* ShipViewController.m */; };
 		2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE04ECD1B0C28DB00AA9628 /* BLNetwork.m */; };
 		2AE04ED01B0C2A7200AA9628 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE04ECF1B0C2A7200AA9628 /* CFNetwork.framework */; };
@@ -119,8 +119,6 @@
 /* Begin PBXFileReference section */
 		2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eShipModel.xcdatamodel; sourceTree = "<group>"; };
-		2A0AB2D51B0ADEB200F26262 /* BLBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBase64.h; sourceTree = "<group>"; };
-		2A0AB2D61B0ADEB200F26262 /* BLBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBase64.m; sourceTree = "<group>"; };
 		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		2A18F19C1B213A670034B76E /* SidebarAirbnbAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAirbnbAnimation.h; sourceTree = "<group>"; };
 		2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAirbnbAnimation.m; sourceTree = "<group>"; };
@@ -174,6 +172,8 @@
 		2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineNextTableViewCell.xib; sourceTree = "<group>"; };
 		2A1F2B9D1B2C8E05004FA9D6 /* FileDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDisplayViewController.h; sourceTree = "<group>"; };
 		2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDisplayViewController.m; sourceTree = "<group>"; };
+		2A1F2BA01B2C9E2E004FA9D6 /* BLUPSShipObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUPSShipObject.h; sourceTree = "<group>"; };
+		2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUPSShipObject.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,8 +245,8 @@
 		2AD299851B1C07E800823518 /* RateResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateResultViewController.m; sourceTree = "<group>"; };
 		2AD75FF81B1D4E6C00948EF1 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		2AD75FF91B1D4E6C00948EF1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		2AD75FFB1B1D521400948EF1 /* BLShipObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLShipObject.h; sourceTree = "<group>"; };
-		2AD75FFC1B1D521400948EF1 /* BLShipObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLShipObject.m; sourceTree = "<group>"; };
+		2AD75FFB1B1D521400948EF1 /* BLFedexShipObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLFedexShipObject.h; sourceTree = "<group>"; };
+		2AD75FFC1B1D521400948EF1 /* BLFedexShipObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLFedexShipObject.m; sourceTree = "<group>"; };
 		2AD75FFE1B1D57D400948EF1 /* ShipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipViewController.h; sourceTree = "<group>"; };
 		2AD75FFF1B1D57D400948EF1 /* ShipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipViewController.m; sourceTree = "<group>"; };
 		2AE04ECC1B0C28DB00AA9628 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
@@ -318,15 +318,6 @@
 				2AE04F071B0EBF4300AA9628 /* BLCoreData.m */,
 			);
 			name = CoreData;
-			sourceTree = "<group>";
-		};
-		2A0AB2D41B0ADE6100F26262 /* Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				2A0AB2D51B0ADEB200F26262 /* BLBase64.h */,
-				2A0AB2D61B0ADEB200F26262 /* BLBase64.m */,
-			);
-			name = Base64;
 			sourceTree = "<group>";
 		};
 		2A18F19A1B213A670034B76E /* TheSidebarController */ = {
@@ -438,7 +429,6 @@
 				2AE04F251B111EC900AA9628 /* ViewModel */,
 				2AE04EE31B0D845B00AA9628 /* SVProgressHUD */,
 				2AE04ED11B0C2A9800AA9628 /* Params */,
-				2A0AB2D41B0ADE6100F26262 /* Base64 */,
 				2A0AB2D31B0AD62400F26262 /* CoreData */,
 				2A1BF9ED1B059AC1003549D7 /* Assets */,
 				2A1BF9E91B059862003549D7 /* MAMapCustomize */,
@@ -597,8 +587,10 @@
 				2AD2995B1B16B66800823518 /* BLRateObject.m */,
 				2AD2997B1B1BEF1700823518 /* BLAddressObject.h */,
 				2AD2997C1B1BEF1700823518 /* BLAddressObject.m */,
-				2AD75FFB1B1D521400948EF1 /* BLShipObject.h */,
-				2AD75FFC1B1D521400948EF1 /* BLShipObject.m */,
+				2AD75FFB1B1D521400948EF1 /* BLFedexShipObject.h */,
+				2AD75FFC1B1D521400948EF1 /* BLFedexShipObject.m */,
+				2A1F2BA01B2C9E2E004FA9D6 /* BLUPSShipObject.h */,
+				2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */,
 			);
 			name = BLObjects;
 			sourceTree = "<group>";
@@ -785,6 +777,7 @@
 				2ACE039F1B000E100091BD9D /* WYStoryboardPopoverSegue.m in Sources */,
 				2A18F1BE1B21482C0034B76E /* CommentsViewController.m in Sources */,
 				2A1F2B0A1B27B57F004FA9D6 /* LoginViewController.m in Sources */,
+				2A1F2BA21B2C9E2E004FA9D6 /* BLUPSShipObject.m in Sources */,
 				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */,
@@ -797,10 +790,9 @@
 				2A1BF9F81B059BBA003549D7 /* MACustomizedAnnotationView.m in Sources */,
 				2ACE03A21B0010340091BD9D /* WYTableViewViewController.m in Sources */,
 				2ACE03A91B0054F20091BD9D /* HomeViewController.m in Sources */,
-				2AD75FFD1B1D521400948EF1 /* BLShipObject.m in Sources */,
+				2AD75FFD1B1D521400948EF1 /* BLFedexShipObject.m in Sources */,
 				2A18F1B31B213A670034B76E /* TheSidebarController.m in Sources */,
 				2AD298C41B126BC800823518 /* LoginAndRegisterViewController.m in Sources */,
-				2A0AB2D71B0ADEB200F26262 /* BLBase64.m in Sources */,
 				2AD75FFA1B1D4E6C00948EF1 /* ContactViewController.m in Sources */,
 				2AD2995F1B16BF9400823518 /* ItemViewController.m in Sources */,
 				2AD760001B1D57D400948EF1 /* ShipViewController.m in Sources */,

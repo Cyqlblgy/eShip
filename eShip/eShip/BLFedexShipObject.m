@@ -1,20 +1,20 @@
 //
-//  BLShipObject.m
+//  BLFedexShipObject.m
 //  eShip
 //
 //  Created by Bin Lang on 6/1/15.
 //  Copyright (c) 2015 eShip. All rights reserved.
 //
 
-#import "BLShipObject.h"
+#import "BLFedexShipObject.h"
 
-@implementation BLShipObject
+@implementation BLFedexShipObject
 
-+ (BLShipObject *)sharedInstance {
-    static BLShipObject *_obj = nil;
++ (BLFedexShipObject *)sharedInstance {
+    static BLFedexShipObject *_obj = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _obj = [[BLShipObject alloc] init];
+        _obj = [[BLFedexShipObject alloc] init];
     });
     return _obj;
 }

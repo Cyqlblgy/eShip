@@ -125,6 +125,7 @@
     UINavigationController *contentNC = (UINavigationController *)self.sidebarController.contentViewController;
     [contentNC pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:[vcNames objectAtIndex:indexPath.row-1]] animated:NO];
     }
+    [mytableView deselectRowAtIndexPath:indexPath animated:NO];
  //   [self.sidebarController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"findVC"]];
 }
 

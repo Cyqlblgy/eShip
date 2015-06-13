@@ -8,20 +8,27 @@
 
 #import "ContactViewController.h"
 #import "CommoditiesViewController.h"
+#import "BLParams.h"
 
 @interface ContactViewController ()
 
 @end
 
 @implementation ContactViewController
-@synthesize senderName,senderPhone,senderEmail,recipentName,recipentPhone,recipentEmail,shipObject,rateObject;
+@synthesize senderName,senderPhone,senderEmail,recipentName,recipentPhone,recipentEmail,shipObject,rateObject,upsShipObject,shipCarrier;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"收/寄件人信息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(goNext)];
-    shipObject = [BLShipObject sharedInstance];
-    [shipObject setWithRateObject:rateObject];
+    shipObject = [BLFedexShipObject sharedInstance];
+    upsShipObject = [BLUPSShipObject sharedInstance];
+    if([shipCarrier isEqualToString:BLParameters.ShipFedex]){
+        [shipObject setWithRateObject:rateObject];
+    }
+    else{
+        [upsShipObject setWithRateObject:rateObject];
+    }
     senderName.tag = 0;
     senderPhone.tag = 1;
     senderEmail.tag = 2;
@@ -47,9 +54,16 @@
                               recipentPhone.text,@"phoneNumber",
                               recipentEmail.text, @"emailAddress",
                               nil];
-    [shipObject setSender:contact1 andReceiver:contact2];
+    if([shipCarrier isEqualToString:BLParameters.ShipFedex]){
+        [shipObject setSender:contact1 andReceiver:contact2];
+    }
+    else{
+        [upsShipObject setSender:contact1 andReceiver:contact2];
+    }
     CommoditiesViewController *commodityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"commodityVC"];
     commodityVC.shipObject = shipObject;
+    commodityVC.upsShipObject = upsShipObject;
+    commodityVC.shipCarrier = shipCarrier;
     [self.navigationController pushViewController:commodityVC animated:YES];
    //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"shipVC"] animated:YES];
 }

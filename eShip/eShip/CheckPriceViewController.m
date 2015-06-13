@@ -12,7 +12,6 @@
 #import "BLNetwork.h"
 #import "BLParams.h"
 #import "BLCoreData.h"
-#import "BLBase64.h"
 #import "TSLocateView.h"
 #import "AddressViewController.h"
 #import "ItemViewController.h"

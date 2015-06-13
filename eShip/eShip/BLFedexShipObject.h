@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BLRateObject.h"
 
-@interface BLShipObject : NSObject
+@interface BLFedexShipObject : NSObject
 
 @property (nonatomic, strong) NSDictionary *senderAddress;
 
@@ -34,7 +34,7 @@
 @property (nonatomic, strong) NSArray *packageLineitems;
 
 
-+ (BLShipObject *)sharedInstance;
++ (BLFedexShipObject *)sharedInstance;
 
 - (void)setWithRateObject:(BLRateObject *)rateObject;
 

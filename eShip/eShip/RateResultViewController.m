@@ -73,6 +73,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ContactViewController *contactVC = [self.storyboard instantiateViewControllerWithIdentifier:@"contactVC"];
     contactVC.rateObject = rateObject;
+    NSDictionary *textDic = [realInfo objectAtIndex:indexPath.row];
+    contactVC.shipCarrier = [textDic valueForKey:@"carrier"];
     [self.navigationController pushViewController:contactVC animated:YES];
 }
 

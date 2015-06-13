@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BLShipObject.h"
+#import "BLFedexShipObject.h"
 #import "BLRateObject.h"
+#import "BLUPSShipObject.h"
 
 @interface ContactViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic, strong) BLShipObject *shipObject;
+@property (nonatomic, strong) BLFedexShipObject *shipObject;
+@property (nonatomic, strong) BLUPSShipObject *upsShipObject;
 @property (nonatomic, strong) BLRateObject *rateObject;
+@property (nonatomic, strong) NSString *shipCarrier;
 @property (weak, nonatomic) IBOutlet UITextField *senderName;
 @property (weak, nonatomic) IBOutlet UITextField *senderPhone;
 @property (weak, nonatomic) IBOutlet UITextField *senderEmail;

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BLShipObject.h"
+#import "BLFedexShipObject.h"
+#import "BLUPSShipObject.h"
 
 @interface CommoditiesViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
 
-@property (nonatomic, strong) BLShipObject *shipObject;
+@property (nonatomic, strong) BLFedexShipObject *shipObject;
+@property (nonatomic, strong) BLUPSShipObject *upsShipObject;
+@property (nonatomic, strong) NSString *shipCarrier;
 @property (weak, nonatomic) IBOutlet UITextField *itemCountry;
 @property (weak, nonatomic) IBOutlet UITextField *itemQuantity;
 @property (weak, nonatomic) IBOutlet UITextView *itemDescription;

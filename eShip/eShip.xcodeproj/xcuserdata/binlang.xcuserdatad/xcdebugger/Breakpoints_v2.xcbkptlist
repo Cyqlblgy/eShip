@@ -9,38 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "eShip/BLBase64.m"
-            timestampString = "454388247.920283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "+textFromBase64String:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "eShip/CheckPriceViewController.m"
-            timestampString = "455767416.910459"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "-SearchPrice:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "eShip/ShipViewController.m"
             timestampString = "454992332.835289"
             startingColumnNumber = "9223372036854775807"
@@ -58,7 +26,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "455906834.291067"
+                  timestampString = "455913784.259909"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -73,7 +41,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "455906834.291243"
+                  timestampString = "455913784.260091"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -122,7 +90,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "455906834.301685"
+                  timestampString = "455913784.29228"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -137,7 +105,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "455906834.301837"
+                  timestampString = "455913784.292464"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -160,6 +128,38 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "-getLabel:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "eShip/CommoditiesViewController.m"
+            timestampString = "455912139.703029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-goShip"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "eShip/CommoditiesViewController.m"
+            timestampString = "455912350.072331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-goShip"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
