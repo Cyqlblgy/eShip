@@ -26,7 +26,7 @@
     hintArray = [[NSArray alloc] initWithObjects:@"寄件人地址/收件人地址/默认地址",@"常用快递公司/默认快递公司",@"标签格式/标签文字/条形码",@"选择默认打印机",@"信用卡/支付宝/贝宝", nil];
     self.navigationItem.title = @"设置";
     self.navigationItem.leftBarButtonItem = nil;
-    loginButton.backgroundColor = [UIColor lightGrayColor];
+    loginButton.backgroundColor = [UIColor redColor];
     loginButton.tag = 0;
     loginButton.layer.cornerRadius = 5;
     loginButton.layer.masksToBounds = YES;

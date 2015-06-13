@@ -1102,8 +1102,8 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="xQQ-ps-bpj">
-                                <rect key="frame" x="-5" y="393" width="320" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="380" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="afz-ch-GhM" userLabel="currentLabel">
                                         <rect key="frame" x="0.0" y="60" width="320" height="30"/>
@@ -1114,7 +1114,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="usJ-2j-LH6" userLabel="logButton">
                                         <rect key="frame" x="18" y="0.0" width="285" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1398,13 +1398,54 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0vm-Ic-Zd7" kind="relationship" relationship="rootViewController" id="dtV-iT-E0i"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9Q-Q0-CiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1226" y="-203"/>
+        </scene>
+        <!--File Display View Controller-->
+        <scene sceneID="mYr-0I-nNF">
+            <objects>
+                <viewController storyboardIdentifier="fileVC" id="dIL-Sw-Rq2" customClass="FileDisplayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3aB-PT-dmF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aYB-bW-4Sw">
+                                <rect key="frame" x="37" y="38" width="246" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" red="0.16078431900000001" green="0.8980392814" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="快递单">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getLabel:" destination="dIL-Sw-Rq2" eventType="touchUpInside" id="VOc-Za-MqR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RpO-Wf-kbv">
+                                <rect key="frame" x="37" y="114" width="246" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16078431900000001" green="0.8980392814" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="报关文件">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCustomFile:" destination="dIL-Sw-Rq2" eventType="touchUpInside" id="Jbq-gd-ylU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="customButton" destination="RpO-Wf-kbv" id="aE3-y0-bl4"/>
+                        <outlet property="labelButton" destination="aYB-bW-4Sw" id="JGO-gr-JZ7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B44-bF-wNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1739" y="-138"/>
         </scene>
         <!--我的-->
         <scene sceneID="XTd-t6-ek1">

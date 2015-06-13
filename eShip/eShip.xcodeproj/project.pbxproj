@@ -41,6 +41,7 @@
 		2A1F2B351B28E225004FA9D6 /* MineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2B331B28E225004FA9D6 /* MineTableViewCell.xib */; };
 		2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */; };
 		2A1F2B3A1B28EDA0004FA9D6 /* MineNextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */; };
+		2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -171,6 +172,8 @@
 		2A1F2B361B28EDA0004FA9D6 /* MineNextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineNextTableViewCell.h; sourceTree = "<group>"; };
 		2A1F2B371B28EDA0004FA9D6 /* MineNextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineNextTableViewCell.m; sourceTree = "<group>"; };
 		2A1F2B381B28EDA0004FA9D6 /* MineNextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineNextTableViewCell.xib; sourceTree = "<group>"; };
+		2A1F2B9D1B2C8E05004FA9D6 /* FileDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDisplayViewController.h; sourceTree = "<group>"; };
+		2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDisplayViewController.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -549,6 +552,8 @@
 				2A18F1BD1B21482C0034B76E /* CommentsViewController.m */,
 				2A1F2B081B27B57F004FA9D6 /* LoginViewController.h */,
 				2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */,
+				2A1F2B9D1B2C8E05004FA9D6 /* FileDisplayViewController.h */,
+				2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				2A1F2B0A1B27B57F004FA9D6 /* LoginViewController.m in Sources */,
 				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
+				2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */,
 				2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */,
 				2ACE03A61B001A880091BD9D /* CheckPriceViewController.m in Sources */,
 				2ACE034D1AFC53BF0091BD9D /* FindViewController.m in Sources */,

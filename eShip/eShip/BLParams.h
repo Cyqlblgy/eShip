@@ -31,6 +31,14 @@ typedef enum {
     BLNetworkShipSuccess = 200,
 } BLNetworkShipResponseCode;
 
+typedef enum {
+    BLNetworkGetLabelSuccess = 200,
+} BLNetworkGetLabelResponseCode;
+
+typedef enum {
+    BLNetworkGetCustomFileSuccess = 200,
+} BLNetworkGetCustomFileResponseCode;
+
 struct BLParamsStruct
 {
     __unsafe_unretained NSString * const NetworkHttpMethodPost;
@@ -41,6 +49,7 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkRate;
     __unsafe_unretained NSString * const NetworkShip;
     __unsafe_unretained NSString * const NetworkGetLabel;
+    __unsafe_unretained NSString * const NetworkGetCustomFile;
 };
 
 extern const struct BLParamsStruct BLParameters;

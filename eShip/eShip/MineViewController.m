@@ -31,6 +31,7 @@
     self.navigationItem.leftBarButtonItem = nil;
     UIBarButtonItem *bButton = [[UIBarButtonItem alloc]initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = bButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, self.view.frame.size.height);
 }

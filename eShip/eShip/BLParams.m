@@ -17,6 +17,7 @@ const struct BLParamsStruct BLParameters =
     .NetworkRegister = @"register",
     .NetworkRate = @"user/rate",
     .NetworkShip = @"user/ship/fedex",
-    .NetworkGetLabel = @"user/label/"
+    .NetworkGetLabel = @"user/label/",
+    .NetworkGetCustomFile = @"user/invoice/"
 };
 
