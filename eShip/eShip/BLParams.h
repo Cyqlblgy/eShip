@@ -52,7 +52,8 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkGetCustomFile;
     __unsafe_unretained NSString * const ShipFedex;
     __unsafe_unretained NSString * const ShipUPS;
-    
+    __unsafe_unretained NSString * const MapCar;
+    __unsafe_unretained NSString * const MapHouse;
 };
 
 extern const struct BLParamsStruct BLParameters;

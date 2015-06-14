@@ -20,6 +20,8 @@ const struct BLParamsStruct BLParameters =
     .NetworkGetLabel = @"user/label/",
     .NetworkGetCustomFile = @"user/invoice/",
     .ShipFedex = @"fedex",
-    .ShipUPS = @"ups"
+    .ShipUPS = @"ups",
+    .MapCar = @"map_car",
+    .MapHouse = @"map_house",
 };
 

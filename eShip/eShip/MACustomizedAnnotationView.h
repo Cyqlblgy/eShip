@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MAMapKit/MAAnnotationView.h>
+#import "MACustomCalloutView.h"
 
 @interface MACustomizedAnnotationView : MAAnnotationView
 
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) MACustomCalloutView *calloutView;
+
+@property (nonatomic, strong) NSString *carrier;
 
 @end

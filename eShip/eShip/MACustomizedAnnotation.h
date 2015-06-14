@@ -15,8 +15,8 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
-
-@property (nonatomic, strong) NSMutableArray *animatedImages;
+@property (nonatomic, strong) NSString *carrier;
+@property (nonatomic, strong) NSString *category;
 
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate;
 

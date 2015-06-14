@@ -60,7 +60,7 @@
     }
     NSDictionary *textDic = [realInfo objectAtIndex:indexPath.row];
     int time = [[textDic valueForKey:@"transitDays"] intValue];
-    NSString *carrier = [textDic valueForKey:@"carrier"];
+    NSString *carrier = [[textDic valueForKey:@"carrier"] lowercaseString];
     NSDictionary *costDic = [textDic valueForKey:@"rate"];
     cell.costLabel.text = [[NSString alloc] initWithFormat:@"估计费用：%@ %@",[costDic valueForKey:@"amount"],[costDic valueForKey:@"currency"]];
     cell.timeLabel.text = [[NSString alloc] initWithFormat:@"估计运送时间：%d天",time];

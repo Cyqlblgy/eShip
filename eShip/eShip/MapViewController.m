@@ -17,16 +17,16 @@
 #import <MAMapKit/MAMapKit.h>
 #import "TheSidebarController.h"
 #import "FindViewController.h"
+#import "BLParams.h"
 
 @interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate>{
-    NSMutableArray *locations;
-    NSMutableArray *users;
-    NSMutableArray *currentusers;
     double lat1,lat2,long1,long2;
-    MACustomizedAnnotation *annotation1;
-    MACustomizedAnnotation *annotation2;
-    NSMutableArray *carImages;
     UITapGestureRecognizer *tapGesture;
+    NSArray *houseNames;
+    NSArray *houseAddresses;
+    NSMutableArray *carArray;
+    NSArray *carNames;
+    NSArray *carNumbers;
 }
 
 @end
@@ -50,18 +50,13 @@
     lat1 = 39.948691;
     lat2 = 39.943349;
     [self.view addSubview:myMapView];
-    carImages = [[NSMutableArray alloc] init];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_1.png"]];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_2.png"]];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_3.png"]];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_4.png"]];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_3.png"]];
-    [carImages addObject:[UIImage imageNamed:@"animatedCar_4.png"]];
-//    users = [NSMutableArray arrayWithCapacity:10];
-//    locations = [NSMutableArray arrayWithCapacity:10];
-//    currentusers = [NSMutableArray arrayWithCapacity:10];
-    [self addCarAnnotationWithCoordinate1:CLLocationCoordinate2DMake(lat1, long1)];
-    [self addCarAnnotationWithCoordinate2:CLLocationCoordinate2DMake(lat2, long2)];
+    carArray = [[NSMutableArray alloc] init];
+    houseNames = [[NSArray alloc] initWithObjects:@"北京西站",@"UPS北京分公司",@"北京大山子站",@"北京东部操作中心",@"北京亦庄站",@"北京西部操作中心",@"北京亦庄南站",@"北京南部操作中心",@"北京北站",nil];
+    houseAddresses = [[NSArray alloc] initWithObjects:@"海淀区田村路43号",@"朝阳区麦子店枣营路甲3号",@"朝阳区酒仙桥北路5号",@"朝阳区来广营西路316号",@"亦庄经济技术开发区东工业区双羊路18号",@"海淀区阜外亮甲1号",@"大兴区亦庄工业区新瀛工业园150号",@"经济技术开发区康定街11号",@"朝阳区万红路5号蓝涛中心",nil];
+    carNames = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+    carNumbers = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+    [self addHouseAnnotationsToMap];
+    [self addCarAnnotationsToMap];
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     _locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -69,7 +64,7 @@
     if([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
         [_locationManager requestWhenInUseAuthorization];
     }
-   [NSTimer scheduledTimerWithTimeInterval:0.1
+    [NSTimer scheduledTimerWithTimeInterval:1
                                      target:self
                                    selector:@selector(startUpdatingLocation)
                                    userInfo:nil
@@ -120,29 +115,59 @@
 }
 
 - (void)startUpdatingLocation{
-    lat1  = lat1 + 0.001;
-    lat2  = lat2 - 0.001;
-    long1 = long1 - 0.001;
-    long2 = long2 + 0.001;
-    [annotation1 setCoordinate:CLLocationCoordinate2DMake(lat1, long1)];
-    [annotation2 setCoordinate:CLLocationCoordinate2DMake(lat2, long2)];
+    for(MACustomizedAnnotation *anno in carArray){
+        double longAnno = anno.coordinate.longitude;
+        double latAnno = anno.coordinate.latitude;
+        int lat = arc4random()%3;
+        lat = lat -1;
+        int lon = arc4random()%3;
+        lon = lon -1;
+        [anno setCoordinate:CLLocationCoordinate2DMake(latAnno + lat*0.001, longAnno + lon * 0.001)];
+    }
 }
 
--(void)addCarAnnotationWithCoordinate1:(CLLocationCoordinate2D)coordinate{
-    annotation1 = [[MACustomizedAnnotation alloc] initWithCoordinate:coordinate];
-    annotation1.animatedImages   = carImages;
-    annotation1.title            = @"AutoNavi";
-   // annotation1.subtitle         = [NSString stringWithFormat:@"Car: %lu images",(unsigned long)[self.animatedCarAnnotation.animatedImages count]];
-    [myMapView addAnnotation:annotation1];
+
+- (void)addCarAnnotationsToMap{
+    for(int i =0 ;i < 9 ;i++){
+        int lat = arc4random()%20;
+        lat = lat -10;
+        int lon = arc4random()%20;
+        lon = lon -10;
+        MACustomizedAnnotation *carAnno = [[MACustomizedAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat1 + lat*0.03, long1 + lon * 0.03)];
+        carAnno.title = [[NSString alloc] initWithFormat:@"小二姓名:%@",[carNames objectAtIndex:i]];
+        carAnno.subtitle = [[NSString alloc] initWithFormat:@"联系方式:%@",[carNumbers objectAtIndex:i]];
+        carAnno.category = BLParameters.MapCar;
+        if(i%2 == 0){
+            carAnno.carrier = BLParameters.ShipFedex;
+        }
+        else{
+            carAnno.carrier = BLParameters.ShipUPS;
+        }
+        [myMapView addAnnotation:carAnno];
+        [carArray addObject:carAnno];
+    }
 }
 
--(void)addCarAnnotationWithCoordinate2:(CLLocationCoordinate2D)coordinate{
-    annotation2 = [[MACustomizedAnnotation alloc] initWithCoordinate:coordinate];
-    annotation2.animatedImages   = carImages;
-    annotation2.title            = @"AutoNavi";
-    // annotation1.subtitle         = [NSString stringWithFormat:@"Car: %lu images",(unsigned long)[self.animatedCarAnnotation.animatedImages count]];
-    [myMapView addAnnotation:annotation2];
+- (void)addHouseAnnotationsToMap{
+    for(int i =0 ;i < 9 ;i++){
+        int lat = arc4random()%20;
+        lat = lat -10;
+        int lon = arc4random()%20;
+        lon = lon -10;
+        MACustomizedAnnotation *houseAnno = [[MACustomizedAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat1 + lat*0.03, long1 + lon * 0.03)];
+        houseAnno.title = [[NSString alloc] initWithFormat:@"栈名:%@",[houseNames objectAtIndex:i]];
+        houseAnno.subtitle = [[NSString alloc] initWithFormat:@"地址:%@",[houseAddresses objectAtIndex:i]];
+        houseAnno.category = BLParameters.MapHouse;
+        if(i%2 == 0){
+            houseAnno.carrier = BLParameters.ShipFedex;
+        }
+        else{
+            houseAnno.carrier = BLParameters.ShipUPS;
+        }
+        [myMapView addAnnotation:houseAnno];
+    }
 }
+
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -164,24 +189,19 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
-    if ([annotation isKindOfClass:[MACustomizedAnnotation class]])
-    {
-        static NSString *animatedAnnotationIdentifier = @"AnimatedAnnotationIdentifier";
-        
-        MACustomizedAnnotationView *annotationView = (MACustomizedAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:animatedAnnotationIdentifier];
-        
-        if (annotationView == nil)
-        {
-            annotationView = [[MACustomizedAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:animatedAnnotationIdentifier];
-            
-            annotationView.canShowCallout   = YES;
-            annotationView.draggable        = YES;
+    if ([annotation isKindOfClass:[MACustomizedAnnotation class]]) {
+        static NSString *reuseIndetifier = @"annotationReuseIndetifier";
+        MACustomizedAnnotationView *annotationView = (MACustomizedAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
+        if (annotationView == nil) {
+            annotationView = [[MACustomizedAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
         }
-        
-        return annotationView;
+            MACustomizedAnnotation *annabe = (MACustomizedAnnotation *)annotation;
+            annotationView.image = [UIImage imageNamed:annabe.category];
+            annotationView.canShowCallout = NO;
+            annotationView.carrier = annabe.carrier;
+            annotationView.centerOffset = CGPointMake(0, -18);
+            return annotationView;
     }
-    
     return nil;
 }
 

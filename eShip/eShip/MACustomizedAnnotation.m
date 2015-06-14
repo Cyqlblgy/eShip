@@ -13,8 +13,7 @@
 @synthesize title = _title;
 @synthesize subtitle = _subtitle;
 @synthesize coordinate = _coordinate;
-
-@synthesize animatedImages = _animatedImages;
+@synthesize carrier = _carrier;
 
 #pragma mark - life cycle
 
