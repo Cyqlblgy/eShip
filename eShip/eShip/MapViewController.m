@@ -218,7 +218,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         if([picked isEqualToString:@"查件"]){
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"findVC"] animated:YES];
         }
-        else{
+        else if([picked isEqualToString:@"询价"] || [picked isEqualToString:@"寄件"]){
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"checkPriceVC"] animated:YES];
         }
     }
@@ -240,16 +240,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     {
         destinationpopoverController.delegate = nil;
         destinationpopoverController = nil;
-        if(pickTableController != nil){
-            NSString *picked = pickTableController.selectedOne;
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            if([picked isEqualToString:@"查件"]){
-                [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"findVC"] animated:YES];
-            }
-            else{
-                [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"checkPriceVC"] animated:YES];
-            }
-        }
         pickTableController = nil;
     }
 }
