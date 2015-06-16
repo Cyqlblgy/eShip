@@ -20,6 +20,7 @@
 #import "BLParams.h"
 #import "WYPopoverController.h"
 #import "WYTableViewViewController.h"
+#import "TTTAttributedLabel.h"
 
 @interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate,WYPopoverControllerDelegate>{
     double lat1,long1;
@@ -31,6 +32,7 @@
     NSArray *carNumbers;
     WYPopoverController *destinationpopoverController;
     WYTableViewViewController * pickTableController;
+    UITapGestureRecognizer *singleFingerTap;
 }
 
 @end
@@ -268,6 +270,42 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
             return annotationView;
     }
     return nil;
+}
+
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
+    MACustomizedAnnotationView *cView = (MACustomizedAnnotationView *)view;
+    singleFingerTap= [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                             action:@selector(handleSingleTap:)];
+    singleFingerTap.delegate = self;
+    [cView addGestureRecognizer:singleFingerTap];
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pickNext" object:nil];
+    NSArray *selectedAnnotations = myMapView.selectedAnnotations;
+    for (MACustomizedAnnotation *annotationView in selectedAnnotations) {
+        [myMapView deselectAnnotation:annotationView animated:NO];
+    }
+
+}
+
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if ([touch.view isKindOfClass:[TTTAttributedLabel class]] && touch.view.tag == 20)
+    {
+        return FALSE;
+    }
+    else
+    {
+        
+        return TRUE;
+    }
+}
+
+
+-(void)mapView:(MAMapView *)mapView didDeselectAnnotationView:(MAAnnotationView *)view{
+    MACustomizedAnnotationView *cView = (MACustomizedAnnotationView *)view;
+    [cView removeGestureRecognizer:singleFingerTap];
 }
 
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{

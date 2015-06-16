@@ -16,9 +16,7 @@
 //
 //@end
 
-@implementation MACustomizedAnnotationView{
-    UITapGestureRecognizer *singleFingerTap;
-}
+@implementation MACustomizedAnnotationView
 #define kWidth          40.f
 #define kHeight         40.f
 #define kTimeInterval   0.15f
@@ -40,23 +38,16 @@
         self.calloutView.title = self.annotation.title;
         self.calloutView.subtitle = self.annotation.subtitle;
         [self addSubview:self.calloutView];
-        //singleFingerTap= [[UITapGestureRecognizer alloc] initWithTarget:self
-        //                                                         action:@selector(handleSingleTap:)];
-        //[self.calloutView addGestureRecognizer:singleFingerTap];
+        
     }
     else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"pickNext" object:nil];
-       // [self.calloutView removeGestureRecognizer:singleFingerTap];
         [self.calloutView removeFromSuperview];
         
     }
     [super setSelected:selected animated:animated];
 }
 
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    [self.calloutView removeGestureRecognizer:singleFingerTap];
-    [self.calloutView removeFromSuperview];
-}
+
 
 
 @end

@@ -26,7 +26,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456123657.344354"
+                  timestampString = "456126078.401484"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -41,7 +41,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456123657.344543"
+                  timestampString = "456126078.401669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -90,7 +90,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456123657.380854"
+                  timestampString = "456126078.42127"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -105,7 +105,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456123657.381086"
+                  timestampString = "456126078.421416"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -160,6 +160,22 @@
             startingLineNumber = "98"
             endingLineNumber = "98"
             landmarkName = "-goShip"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "eShip/MapViewController.m"
+            timestampString = "456125939.72747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "-gestureRecognizer:shouldReceiveTouch:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

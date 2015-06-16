@@ -47,6 +47,7 @@
     self.subtitleLabel.font = [UIFont systemFontOfSize:12];
     self.subtitleLabel.textColor = [UIColor lightGrayColor];
     self.subtitleLabel.delegate = self;
+    self.subtitleLabel.tag = 10;
     self.subtitleLabel.userInteractionEnabled = YES;
     self.subtitleLabel.text = @"subtitleLabelsubtitleLabelsubtitleLabel";
     [self addSubview:self.subtitleLabel];
@@ -64,6 +65,7 @@
         NSRange ran = NSMakeRange(range.location + range.length, attributedStr.length - range.location -range.length);
         NSString *sss = [subtitle substringFromIndex:range.location + range.length];
         [self.subtitleLabel addLinkToPhoneNumber:sss withRange:ran];
+        self.subtitleLabel.tag = 20;
     }
     
 }
