@@ -18,15 +18,19 @@
 #import "TheSidebarController.h"
 #import "FindViewController.h"
 #import "BLParams.h"
+#import "WYPopoverController.h"
+#import "WYTableViewViewController.h"
 
-@interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate>{
-    double lat1,lat2,long1,long2;
+@interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate,WYPopoverControllerDelegate>{
+    double lat1,long1;
     UITapGestureRecognizer *tapGesture;
     NSArray *houseNames;
     NSArray *houseAddresses;
     NSMutableArray *carArray;
     NSArray *carNames;
     NSArray *carNumbers;
+    WYPopoverController *destinationpopoverController;
+    WYTableViewViewController * pickTableController;
 }
 
 @end
@@ -37,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickNextStep) name:@"pickNext" object:nil];
     tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeftSide)];
     tapGesture.numberOfTouchesRequired = 1;
     tapGesture.numberOfTapsRequired = 1;
@@ -45,16 +50,14 @@
     myMapView = [[MAMapView alloc] initWithFrame:screenFrame];
     myMapView.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
-    long1 = 116.492479;
-    long2 = 116.715633;
+    long1 = 116.392479;
     lat1 = 39.948691;
-    lat2 = 39.943349;
     [self.view addSubview:myMapView];
     carArray = [[NSMutableArray alloc] init];
     houseNames = [[NSArray alloc] initWithObjects:@"北京西站",@"UPS北京分公司",@"北京大山子站",@"北京东部操作中心",@"北京亦庄站",@"北京西部操作中心",@"北京亦庄南站",@"北京南部操作中心",@"北京北站",nil];
-    houseAddresses = [[NSArray alloc] initWithObjects:@"海淀区田村路43号",@"朝阳区麦子店枣营路甲3号",@"朝阳区酒仙桥北路5号",@"朝阳区来广营西路316号",@"亦庄经济技术开发区东工业区双羊路18号",@"海淀区阜外亮甲1号",@"大兴区亦庄工业区新瀛工业园150号",@"经济技术开发区康定街11号",@"朝阳区万红路5号蓝涛中心",nil];
-    carNames = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
-    carNumbers = [[NSArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+    houseAddresses = [[NSArray alloc] initWithObjects:@"海淀区田村路43号",@"朝阳区麦子店枣营路甲3号",@"朝阳区酒仙桥北路5号",@"朝阳区来广营西路316号",@"亦庄开发区东工业区双羊路18号",@"海淀区阜外亮甲1号",@"大兴区新瀛工业园150号",@"经济技术开发区康定街11号",@"朝阳区万红路5号蓝涛中心",nil];
+    carNames = [[NSArray alloc] initWithObjects:@"郎斌",@"蔡樟兴",@"翁斌伟",@"周浩",@"郎斌",@"蔡樟兴",@"翁斌伟",@"周浩",@"郎斌",nil];
+    carNumbers = [[NSArray alloc] initWithObjects:@"6174700894",@"6174700894",@"6174700894",@"13777355259",@"13777355259",@"13777355259",@"15193129724",@"15193129724",@"15193129724",nil];
     [self addHouseAnnotationsToMap];
     [self addCarAnnotationsToMap];
     _locationManager = [[CLLocationManager alloc] init];
@@ -77,6 +80,7 @@
 
 - (void)dealloc{
    [self.view removeGestureRecognizer:tapGesture];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -179,6 +183,77 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         return NO;
     }
 }
+
+- (void)pickNextStep{
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        pickTableController = [storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
+        pickTableController.title = @"选择功能";
+        pickTableController.list = [[NSArray alloc] initWithObjects:@"查件",@"询价",@"寄件", nil];
+        pickTableController.preferredContentSize = CGSizeMake(280, (pickTableController.list.count+1)*44);
+        UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];
+        barItem.title = @"完成";
+        barItem.tintColor = [UIColor whiteColor];
+        barItem.target = self;
+        barItem.tag = 1;
+        barItem.action = @selector(done:);
+        [pickTableController.navigationItem setRightBarButtonItem:barItem];
+         pickTableController.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+        pickTableController.modalInPopover = NO;
+        UINavigationController* contentViewController = [[UINavigationController alloc] initWithRootViewController:pickTableController];
+        [contentViewController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:22.0f],NSFontAttributeName, [UIColor whiteColor] ,NSForegroundColorAttributeName ,nil]];
+        destinationpopoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
+    destinationpopoverController.theme = [WYPopoverTheme themeForIOS6];
+        destinationpopoverController.delegate = self;
+        destinationpopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+        [destinationpopoverController presentPopoverAsDialogAnimated:YES];
+}
+
+- (IBAction)done:(id)sender{
+    [destinationpopoverController dismissPopoverAnimated:YES];
+    destinationpopoverController.delegate = nil;
+    destinationpopoverController = nil;
+    if(pickTableController != nil){
+        NSString *picked = pickTableController.selectedOne;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        if([picked isEqualToString:@"查件"]){
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"findVC"] animated:YES];
+        }
+        else{
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"checkPriceVC"] animated:YES];
+        }
+    }
+    pickTableController = nil;
+}
+
+
+
+#pragma mark - WYPopoverControllerDelegate
+
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    return YES;
+}
+
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    if (controller == destinationpopoverController)
+    {
+        destinationpopoverController.delegate = nil;
+        destinationpopoverController = nil;
+        if(pickTableController != nil){
+            NSString *picked = pickTableController.selectedOne;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            if([picked isEqualToString:@"查件"]){
+                [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"findVC"] animated:YES];
+            }
+            else{
+                [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"checkPriceVC"] animated:YES];
+            }
+        }
+        pickTableController = nil;
+    }
+}
+
 
 
 #pragma MAMapViewDelegate

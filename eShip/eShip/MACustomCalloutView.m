@@ -13,9 +13,10 @@
 #define kTitleHeight 20
 
 #import "MACustomCalloutView.h"
-@interface MACustomCalloutView ()
+#import "TTTAttributedLabel.h"
+@interface MACustomCalloutView ()<TTTAttributedLabelDelegate>
 @property (nonatomic, strong) UIImageView *portraitView;
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) TTTAttributedLabel *subtitleLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 
@@ -42,9 +43,11 @@
     self.titleLabel.text = @"titletitletitletitle";
     [self addSubview:self.titleLabel];
     // 添加副标题,即商户地址
-    self.subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
+    self.subtitleLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
     self.subtitleLabel.font = [UIFont systemFontOfSize:12];
     self.subtitleLabel.textColor = [UIColor lightGrayColor];
+    self.subtitleLabel.delegate = self;
+    self.subtitleLabel.userInteractionEnabled = YES;
     self.subtitleLabel.text = @"subtitleLabelsubtitleLabelsubtitleLabel";
     [self addSubview:self.subtitleLabel];
 }
@@ -54,6 +57,15 @@
 }
 - (void)setSubtitle:(NSString *)subtitle {
     self.subtitleLabel.text = subtitle;
+    NSMutableAttributedString * attributedStr = [[NSMutableAttributedString alloc] initWithString:subtitle];
+    NSRange range = [subtitle rangeOfString:@"联系方式:"];
+    if(range.location != NSNotFound)
+    {
+        NSRange ran = NSMakeRange(range.location + range.length, attributedStr.length - range.location -range.length);
+        NSString *sss = [subtitle substringFromIndex:range.location + range.length];
+        [self.subtitleLabel addLinkToPhoneNumber:sss withRange:ran];
+    }
+    
 }
 - (void)setImage:(UIImage *)image {
     self.portraitView.image = image;
@@ -89,6 +101,10 @@
     CGContextAddArcToPoint(context, maxx, miny, maxx, maxx, radius);
     CGContextAddArcToPoint(context, maxx, maxy, midx, maxy, radius);
     CGContextClosePath(context);
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithPhoneNumber:(NSString *)phoneNumber{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phoneNumber]]];
 }
 
 
