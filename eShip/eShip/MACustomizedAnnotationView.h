@@ -16,4 +16,7 @@
 
 @property (nonatomic, strong) NSString *carrier;
 
+@property (nonatomic, strong) NSString *category;
+
+@property (nonatomic, strong) NSString *extraTitle;
 @end

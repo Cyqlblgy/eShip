@@ -7,9 +7,11 @@
 //
 #define kCalloutWidth 290.0 
 #define kCalloutHeight 70.0
+#define kCalloutExtra  30.0
 
 #import "MACustomizedAnnotationView.h"
 #import "MACustomizedAnnotation.h"
+#import "BLParams.h"
 //@interface MACustomizedAnnotationView ()
 //
 //@property (nonatomic, strong, readwrite) MACustomCalloutView *calloutView;
@@ -17,9 +19,6 @@
 //@end
 
 @implementation MACustomizedAnnotationView
-#define kWidth          40.f
-#define kHeight         40.f
-#define kTimeInterval   0.15f
 
 #pragma mark - Life Cycle
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,8 +28,15 @@
     if (selected) {
         if (self.calloutView == nil)
         {
+            if([_category isEqualToString:BLParameters.MapCar]){
             self.calloutView = [[MACustomCalloutView alloc] initWithFrame:CGRectMake(0, 0,
-                                                                                   kCalloutWidth, kCalloutHeight)];
+                                                                                   kCalloutWidth, kCalloutHeight) hasExtraLabel:NO];
+            }
+            else{
+            self.calloutView = [[MACustomCalloutView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                                         kCalloutWidth, kCalloutHeight+kCalloutExtra) hasExtraLabel:YES];
+            self.calloutView.extratitle = self.extraTitle;
+            }
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.f +
                                                   self.calloutOffset.x,
                                                   -CGRectGetHeight(self.calloutView.bounds) / 2.f + self.calloutOffset.y); }

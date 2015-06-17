@@ -15,6 +15,7 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, strong) NSString *extraTitle;
 @property (nonatomic, strong) NSString *carrier;
 @property (nonatomic, strong) NSString *category;
 

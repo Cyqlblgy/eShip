@@ -59,7 +59,7 @@
     houseNames = [[NSArray alloc] initWithObjects:@"北京西站",@"UPS北京分公司",@"北京大山子站",@"北京东部操作中心",@"北京亦庄站",@"北京西部操作中心",@"北京亦庄南站",@"北京南部操作中心",@"北京北站",nil];
     houseAddresses = [[NSArray alloc] initWithObjects:@"海淀区田村路43号",@"朝阳区麦子店枣营路甲3号",@"朝阳区酒仙桥北路5号",@"朝阳区来广营西路316号",@"亦庄开发区东工业区双羊路18号",@"海淀区阜外亮甲1号",@"大兴区新瀛工业园150号",@"经济技术开发区康定街11号",@"朝阳区万红路5号蓝涛中心",nil];
     carNames = [[NSArray alloc] initWithObjects:@"郎斌",@"蔡樟兴",@"翁斌伟",@"周浩",@"郎斌",@"蔡樟兴",@"翁斌伟",@"周浩",@"郎斌",nil];
-    carNumbers = [[NSArray alloc] initWithObjects:@"6174700894",@"6174700894",@"6174700894",@"13777355259",@"13777355259",@"13777355259",@"15193129724",@"15193129724",@"15193129724",nil];
+    carNumbers = [[NSArray alloc] initWithObjects:@"+16174700894",@"+16174700894",@"+16174700894",@"+8613777355259",@"+8613777355259",@"+8613777355259",@"+8615193129724",@"+8615193129724",@"+8615193129724",nil];
     [self addHouseAnnotationsToMap];
     [self addCarAnnotationsToMap];
     _locationManager = [[CLLocationManager alloc] init];
@@ -163,6 +163,7 @@
         MACustomizedAnnotation *houseAnno = [[MACustomizedAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(lat1 + lat*0.03, long1 + lon * 0.03)];
         houseAnno.title = [[NSString alloc] initWithFormat:@"栈名:%@",[houseNames objectAtIndex:i]];
         houseAnno.subtitle = [[NSString alloc] initWithFormat:@"地址:%@",[houseAddresses objectAtIndex:i]];
+        houseAnno.extraTitle = [[NSString alloc] initWithFormat:@"联系方式:%@",[carNumbers objectAtIndex:i]];
         houseAnno.category = BLParameters.MapHouse;
         if(i%2 == 0){
             houseAnno.carrier = BLParameters.ShipFedex;
@@ -263,7 +264,11 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
             annotationView = [[MACustomizedAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
         }
             MACustomizedAnnotation *annabe = (MACustomizedAnnotation *)annotation;
+            if(annabe.extraTitle){
+             annotationView.extraTitle = annabe.extraTitle;
+            }
             annotationView.image = [UIImage imageNamed:annabe.category];
+            annotationView.category = annabe.category;
             annotationView.canShowCallout = NO;
             annotationView.carrier = annabe.carrier;
             annotationView.centerOffset = CGPointMake(0, -18);
@@ -291,7 +296,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if ([touch.view isKindOfClass:[TTTAttributedLabel class]] && touch.view.tag == 20)
+    if ([touch.view isKindOfClass:[TTTAttributedLabel class]] && (touch.view.tag == 20 || touch.view.tag == 40))
     {
         return FALSE;
     }

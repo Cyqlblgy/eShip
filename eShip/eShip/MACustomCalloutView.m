@@ -9,31 +9,49 @@
 #define kPortraitMargin 5 
 #define kPortraitWidth 70 
 #define kPortraitHeight 50
+#define kPortraitExtra 30
 #define kTitleWidth 200
 #define kTitleHeight 20
+#define kTitleExtra 25
 
 #import "MACustomCalloutView.h"
 #import "TTTAttributedLabel.h"
 @interface MACustomCalloutView ()<TTTAttributedLabelDelegate>
 @property (nonatomic, strong) UIImageView *portraitView;
 @property (nonatomic, strong) TTTAttributedLabel *subtitleLabel;
+@property (nonatomic, strong) TTTAttributedLabel *extraLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @end
 
 @implementation MACustomCalloutView
 
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame hasExtraLabel:(BOOL)extra{
     self = [super initWithFrame:frame];
     if (self)
     {
         self.backgroundColor = [UIColor clearColor];
-        [self initSubViews]; }
+        [self initSubViewsWithExtraLabel:extra];
+    }
     return self;
 }
 
-- (void)initSubViews {
+- (void)initSubViewsWithExtraLabel:(BOOL)extra{
     // 添加图片,即商户图
+    if(extra){
+    self.portraitView = [[UIImageView alloc] initWithFrame:CGRectMake(kPortraitMargin, kPortraitMargin, kPortraitWidth, kPortraitHeight+kPortraitExtra)];
+        self.extraLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight+kTitleExtra, kTitleWidth, kTitleHeight)];
+        self.extraLabel.font = [UIFont systemFontOfSize:12];
+        self.extraLabel.textColor = [UIColor lightGrayColor];
+        self.extraLabel.delegate = self;
+        self.extraLabel.tag = 30;
+        self.extraLabel.userInteractionEnabled = YES;
+        self.extraLabel.text = @"subtitleLabelsubtitleLabelsubtitleLabel";
+        [self addSubview:self.extraLabel];
+
+    }
+    else{
     self.portraitView = [[UIImageView alloc] initWithFrame:CGRectMake(kPortraitMargin, kPortraitMargin, kPortraitWidth, kPortraitHeight)];
+    }
     self.portraitView.backgroundColor = [UIColor blackColor];
     [self addSubview:self.portraitView];
     // 添加标题,即商户名
@@ -58,6 +76,7 @@
 }
 - (void)setSubtitle:(NSString *)subtitle {
     self.subtitleLabel.text = subtitle;
+    self.subtitleLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor lightGrayColor],NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
     NSMutableAttributedString * attributedStr = [[NSMutableAttributedString alloc] initWithString:subtitle];
     NSRange range = [subtitle rangeOfString:@"联系方式:"];
     if(range.location != NSNotFound)
@@ -68,6 +87,20 @@
         self.subtitleLabel.tag = 20;
     }
     
+}
+
+- (void)setExtratitle:(NSString *)extratitle{
+    self.extraLabel.text = extratitle;
+    self.extraLabel.linkAttributes = @{NSForegroundColorAttributeName: [UIColor lightGrayColor],NSUnderlineStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+    NSMutableAttributedString * attributedStr = [[NSMutableAttributedString alloc] initWithString:extratitle];
+    NSRange range = [extratitle rangeOfString:@"联系方式:"];
+    if(range.location != NSNotFound)
+    {
+        NSRange ran = NSMakeRange(range.location + range.length, attributedStr.length - range.location -range.length);
+        NSString *sss = [extratitle substringFromIndex:range.location + range.length];
+        [self.extraLabel addLinkToPhoneNumber:sss withRange:ran];
+        self.extraLabel.tag = 40;
+    }
 }
 - (void)setImage:(UIImage *)image {
     self.portraitView.image = image;
