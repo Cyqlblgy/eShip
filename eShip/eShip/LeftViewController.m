@@ -54,6 +54,7 @@
     vcNames = @[@"findVC",@"checkPriceVC",@"MineVC",@"SettingsVC"];
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50*menuItems.count);
+    mytableView.scrollEnabled = NO;
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"leftBG.png"] drawInRect:self.view.bounds];
      image = UIGraphicsGetImageFromCurrentImageContext();

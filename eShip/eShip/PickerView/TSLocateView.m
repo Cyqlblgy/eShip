@@ -61,6 +61,33 @@
     return 3;
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel* tView = (UILabel*)view;
+    if (!tView){
+        tView = [[UILabel alloc] init];
+        CGRect frame;
+        switch (component) {
+            case 0:
+                tView.text = [[countries objectAtIndex:row] objectForKey:@"Country"];
+                frame = CGRectMake(0, 0, 50, 40);
+                break;
+            case 1:
+                tView.text = [[provinces objectAtIndex:row] objectForKey:@"State"];
+                frame = CGRectMake(0, 0, 120, 40);
+                break;
+            case 2:
+                tView.text = [[cities objectAtIndex:row] objectForKey:@"city"];
+                frame = CGRectMake(0, 0, 120, 40);
+                break;
+            default:
+                return nil;
+                break;
+        }
+        tView.frame = frame;
+    }
+    return tView;
+}
+
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     switch (component) {

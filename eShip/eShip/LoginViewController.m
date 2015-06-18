@@ -92,6 +92,19 @@
 }
 
 - (IBAction)login:(id)sender {
+    if([unTextField.text isEqualToString:@""] || [pwTextField.text isEqualToString:@""]){
+        UIAlertController *alert =   [UIAlertController
+                                           alertControllerWithTitle:@"用户名/密码错误"
+                                           message:@"请保证用户名/密码输入正确"
+                                           preferredStyle:UIAlertControllerStyleAlert];;
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+
+    }
     [self.view endEditing:YES];
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     unTextField.text, @"user_name",

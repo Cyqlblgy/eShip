@@ -20,6 +20,11 @@
 
 @property (nonatomic, strong) NSDictionary *value;
 
+@property (nonatomic, strong) NSString *originalState;
+
+@property (nonatomic, strong) NSString *destinationState;
+
+
 + (BLRateObject *)sharedInstance;
 
 @end

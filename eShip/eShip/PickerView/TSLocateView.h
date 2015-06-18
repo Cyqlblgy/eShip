@@ -23,4 +23,6 @@
 
 - (void)showInView:(UIView *)view;
 
+- (IBAction)cancel:(id)sender;
+
 @end

@@ -13,6 +13,7 @@
 @interface AddressViewController (){
     NSString *provinceCode;
     NSString *countryCode;
+    TSLocateView *myLocateView;
 }
 
 @end
@@ -23,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGRect frame = addressTextFiedl1.frame;
-    countryTextField.frame = CGRectMake(frame.origin.x, countryTextField.frame.origin.y, frame.size.width/3, countryTextField.frame.size.height);
-    stateTextField.frame = CGRectMake(frame.origin.x + frame.size.width/3, stateTextField.frame.origin.y, frame.size.width/3, stateTextField.frame.size.height);
-    cityTextField.frame = CGRectMake(frame.origin.x + frame.size.width*2/3, cityTextField.frame.origin.y, frame.size.width/3, cityTextField.frame.size.height);
+    countryTextField.frame = CGRectMake(frame.origin.x, countryTextField.frame.origin.y, frame.size.width/3-1, countryTextField.frame.size.height);
+    stateTextField.frame = CGRectMake(frame.origin.x + frame.size.width/3+1, stateTextField.frame.origin.y, frame.size.width/3 - 1, stateTextField.frame.size.height);
+    cityTextField.frame = CGRectMake(frame.origin.x + frame.size.width*2/3 + 1, cityTextField.frame.origin.y, frame.size.width/3 - 1, cityTextField.frame.size.height);
     addressTextFiedl1.tag = 0;
     addressTextField2.tag = 1;
     zipCodeTextField.tag = 2;
@@ -39,12 +40,35 @@
 - (void)viewWillAppear:(BOOL)animated{
     if(isOriginal){
         self.navigationItem.title = @"寄件地址";
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+        NSDictionary * dic = rateObject.originalAddress;
+        if(dic){
+            NSArray *streelines = [dic valueForKey:@"streetLines"];
+            addressTextFiedl1.text = [streelines objectAtIndex:0];
+            if(streelines.count == 2){
+            addressTextField2.text = [streelines objectAtIndex:1];
+            }
+            zipCodeTextField.text = [dic valueForKey:@"postalCode"];
+            countryTextField.text = [dic valueForKey:@"countryName"];
+            cityTextField.text = [dic valueForKey:@"city"];
+            stateTextField.text = rateObject.originalState;
+        }
     }
     else{
         self.navigationItem.title = @"目的地址";
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+        NSDictionary * dic = rateObject.destinationAddress;
+        if(dic){
+            NSArray *streelines = [dic valueForKey:@"streetLines"];
+            addressTextFiedl1.text = [streelines objectAtIndex:0];
+            if(streelines.count == 2){
+            addressTextField2.text = [streelines objectAtIndex:1];
+            }
+            zipCodeTextField.text = [dic valueForKey:@"postalCode"];
+            countryTextField.text = [dic valueForKey:@"countryName"];
+            cityTextField.text = [dic valueForKey:@"city"];
+            stateTextField.text = rateObject.destinationState;
+        }
     }
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
 }
 
 - (void)goBack{
@@ -83,6 +107,19 @@
 
 
 - (IBAction)saveAddress:(id)sender {
+    if([addressTextFiedl1.text isEqualToString:@""] || [zipCodeTextField.text isEqualToString:@""] || [countryTextField.text isEqualToString:@""] || [stateTextField.text isEqualToString:@""] || [cityTextField.text isEqualToString:@""]){
+        UIAlertController *alert =   [UIAlertController
+                                      alertControllerWithTitle:@"信息不完全"
+                                      message:@"请保证完成必填信息再保存"
+                                      preferredStyle:UIAlertControllerStyleAlert];;
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
     NSArray *streelines ;
     if(![addressTextField2.text isEqualToString:@""] && addressTextField2.text != nil){
     streelines= [[NSArray alloc] initWithObjects:addressTextFiedl1.text,addressTextField2.text,nil];
@@ -102,20 +139,23 @@
                              nil];
     if(isOriginal){
         rateObject.originalAddress = Address;
+        rateObject.originalState = stateTextField.text;
     }
     else{
         rateObject.destinationAddress = Address;
+        rateObject.destinationState = stateTextField.text;
     }
     NSArray *arrayViewControllers = [self.navigationController viewControllers];
     
     CheckPriceViewController *vc = (CheckPriceViewController *)[arrayViewControllers objectAtIndex:arrayViewControllers.count-1];
     vc.rateObject = rateObject;
     [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)showCityAndProvincePicker{
-    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"选择国家/省/城市" delegate:self];
-    [locateView showInView:self.view];
+    myLocateView = [[TSLocateView alloc] initWithTitle:@"选择国家/省/城市" delegate:self];
+    [myLocateView showInView:self.view];
 }
 
 
@@ -123,6 +163,9 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if(textField.tag ==0 || textField.tag ==1 || textField.tag ==2 ){
+        if(myLocateView){
+            [myLocateView cancel:nil];
+        }
         return YES;
     }
     else{
@@ -170,5 +213,6 @@
         provinceCode = locateView.address.provinceCode;
         countryCode = locateView.address.countryCode;
     }
+    myLocateView = nil;
 }
 @end

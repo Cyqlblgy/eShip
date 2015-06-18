@@ -64,6 +64,41 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSDictionary * sizeDic = rateObject.size;
+    if(sizeDic){
+        longthTextField.text = [[sizeDic valueForKey:@"length"] stringValue];
+        widthTextField.text = [[sizeDic valueForKey:@"width"] stringValue];
+        heightTextField.text = [[sizeDic valueForKey:@"height"] stringValue];
+        NSString *unit = [sizeDic valueForKey:@"unit"];
+        for (int i = 0; i<lengthSegment.subviews.count; i++) {
+            if([[lengthSegment titleForSegmentAtIndex:i] isEqualToString:unit]){
+                [lengthSegment setSelectedSegmentIndex:i];
+            }
+        }
+    }
+    NSDictionary * weightDic = rateObject.weight;
+    if(weightDic){
+        weightTextField.text = [[weightDic valueForKey:@"weight"] stringValue];
+        NSString *unit = [weightDic valueForKey:@"unit"];
+        for (int i = 0; i<weightSegment.subviews.count; i++) {
+            if([[weightSegment titleForSegmentAtIndex:i] isEqualToString:unit]){
+                [weightSegment setSelectedSegmentIndex:i];
+            }
+        }
+    }
+    NSDictionary * valueDic = rateObject.value;
+    if(valueDic){
+        priceTextField.text = [[valueDic valueForKey:@"amount"] stringValue];
+        NSString *unit = [valueDic valueForKey:@"currency"];
+        for (int i = 0; i<priceSegment.subviews.count; i++) {
+            if([[priceSegment titleForSegmentAtIndex:i] isEqualToString:unit]){
+                [priceSegment setSelectedSegmentIndex:i];
+            }
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

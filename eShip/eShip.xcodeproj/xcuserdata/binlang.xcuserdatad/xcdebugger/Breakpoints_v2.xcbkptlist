@@ -26,12 +26,12 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456205264.696997"
+                  timestampString = "456293880.244805"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
                   endingLineNumber = "172"
-                  offsetFromSymbolStart = "152">
+                  offsetFromSymbolStart = "80">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456205264.697191"
+                  timestampString = "456293880.245002"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
                   endingLineNumber = "172"
-                  offsetFromSymbolStart = "192">
+                  offsetFromSymbolStart = "98">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -90,12 +90,12 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456205264.725245"
+                  timestampString = "456293880.283778"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "4492">
+                  offsetFromSymbolStart = "3506">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -105,12 +105,12 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456205264.725494"
+                  timestampString = "456293880.284098"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "104">
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -143,22 +143,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
             endingLineNumber = "76"
-            landmarkName = "-goShip"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "eShip/CommoditiesViewController.m"
-            timestampString = "455912350.072331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
             landmarkName = "-goShip"
             landmarkType = "5">
          </BreakpointContent>

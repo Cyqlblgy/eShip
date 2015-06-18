@@ -77,7 +77,7 @@
 //    [self startUpdatingLocation];
 //    [_locationManager startUpdatingLocation];
     _startLocation = nil;
-    
+  //  myMapView.showsUserLocation = YES;
 }
 
 - (void)dealloc{

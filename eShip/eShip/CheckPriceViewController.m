@@ -40,14 +40,14 @@
     self.navigationItem.title = @"预约寄件";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [originalButton setFrame:CGRectMake(0, 0, 60, originalPlaceTextField.frame.size.height)];
+    [originalButton setFrame:CGRectMake(0, 0, 40, originalPlaceTextField.frame.size.height)];
     [originalButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [destinationButton setFrame:CGRectMake(0, 0, 60, destinationPlaceTextField.frame.size.height)];
+    [destinationButton setFrame:CGRectMake(0, 0, 40, destinationPlaceTextField.frame.size.height)];
     [destinationButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
-    [itemTypeButton setFrame:CGRectMake(0, 0, 60, itemTypeTextField.frame.size.height)];
+    [itemTypeButton setFrame:CGRectMake(0, 0, 40, itemTypeTextField.frame.size.height)];
     [itemTypeButton setImage:[UIImage imageNamed:@"next"] forState:UIControlStateNormal];
 
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, originalPlaceTextField.frame.size.height)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
     label.text = @"原寄地";
     [view addSubview:label];
@@ -57,7 +57,7 @@
     originalPlaceTextField.rightViewMode = UITextFieldViewModeAlways;
     originalPlaceTextField.tag = 0;
     
-    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, originalPlaceTextField.frame.size.height)];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
     label1.text = @"目的地";
     [view1 addSubview:label1];
@@ -68,7 +68,7 @@
     destinationPlaceTextField.tag = 1;
 
     
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, originalPlaceTextField.frame.size.height)];
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, originalPlaceTextField.frame.size.height)];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 80, originalPlaceTextField.frame.size.height)];
     label2.text = @"包裹信息";
     [view2 addSubview:label2];
