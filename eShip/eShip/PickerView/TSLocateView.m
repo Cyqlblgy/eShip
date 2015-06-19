@@ -69,14 +69,17 @@
         switch (component) {
             case 0:
                 tView.text = [[countries objectAtIndex:row] objectForKey:@"Country"];
-                frame = CGRectMake(0, 0, 50, 40);
+                tView.textAlignment = NSTextAlignmentCenter;
+                frame = CGRectMake(0, 0, 80, 40);
                 break;
             case 1:
                 tView.text = [[provinces objectAtIndex:row] objectForKey:@"State"];
+                tView.textAlignment = NSTextAlignmentCenter;
                 frame = CGRectMake(0, 0, 120, 40);
                 break;
             case 2:
                 tView.text = [[cities objectAtIndex:row] objectForKey:@"city"];
+                tView.textAlignment = NSTextAlignmentCenter;
                 frame = CGRectMake(0, 0, 120, 40);
                 break;
             default:

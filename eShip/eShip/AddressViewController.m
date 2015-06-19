@@ -69,6 +69,26 @@
         }
     }
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"完成" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    button.layer.cornerRadius = 4.0;
+    button.frame= CGRectMake(0.0, 0.0, 60, 35);
+    [button addTarget:self action:@selector(doneClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:flex,doneButton, nil]];
+    addressTextFiedl1.inputAccessoryView = keyboardDoneButtonView;
+    addressTextField2.inputAccessoryView = keyboardDoneButtonView;
+    zipCodeTextField.inputAccessoryView = keyboardDoneButtonView;
+}
+
+- (IBAction)doneClicked:(id)sender{
+    [self.view endEditing:YES];
 }
 
 - (void)goBack{

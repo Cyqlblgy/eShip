@@ -5,17 +5,19 @@
 //  Created by Bin Lang on 5/27/15.
 //  Copyright (c) 2015 eShip. All rights reserved.
 //
+#define kTabBarHeight 0
 
 #import "ItemViewController.h"
 #import "CheckPriceViewController.h"
 
-@interface ItemViewController ()
+@interface ItemViewController (){
+}
 
 @end
 
 @implementation ItemViewController
 
-@synthesize longthTextField,heightTextField,widthTextField,priceTextField,weightTextField,lengthSegment,priceSegment,weightSegment,weightLabel,widthLabel,heightLabel,longLabel,rateObject;
+@synthesize longthTextField,heightTextField,widthTextField,priceTextField,weightTextField,lengthSegment,priceSegment,weightSegment,weightLabel,widthLabel,heightLabel,longLabel,rateObject,myScrollView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +35,28 @@
     priceTextField.frame = CGRectMake(priceTextField.frame.origin.x, priceTextField.frame.origin.y, frame.size.width/2, priceTextField.frame.size.height);
     priceSegment.frame = CGRectMake(priceTextField.frame.origin.x + priceTextField.frame.size.width + 10, priceSegment.frame.origin.y,priceSegment.frame.size.width, priceSegment.frame.size.height);
     weightSegment.frame = CGRectMake(weightTextField.frame.origin.x + weightTextField.frame.size.width + 10, weightSegment.frame.origin.y,weightSegment.frame.size.width, weightSegment.frame.size.height);
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"完成" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    button.layer.cornerRadius = 4.0;
+    button.frame= CGRectMake(0.0, 0.0, 60, 35);
+    [button addTarget:self action:@selector(doneClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:flex,doneButton, nil]];
+    longthTextField.inputAccessoryView = keyboardDoneButtonView;
+    widthTextField.inputAccessoryView = keyboardDoneButtonView;
+    heightTextField.inputAccessoryView = keyboardDoneButtonView;
+    weightTextField.inputAccessoryView = keyboardDoneButtonView;
+    priceTextField.inputAccessoryView = keyboardDoneButtonView;
+}
+
+- (IBAction)doneClicked:(id)sender{
+    [self.view endEditing:YES];
 }
 
 - (void)goBack{
@@ -40,6 +64,19 @@
 }
 
 - (void)saveAndgoBack{
+    if([longthTextField.text isEqualToString:@""] || [widthTextField.text isEqualToString:@""] || [heightTextField.text isEqualToString:@""] || [weightTextField.text isEqualToString:@""] || [priceTextField.text isEqualToString:@""]){
+        UIAlertController *alert =   [UIAlertController
+                                      alertControllerWithTitle:@"信息不完全"
+                                      message:@"请保证完成必填信息再保存"
+                                      preferredStyle:UIAlertControllerStyleAlert];;
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
     NSDictionary *size = [[NSDictionary alloc] initWithObjectsAndKeys:
                           [NSNumber numberWithInt:longthTextField.text.intValue],@"length",
                           [NSNumber numberWithInt:widthTextField.text.intValue],@"width",
@@ -61,7 +98,7 @@
     CheckPriceViewController *vc = (CheckPriceViewController *)[arrayViewControllers objectAtIndex:arrayViewControllers.count-1];
     vc.rateObject = rateObject;
     [self.navigationController popViewControllerAnimated:YES];
-
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -112,8 +149,27 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    [self.view endEditing:YES];
+    [self animateTextField: textField up: NO];
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self animateTextField: textField up: YES];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = textField.frame.origin.y / 2; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -123,7 +179,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     return YES;
 }
-
 
 /*
 #pragma mark - Navigation

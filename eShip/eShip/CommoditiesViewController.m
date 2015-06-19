@@ -37,6 +37,19 @@
 }
 
 - (void)goShip{
+    if([itemCountry.text isEqualToString:@""] || [itemQuantity.text isEqualToString:@""]  || [itemDescription.text isEqualToString:@""] ){
+        UIAlertController *alert =   [UIAlertController
+                                      alertControllerWithTitle:@"信息不完全"
+                                      message:@"请保证完成必填信息再保存"
+                                      preferredStyle:UIAlertControllerStyleAlert];;
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
     [self.view endEditing:YES];
     NSDictionary *commodity = [[NSDictionary alloc] initWithObjectsAndKeys:
                                [NSNumber numberWithInt:itemQuantity.text.intValue],@"numberOfPieces",
@@ -122,20 +135,22 @@
                                               message:@"在邮寄过程中出错了，请稍后再试"
                                               preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction* ok = [UIAlertAction
-                                     actionWithTitle:@"OK"
+                                     actionWithTitle:@"好的"
+                                     style:UIAlertActionStyleDefault
+                                     handler:nil];
+                UIAlertAction* goback = [UIAlertAction
+                                     actionWithTitle:@"回到地图"
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction *action){
                                          [self.navigationController popToRootViewControllerAnimated:YES];
                                      }];
+                [alert addAction:goback];
                 [alert addAction:ok];
                 [self presentViewController:alert animated:YES completion:nil];
             }
         }];
+      }
     }
-    
-
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

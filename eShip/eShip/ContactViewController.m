@@ -44,6 +44,19 @@
 }
 
 - (void)goNext{
+    if([senderName.text isEqualToString:@""] || [senderPhone.text isEqualToString:@""]  || [recipentName.text isEqualToString:@""] || [recipentPhone.text isEqualToString:@""]){
+    UIAlertController *alert =   [UIAlertController
+                                  alertControllerWithTitle:@"信息不完全"
+                                  message:@"请保证完成必填信息再保存"
+                                  preferredStyle:UIAlertControllerStyleAlert];;
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:nil];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
     NSDictionary *contact1 = [[NSDictionary alloc] initWithObjectsAndKeys:
                               senderName.text,@"personName",
                               senderPhone.text,@"phoneNumber",
@@ -65,7 +78,7 @@
     commodityVC.upsShipObject = upsShipObject;
     commodityVC.shipCarrier = shipCarrier;
     [self.navigationController pushViewController:commodityVC animated:YES];
-   //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"shipVC"] animated:YES];
+    }
 }
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up

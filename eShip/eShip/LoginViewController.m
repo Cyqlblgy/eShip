@@ -105,11 +105,22 @@
         [self presentViewController:alert animated:YES completion:nil];
 
     }
-    [self.view endEditing:YES];
-    NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+    else{
+        [self.view endEditing:YES];
+        NSDictionary *jsonDictionary;
+        if([unTextField.text rangeOfString:@"@"].location != NSNotFound){
+            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                              unTextField.text, @"email",
+                              pwTextField.text, @"password",
+                              nil];
+
+        }
+        else{
+            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     unTextField.text, @"user_name",
                                     pwTextField.text, @"password",
                                     nil];
+        }
     [SVProgressHUD showWithStatus:@"登录中" maskType:SVProgressHUDMaskTypeGradient];
     [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         [SVProgressHUD dismiss];
@@ -121,7 +132,11 @@
                       alertControllerWithTitle:@"Success"
                       message:@"登陆成功"
                       preferredStyle:UIAlertControllerStyleAlert];
-            [self saveCurrentUser];
+            NSError *e =nil;
+            NSDictionary *loginResult = [NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:&e];
+            [self saveCurrentUserwithDictionary:loginResult];
             
             ok = [UIAlertAction
                   actionWithTitle:@"OK"
@@ -146,12 +161,12 @@
         [self presentViewController:alert animated:YES completion:nil];
         
     }];
-    
+    }
 }
 
-- (void)saveCurrentUser{
+- (void)saveCurrentUserwithDictionary:(NSDictionary *)loginResult{
     NSDictionary *Dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                unTextField.text, @"userName",
+                               [loginResult valueForKey:@"user_name"], @"userName",
                                 pwTextField.text, @"passWord",
                                 nil];
     [[NSUserDefaults standardUserDefaults] setValue:Dictionary forKey:@"CurrentUser"];

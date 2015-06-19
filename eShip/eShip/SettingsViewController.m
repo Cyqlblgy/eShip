@@ -8,6 +8,8 @@
 
 #import "SettingsViewController.h"
 #import "LoginAndRegisterViewController.h"
+#import "LeftViewController.h"
+#import "TheSidebarController.h"
 
 @interface SettingsViewController (){
     NSArray *leftViewTextArray;
@@ -151,6 +153,8 @@
 - (void)logOff{
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"CurrentUser"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+    [vc updateLabel];
 }
 
 - (void)updateLayout{

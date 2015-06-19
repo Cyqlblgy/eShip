@@ -20,6 +20,7 @@ typedef enum {
 
 typedef enum {
     BLNetworkRateSuccess = 200,
+    BLNetworkRateBadRequest = 400
 } BLNetworkRateResponseCode;
 
 typedef enum {

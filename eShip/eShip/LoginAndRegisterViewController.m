@@ -77,7 +77,7 @@
 }
 
 - (void)goBack{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,6 +136,19 @@
 */
 
 - (IBAction)loginOrRegister:(id)sender {
+    if([emailTextField.text isEqualToString:@""] || [userNameTextField.text isEqualToString:@""] || [passwordTextField.text isEqualToString:@""]){
+        UIAlertController *alert =   [UIAlertController
+                                      alertControllerWithTitle:@"信息不完全"
+                                      message:@"请保证完成必填信息再注册"
+                                      preferredStyle:UIAlertControllerStyleAlert];;
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
         NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:userNameTextField.text, @"user_name",emailTextField.text,@"email",passwordTextField.text, @"password",phoneNumberTextField.text, @"phone",nil];
         [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
             NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
@@ -170,6 +183,7 @@
             [alert addAction:ok];
             [self presentViewController:alert animated:YES completion:nil];
         }];
+    }
 }
 
 

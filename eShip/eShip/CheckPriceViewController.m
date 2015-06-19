@@ -215,6 +215,38 @@
                [self performSegueWithIdentifier:@"checkIdentifier" sender:self];
             }
         }
+        else if (res.statusCode == BLNetworkRateBadRequest){
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"出错了"
+                                          message:@"当前eShip账号没有绑定快递运营商的账号"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"知道了"
+                                 style:UIAlertActionStyleDefault
+                                 handler:nil];
+            UIAlertAction* goback = [UIAlertAction
+                                     actionWithTitle:@"去注册"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction *action){
+                                         [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"registerVC"] animated:YES];
+                                     }];
+            [alert addAction:goback];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else if (res.statusCode == BLNetworkRateBadRequest){
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"出错了"
+                                          message:@"价格查询中出现了错误，请稍后再试"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"知道了"
+                                 style:UIAlertActionStyleDefault
+                                 handler:nil];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+
     }];
 }
 

@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *widthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
 @property (weak, nonatomic) BLRateObject *rateObject;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @end
