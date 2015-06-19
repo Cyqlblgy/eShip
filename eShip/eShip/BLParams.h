@@ -40,6 +40,11 @@ typedef enum {
     BLNetworkGetCustomFileSuccess = 200,
 } BLNetworkGetCustomFileResponseCode;
 
+typedef enum {
+    BLNetworkLinkAccountSuccess = 200,
+    BLNetworkLinkAccountConflict = 409
+} BLNetworkLinkAccountResponseCode;
+
 struct BLParamsStruct
 {
     __unsafe_unretained NSString * const NetworkHttpMethodPost;
@@ -51,6 +56,7 @@ struct BLParamsStruct
     __unsafe_unretained NSString * const NetworkShip;
     __unsafe_unretained NSString * const NetworkGetLabel;
     __unsafe_unretained NSString * const NetworkGetCustomFile;
+    __unsafe_unretained NSString * const NetworkLinkAccount;
     __unsafe_unretained NSString * const ShipFedex;
     __unsafe_unretained NSString * const ShipUPS;
     __unsafe_unretained NSString * const MapCar;

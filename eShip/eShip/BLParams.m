@@ -19,6 +19,7 @@ const struct BLParamsStruct BLParameters =
     .NetworkShip = @"user/ship/",
     .NetworkGetLabel = @"user/label/",
     .NetworkGetCustomFile = @"user/invoice/",
+    .NetworkLinkAccount = @"user/carrieraccount/register",
     .ShipFedex = @"fedex",
     .ShipUPS = @"ups",
     .MapCar = @"map_car",

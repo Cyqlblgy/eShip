@@ -43,6 +43,7 @@
 		2A1F2BA21B2C9E2E004FA9D6 /* BLUPSShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */; };
 		2A1F2BA51B2CC285004FA9D6 /* MACustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2BA41B2CC285004FA9D6 /* MACustomCalloutView.m */; };
 		2A2F1EA81B2FB36C00B517A8 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */; };
+		2A2F1FDD1B33D2E400B517A8 /* LinkAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -178,6 +179,8 @@
 		2A1F2BA41B2CC285004FA9D6 /* MACustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomCalloutView.m; sourceTree = "<group>"; };
 		2A2F1EA61B2FB36C00B517A8 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		2A2F1FDB1B33D2E400B517A8 /* LinkAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkAccountViewController.h; sourceTree = "<group>"; };
+		2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkAccountViewController.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -559,6 +562,8 @@
 				2A1F2B091B27B57F004FA9D6 /* LoginViewController.m */,
 				2A1F2B9D1B2C8E05004FA9D6 /* FileDisplayViewController.h */,
 				2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */,
+				2A2F1FDB1B33D2E400B517A8 /* LinkAccountViewController.h */,
+				2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				2A1F2BA21B2C9E2E004FA9D6 /* BLUPSShipObject.m in Sources */,
 				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
+				2A2F1FDD1B33D2E400B517A8 /* LinkAccountViewController.m in Sources */,
 				2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */,
 				2A2F1EA81B2FB36C00B517A8 /* TTTAttributedLabel.m in Sources */,
 				2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */,
