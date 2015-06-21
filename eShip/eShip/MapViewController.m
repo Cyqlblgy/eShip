@@ -191,6 +191,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         pickTableController = [storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
         pickTableController.title = @"选择功能";
+        pickTableController.tableView.scrollEnabled = NO;
         pickTableController.list = [[NSArray alloc] initWithObjects:@"查件",@"询价",@"寄件", nil];
         pickTableController.preferredContentSize = CGSizeMake(280, (pickTableController.list.count+1)*44);
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];

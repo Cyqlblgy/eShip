@@ -83,8 +83,8 @@
 }
 
 - (void)goRegister{
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"] animated:YES];
-   // [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"registerVC"] animated:YES];
+    //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"] animated:YES];
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"registerVC"] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

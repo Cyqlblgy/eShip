@@ -11,6 +11,7 @@
 #import "BLParams.h"
 #import "TheSidebarController.h"
 #import "LeftViewController.h"
+#import "LinkAccountViewController.h"
 
 @interface LoginAndRegisterViewController ()
 
@@ -136,7 +137,7 @@
 */
 
 - (IBAction)loginOrRegister:(id)sender {
-    if([emailTextField.text isEqualToString:@""] || [userNameTextField.text isEqualToString:@""] || [passwordTextField.text isEqualToString:@""]){
+    if(([emailTextField.text isEqualToString:@""] && [userNameTextField.text isEqualToString:@""]) || [passwordTextField.text isEqualToString:@""]){
         UIAlertController *alert =   [UIAlertController
                                       alertControllerWithTitle:@"信息不完全"
                                       message:@"请保证完成必填信息再注册"
@@ -149,7 +150,19 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
     else{
-        NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:userNameTextField.text, @"user_name",emailTextField.text,@"email",passwordTextField.text, @"password",phoneNumberTextField.text, @"phone",nil];
+        NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+        if([userNameTextField.text isEqualToString:@""]){
+        [jsonDictionary setValue:userNameTextField.text forKey:@"user_name"];
+        }
+        if([emailTextField.text isEqualToString:@""]){
+            [jsonDictionary setValue:emailTextField.text forKey:@"email"];
+        }
+        if([phoneNumberTextField.text isEqualToString:@""]){
+            [jsonDictionary setValue:phoneNumberTextField.text forKey:@"phone"];
+        }
+        if([passwordTextField.text isEqualToString:@""]){
+            [jsonDictionary setValue:passwordTextField.text forKey:@"password"];
+        }
         [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
             NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
             UIAlertController *alert;
@@ -164,7 +177,9 @@
                                       actionWithTitle:@"OK"
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction *action){
-                                          [self.navigationController popToRootViewControllerAnimated:YES];
+                                          LinkAccountViewController *linkvc = (LinkAccountViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"];
+                                          linkvc.isFromSettings = NO;
+                                          [self.navigationController pushViewController:linkvc animated:YES];
                                       }];
                 LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
                 [vc updateLabel];

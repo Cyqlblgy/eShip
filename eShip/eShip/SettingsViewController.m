@@ -10,6 +10,7 @@
 #import "LoginAndRegisterViewController.h"
 #import "LeftViewController.h"
 #import "TheSidebarController.h"
+#import "LinkAccountViewController.h"
 
 @interface SettingsViewController (){
     NSArray *leftViewTextArray;
@@ -24,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    leftViewTextArray = [[NSArray alloc] initWithObjects:@"收寄地址",@"快递公司",@"运单标签",@"打印机",@"支付方式", nil];
-    hintArray = [[NSArray alloc] initWithObjects:@"寄件人地址/收件人地址/默认地址",@"常用快递公司/默认快递公司",@"标签格式/标签文字/条形码",@"选择默认打印机",@"信用卡/支付宝/贝宝", nil];
+    leftViewTextArray = [[NSArray alloc] initWithObjects:@"收寄地址",@"快递公司",@"运单标签",@"关联账号",@"支付方式", nil];
+    hintArray = [[NSArray alloc] initWithObjects:@"寄件人地址/收件人地址/默认地址",@"常用快递公司/默认快递公司",@"标签格式/标签文字/条形码",@"绑定快递账号",@"信用卡/支付宝/贝宝", nil];
     self.navigationItem.title = @"设置";
     self.navigationItem.leftBarButtonItem = nil;
     loginButton.backgroundColor = [UIColor redColor];
@@ -101,57 +102,40 @@
 
 }
 
-#pragma mark - Navigation
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if([segue.identifier isEqualToString:@"logID"]){
-//        if([loginButton.currentTitle isEqualToString:@"登陆"]){
-//            LoginAndRegisterViewController *vc = [segue destinationViewController];
-//        }
-//        else if([loginButton.currentTitle isEqualToString:@"注册"]){
-//            //[self logOff];
-//        }
-//    
-//    }
-//    else if([segue.identifier isEqualToString:@"registerID"]){
-//        if([registerButton.currentTitle isEqualToString:@"注册"]){
-//            LoginAndRegisterViewController *vc = [segue destinationViewController];
-//        }
-//        else{
-//           // [self forgetPassword];
-//        }
-//      
-//    }
-//}
-
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-//    if([identifier isEqualToString:@"logID"]){
-//        if([loginButton.currentTitle isEqualToString:@"登陆"]){
-//            return YES;
-//        }
-//        else{
-//            [self logOff];
-//            [self updateLayout];
-//            return NO;
-//        }
-//    }
-//    else if([identifier isEqualToString:@"registerID"]){
-//        if([registerButton.currentTitle isEqualToString:@"注册"]){
-//            return YES;
-//        }
-//        else{
-//            [self forgetPassword];
-//            return NO;
-//        }
-//    }
-//    return NO;
-//}
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 3){
+        if([[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"]){
+            LinkAccountViewController *linkvc = (LinkAccountViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"];
+            linkvc.isFromSettings = YES;
+          [self.navigationController pushViewController:linkvc animated:YES];
+        }
+        else{
+            UIAlertController *alert =   [UIAlertController
+                                          alertControllerWithTitle:@"当前无已登录账号"
+                                          message:@"请先登录再绑定快递账号"
+                                          preferredStyle:UIAlertControllerStyleAlert];;
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction *action){
+                                    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+                                 }];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
+}
 
 #pragma Private methods
 
 - (void)logOff{
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"CurrentUser"];
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"UPS"]){
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UPS"];
+    }
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"Fedex"]){
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Fedex"];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
     LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
     [vc updateLabel];
@@ -172,8 +156,8 @@
 
 - (IBAction)logAction:(id)sender {
     if([loginButton.currentTitle isEqualToString:@"登陆"]){
-        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"commentcVC"] animated:YES];
-       // [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+      //  [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"commentcVC"] animated:YES];
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
     }
     else if([loginButton.currentTitle isEqualToString:@"退出当前账户"]){
         [self logOff];

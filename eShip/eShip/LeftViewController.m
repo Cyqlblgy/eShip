@@ -72,7 +72,7 @@
 - (void)updateLabel{
     NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
     if(currentUser){
-        NSString *userName =  [currentUser valueForKey:@"userName"];
+        NSString *userName = [[NSString alloc] initWithFormat:@"账号:%@",[currentUser valueForKey:@"userName"]];
         nameLabel.text = userName;
     }
     else{

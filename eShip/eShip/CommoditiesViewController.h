@@ -18,5 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *itemCountry;
 @property (weak, nonatomic) IBOutlet UITextField *itemQuantity;
 @property (weak, nonatomic) IBOutlet UITextView *itemDescription;
+@property (weak, nonatomic) IBOutlet UITextField *accountTextField;
+@property (weak, nonatomic) IBOutlet UITextField *methodTextField;
+@property (weak, nonatomic) IBOutlet UILabel *methodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end

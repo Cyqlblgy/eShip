@@ -11,5 +11,5 @@
 @interface LinkAccountViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *fedexTextField;
 @property (weak, nonatomic) IBOutlet UITextField *UPSTextField;
-
+@property (assign, nonatomic) BOOL isFromSettings;
 @end

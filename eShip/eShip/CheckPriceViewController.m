@@ -278,6 +278,26 @@
     else if([[segue identifier] isEqualToString:@"checkIdentifier"]){
         RateResultViewController *vc = [segue destinationViewController];
         vc.shipInfo = rateResults;
+//        NSDictionary *rate1 = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                               @"USD",@"currency",
+//                               @"117.29",@"amount",
+//                               nil];
+//        NSDictionary *fe = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                            @"fedex",@"carrier",
+//                            rate1 ,@"rate",
+//                            [NSNumber numberWithInt:1],@"transitDays",
+//                            nil];
+//        NSDictionary *rate2 = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                               @"RMB",@"currency",
+//                               @"558.63",@"amount",
+//                               nil];
+//        NSDictionary *fe1 = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                             @"ups",@"carrier",
+//                             rate2 ,@"rate",
+//                             [NSNumber numberWithInt:1],@"transitDays",
+//                             nil];
+//        vc.shipInfo = [[NSArray alloc] initWithObjects:fe,fe1,nil];
+
         vc.rateObject = rateObject;
     }
     

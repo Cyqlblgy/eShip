@@ -46,6 +46,10 @@
     }
     NSString *rowText = [list objectAtIndex:indexPath.row];
     cell.textLabel.text = rowText;
+    if(_cellTextFont){
+    cell.textLabel.font  = _cellTextFont;
+    }
+    cell.textLabel.numberOfLines = 2;
     if([selectedOne isEqualToString:rowText]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }

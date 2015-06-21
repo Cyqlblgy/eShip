@@ -26,7 +26,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456383257.229729"
+                  timestampString = "456552055.766412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -41,7 +41,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456383257.229935"
+                  timestampString = "456552055.766626"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "172"
@@ -90,7 +90,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456383257.263709"
+                  timestampString = "456552055.76826"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -105,7 +105,7 @@
                   moduleName = "eShip"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/binlang/Documents/eShip/eShip/eShip/ShipViewController.m"
-                  timestampString = "456383257.263882"
+                  timestampString = "456552055.768427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
@@ -137,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "eShip/CheckPriceViewController.m"
-            timestampString = "456378685.231046"
+            filePath = "eShip/CommoditiesViewController.m"
+            timestampString = "456550013.765104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "-SearchPrice:"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,13 +153,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "eShip/LinkAccountViewController.m"
-            timestampString = "456383374.645701"
+            filePath = "eShip/CommoditiesViewController.m"
+            timestampString = "456552248.198179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-goRegister"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-goShip"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "eShip/CommoditiesViewController.m"
+            timestampString = "456552251.210126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-goShip"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

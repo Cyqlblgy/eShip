@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSString *selectedOne;
 @property (strong, nonatomic) NSArray *list;
+@property (strong, nonatomic) UIFont *cellTextFont;
 @end

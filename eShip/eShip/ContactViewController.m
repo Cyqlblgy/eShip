@@ -35,7 +35,29 @@
     recipentName.tag = 3;
     recipentPhone.tag = 4;
     recipentEmail.tag = 5;
-    // Do any additional setup after loading the view.
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"完成" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    button.layer.cornerRadius = 4.0;
+    button.frame= CGRectMake(0.0, 0.0, 60, 35);
+    [button addTarget:self action:@selector(doneClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:flex,doneButton, nil]];
+    senderPhone.inputAccessoryView = keyboardDoneButtonView;
+    recipentPhone.inputAccessoryView = keyboardDoneButtonView;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [self.view endEditing:YES];
+}
+
+- (IBAction)doneClicked:(id)sender{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
