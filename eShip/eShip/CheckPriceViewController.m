@@ -100,7 +100,7 @@
                         rate2 ,@"rate",
                         [NSNumber numberWithInt:1],@"transitDays",
                         nil];
-   // rateResults = [[NSArray alloc] initWithObjects:fe,fe1,nil];
+    rateResults = [[NSArray alloc] initWithObjects:fe,fe1,nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -140,9 +140,9 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    rateResults = nil;
-}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    rateResults = nil;
+//}
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
@@ -189,65 +189,85 @@
 //                            @"CNY",@"currency",
 //                            [NSNumber numberWithFloat:3000],@"amount",
 //                            nil];
-    long long i = (long long)[[NSDate date] timeIntervalSince1970]* 1000.0;
-    NSMutableDictionary *originalAddress1 = [rateObject.originalAddress mutableCopy];
-    [originalAddress1 setValue:[NSNull null] forKey:@"countryName"];
-    NSMutableDictionary *destinyAddress1 = [rateObject.destinationAddress mutableCopy];
-    [destinyAddress1 setValue:[NSNull null] forKey:@"countryName"];
-    NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    originalAddress1,@"senderAddress",
-                                    destinyAddress1,@"recipientAddress",
-                                    rateObject.size,@"size",
-                                    rateObject.weight,@"weight",
-                                    rateObject.value,@"value",
-                                    [NSNumber numberWithLongLong:i],@"shipTime",
-                                    nil];
-    [SVProgressHUD showWithStatus:@"查询价格中" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [SVProgressHUD dismiss];
-        NSError *e = nil;
-        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        if(res.statusCode == BLNetworkRateSuccess){
-         rateResults = [NSJSONSerialization JSONObjectWithData:data
-                                        options:NSJSONReadingMutableContainers
-                                          error:&e];
-            if(rateResults.count != 0){
-               [self performSegueWithIdentifier:@"checkIdentifier" sender:self];
-            }
-        }
-        else if (res.statusCode == BLNetworkRateBadRequest){
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@"出错了"
-                                          message:@"当前eShip账号没有绑定快递运营商的账号"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"知道了"
-                                 style:UIAlertActionStyleDefault
-                                 handler:nil];
-            UIAlertAction* goback = [UIAlertAction
-                                     actionWithTitle:@"去注册"
-                                     style:UIAlertActionStyleDefault
-                                     handler:^(UIAlertAction *action){
-                                         [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"registerVC"] animated:YES];
-                                     }];
-            [alert addAction:goback];
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-        else if (res.statusCode == BLNetworkRateBadRequest){
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@"出错了"
-                                          message:@"价格查询中出现了错误，请稍后再试"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"知道了"
-                                 style:UIAlertActionStyleDefault
-                                 handler:nil];
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
+    
+    [self fakeRate];
+    
+//    long long i = (long long)[[NSDate date] timeIntervalSince1970]* 1000.0;
+//    NSMutableDictionary *originalAddress1 = [rateObject.originalAddress mutableCopy];
+//    [originalAddress1 setValue:[NSNull null] forKey:@"countryName"];
+//    NSMutableDictionary *destinyAddress1 = [rateObject.destinationAddress mutableCopy];
+//    [destinyAddress1 setValue:[NSNull null] forKey:@"countryName"];
+//    NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                                    originalAddress1,@"senderAddress",
+//                                    destinyAddress1,@"recipientAddress",
+//                                    rateObject.size,@"size",
+//                                    rateObject.weight,@"weight",
+//                                    rateObject.value,@"value",
+//                                    [NSNumber numberWithLongLong:i],@"shipTime",
+//                                    nil];
+//    [SVProgressHUD showWithStatus:@"查询价格中" maskType:SVProgressHUDMaskTypeGradient];
+//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRate andParams:jsonDictionary andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        [SVProgressHUD dismiss];
+//        NSError *e = nil;
+//        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//        if(res.statusCode == BLNetworkRateSuccess){
+//         rateResults = [NSJSONSerialization JSONObjectWithData:data
+//                                        options:NSJSONReadingMutableContainers
+//                                          error:&e];
+//            if(rateResults.count != 0){
+//               [self performSegueWithIdentifier:@"checkIdentifier" sender:self];
+//            }
+//        }
+//        else if (res.statusCode == BLNetworkRateBadRequest){
+//            UIAlertController * alert=   [UIAlertController
+//                                          alertControllerWithTitle:@"出错了"
+//                                          message:@"当前eShip账号没有绑定快递运营商的账号"
+//                                          preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok = [UIAlertAction
+//                                 actionWithTitle:@"知道了"
+//                                 style:UIAlertActionStyleDefault
+//                                 handler:nil];
+//            UIAlertAction* goback = [UIAlertAction
+//                                     actionWithTitle:@"去注册"
+//                                     style:UIAlertActionStyleDefault
+//                                     handler:^(UIAlertAction *action){
+//                                         [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"registerVC"] animated:YES];
+//                                     }];
+//            [alert addAction:goback];
+//            [alert addAction:ok];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }
+//        else if (res.statusCode == BLNetworkRateBadRequest){
+//            UIAlertController * alert=   [UIAlertController
+//                                          alertControllerWithTitle:@"出错了"
+//                                          message:@"价格查询中出现了错误，请稍后再试"
+//                                          preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok = [UIAlertAction
+//                                 actionWithTitle:@"知道了"
+//                                 style:UIAlertActionStyleDefault
+//                                 handler:nil];
+//            [alert addAction:ok];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }
+//
+//    }];
+}
 
-    }];
+- (void)fakeRate{
+    [SVProgressHUD showWithStatus:@"查询价格中" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 3
+                                     target: self
+                                   selector: @selector(fakeTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeTimeHandler{
+    [SVProgressHUD dismiss];
+   // [self performSegueWithIdentifier:@"checkIdentifier" sender:self];
+    RateResultViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"rateResultVC"];
+    vc.shipInfo = rateResults;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
@@ -255,7 +275,8 @@
         return YES;
     }
     else{
-        return rateResults!=nil;
+        return NO;
+      //  return rateResults!=nil;
     }
 }
 

@@ -760,7 +760,7 @@
         <!--Rate Result View Controller-->
         <scene sceneID="bVT-kY-8No">
             <objects>
-                <viewController id="hdU-pc-rrU" customClass="RateResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rateResultVC" id="hdU-pc-rrU" customClass="RateResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AB5-mU-htI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
