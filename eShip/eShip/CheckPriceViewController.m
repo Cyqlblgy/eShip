@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"预约寄件";
+    self.navigationItem.title = @"价格查询";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [originalButton setFrame:CGRectMake(0, 0, 40, originalPlaceTextField.frame.size.height)];

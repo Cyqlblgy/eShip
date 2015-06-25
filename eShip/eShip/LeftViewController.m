@@ -51,7 +51,7 @@
 //    [self.view addGestureRecognizer:tapGesture];
     menuItems = @[@"地图", @"查件", @"询价",@"寄件", @"我的", @"设置"];
     imageNames = @[@"Map.png",@"track.png",@"Mine.png",@"ship.png",@"login.png",@"left4.png"];
-    vcNames = @[@"findVC",@"checkPriceVC",@"MineVC",@"SettingsVC"];
+    vcNames = @[@"findVC",@"checkPriceVC",@"shipVC",@"MineVC",@"SettingsVC"];
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50*menuItems.count);
     mytableView.scrollEnabled = NO;

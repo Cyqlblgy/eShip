@@ -32,21 +32,22 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-     [self parseParcelDetail];
+     //[self parseParcelDetail];
+    [self fakeData];
     CarrierAndNumberLabel.frame = CGRectMake(5, CarrierAndNumberLabel.frame.origin.y, self.view.frame.size.width/2-5, CarrierAndNumberLabel.frame.size.height);
-    CarrierAndNumberLabel.text = [[NSString alloc] initWithFormat:@"%@ : %@",carrier,trackingNumber];
+    CarrierAndNumberLabel.text = [[NSString alloc] initWithFormat:@"%@:%@",carrier,trackingNumber];
     statusLabel.frame = CGRectMake(self.view.frame.size.width/2+5, statusLabel.frame.origin.y, self.view.frame.size.width/2-5, statusLabel.frame.size.height);
-    statusLabel.text = [[NSString alloc] initWithFormat:@"最新状态  :  %@", status];
+    statusLabel.text = [[NSString alloc] initWithFormat:@"最新状态 :%@", status];
     deliverDateLabel.frame = CGRectMake(5, deliverDateLabel.frame.origin.y, self.view.frame.size.width/2-5, deliverDateLabel.frame.size.height);
     shipDateLabel.frame = CGRectMake(self.view.frame.size.width/2+5, shipDateLabel.frame.origin.y, self.view.frame.size.width/2-5, shipDateLabel.frame.size.height);
     if(![deliverDate isKindOfClass:[NSNull class]]){
-    deliverDateLabel.text = [[NSString alloc] initWithFormat:@"投递时间  :  %@", deliverDate];
+    deliverDateLabel.text = [[NSString alloc] initWithFormat:@"投递时间:%@", deliverDate];
     }
     else{
     deliverDateLabel.text = @"投递时间  :  未知";
     }
     if(![shipDate isKindOfClass:[NSNull class]]){
-    shipDateLabel.text = [[NSString alloc] initWithFormat:@"寄出时间  :  %@", shipDate];
+    shipDateLabel.text = [[NSString alloc] initWithFormat:@"寄出时间:%@", shipDate];
     }
     else{
     shipDateLabel.text = @"寄出时间  :  未知";
@@ -93,6 +94,32 @@
         TrackingDetailViewModel *view = [[TrackingDetailViewModel alloc] initWithFrame:CGRectMake(15, i*150, scrollView.frame.size.width-30, 130) andParams:[events objectAtIndex:i]];
        // view.backgroundColor = [UIColor greenColor];
        // scrollView.backgroundColor = [UIColor blueColor];
+        [scrollView addSubview:view];
+    }
+}
+
+- (void)fakeData{
+    trackingNumber = _fakeNumber;
+    deliverDate = @"2015-6-11";
+    shipDate = @"2015-6-09";
+    NSDictionary *place1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Worcester",@"city",
+                            @"MA",@"state",
+                            @"US",@"country",nil];
+    NSDictionary *e1 = [[NSDictionary alloc] initWithObjectsAndKeys:place1,@"place",
+                        @"Picked up",@"description",
+                        @"2015-6-09",@"date",nil];
+    NSDictionary *place2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"Shanghai",@"city",
+                            @"SH",@"state",
+                            @"China",@"country",nil];
+    NSDictionary *e2 = [[NSDictionary alloc] initWithObjectsAndKeys:place2,@"place",
+                        @"Delivered",@"description",
+                        @"2015-6-11",@"date",nil];
+    events = [[[NSArray alloc] initWithObjects:e1,e2,nil] mutableCopy];
+    status = @"已投递";
+    for(int i = 0; i< [events count]; i++){
+        TrackingDetailViewModel *view = [[TrackingDetailViewModel alloc] initWithFrame:CGRectMake(15, i*150, scrollView.frame.size.width-30, 130) andParams:[events objectAtIndex:i]];
+        // view.backgroundColor = [UIColor greenColor];
+        // scrollView.backgroundColor = [UIColor blueColor];
         [scrollView addSubview:view];
     }
 }

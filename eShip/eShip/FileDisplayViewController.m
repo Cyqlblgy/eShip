@@ -51,82 +51,133 @@
 */
 
 - (IBAction)getLabel:(id)sender {
-    NSString *str = [[NSString alloc] initWithFormat:@"%@%@",BLParameters.NetworkGetLabel,trackingNumber];
-    [SVProgressHUD showWithStatus:@"生成快递单中..." maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:str andParams:nil andMaxTimeOut:40 andAcceptType:@"application/pdf" andAuthorization:[self getAuthMethod] andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [SVProgressHUD dismiss];
-        NSString * newFilePath = [[self documentPath] stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"%@_label.pdf",trackingNumber]];
-        BOOL isWriteSuccess = [data writeToFile:newFilePath atomically:YES];
-        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        if(res.statusCode == BLNetworkGetLabelSuccess && isWriteSuccess){
-            NSURL *URL = [NSURL fileURLWithPath:newFilePath];
+    [self fakeInvoice];
+//    NSString *str = [[NSString alloc] initWithFormat:@"%@%@",BLParameters.NetworkGetLabel,trackingNumber];
+//    [SVProgressHUD showWithStatus:@"生成快递单中..." maskType:SVProgressHUDMaskTypeGradient];
+//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:str andParams:nil andMaxTimeOut:40 andAcceptType:@"application/pdf" andAuthorization:[self getAuthMethod] andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        [SVProgressHUD dismiss];
+//        NSString * newFilePath = [[self documentPath] stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"%@_label.pdf",trackingNumber]];
+//        BOOL isWriteSuccess = [data writeToFile:newFilePath atomically:YES];
+//        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//        if(res.statusCode == BLNetworkGetLabelSuccess && isWriteSuccess){
+//            NSURL *URL = [NSURL fileURLWithPath:newFilePath];
+//            
+//            if (URL) {
+//                // Initialize Document Interaction Controller
+//                UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+//                
+//                // Configure Document Interaction Controller
+//                [documentInteractionController setDelegate:self];
+//                
+//                // Preview PDF
+//                [documentInteractionController presentPreviewAnimated:YES];
+//            }
+//        }
+//        else{
+//            UIAlertController * alert1=   [UIAlertController
+//                                           alertControllerWithTitle:@"出错了"
+//                                           message:@"PDF生成过程中出错了"
+//                                           preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok1 = [UIAlertAction
+//                                  actionWithTitle:@"OK"
+//                                  style:UIAlertActionStyleDefault
+//                                  handler:^(UIAlertAction *action){
+//                                      [self.navigationController popToRootViewControllerAnimated:YES];
+//                                  }];
+//            [alert1 addAction:ok1];
+//            [self presentViewController:alert1 animated:YES completion:nil];
+//        }
+//    }];
+}
+
+- (void)fakeInvoice{
+    [SVProgressHUD showWithStatus:@"生成快递单中......" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 1.5
+                                     target: self
+                                   selector: @selector(fakeInvoiceTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeInvoiceTimeHandler{
+    [SVProgressHUD dismiss];
+    NSString * newFilePath = [[NSBundle mainBundle] pathForResource:@"invoice" ofType:@"pdf" inDirectory:nil];;
+    NSURL *URL = [NSURL fileURLWithPath:newFilePath];
+    if(URL){
+            // Initialize Document Interaction Controller
+            UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
             
-            if (URL) {
-                // Initialize Document Interaction Controller
-                UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
-                
-                // Configure Document Interaction Controller
-                [documentInteractionController setDelegate:self];
-                
-                // Preview PDF
-                [documentInteractionController presentPreviewAnimated:YES];
-            }
+            // Configure Document Interaction Controller
+            [documentInteractionController setDelegate:self];
+            
+            // Preview PDF
+            [documentInteractionController presentPreviewAnimated:YES];
         }
-        else{
-            UIAlertController * alert1=   [UIAlertController
-                                           alertControllerWithTitle:@"出错了"
-                                           message:@"PDF生成过程中出错了"
-                                           preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok1 = [UIAlertAction
-                                  actionWithTitle:@"OK"
-                                  style:UIAlertActionStyleDefault
-                                  handler:^(UIAlertAction *action){
-                                      [self.navigationController popToRootViewControllerAnimated:YES];
-                                  }];
-            [alert1 addAction:ok1];
-            [self presentViewController:alert1 animated:YES completion:nil];
-        }
-    }];
+}
+
+- (void)fakeCustom{
+    [SVProgressHUD showWithStatus:@"生成报关文件中......" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 1.5
+                                     target: self
+                                   selector: @selector(fakeCustomTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeCustomTimeHandler{
+    [SVProgressHUD dismiss];
+    NSString * newFilePath = [[NSBundle mainBundle] pathForResource:@"custom" ofType:@"pdf" inDirectory:nil];;
+    NSURL *URL = [NSURL fileURLWithPath:newFilePath];
+    if(URL){
+        // Initialize Document Interaction Controller
+        UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+        
+        // Configure Document Interaction Controller
+        [documentInteractionController setDelegate:self];
+        
+        // Preview PDF
+        [documentInteractionController presentPreviewAnimated:YES];
+    }
 }
 
 - (IBAction)getCustomFile:(id)sender {
-    
-    NSString *str = [[NSString alloc] initWithFormat:@"%@%@",BLParameters.NetworkGetCustomFile,trackingNumber];
-    [SVProgressHUD showWithStatus:@"生成报关文件中..." maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:str andParams:nil andMaxTimeOut:40 andAcceptType:@"application/pdf" andAuthorization:[self getAuthMethod] andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [SVProgressHUD dismiss];
-        NSString * newFilePath = [[self documentPath] stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"%@_invoice.pdf",trackingNumber]];
-        BOOL isWriteSuccess = [data writeToFile:newFilePath atomically:YES];
-        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        if(res.statusCode == BLNetworkGetCustomFileSuccess && isWriteSuccess){
-            NSURL *URL = [NSURL fileURLWithPath:newFilePath];
-            
-            if (URL) {
-                // Initialize Document Interaction Controller
-                UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
-                
-                // Configure Document Interaction Controller
-                [documentInteractionController setDelegate:self];
-                
-                // Preview PDF
-                [documentInteractionController presentPreviewAnimated:YES];
-            }
-        }
-        else{
-            UIAlertController * alert1=   [UIAlertController
-                                           alertControllerWithTitle:@"出错了"
-                                           message:@"PDF生成过程中出错了"
-                                           preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok1 = [UIAlertAction
-                                  actionWithTitle:@"OK"
-                                  style:UIAlertActionStyleDefault
-                                  handler:^(UIAlertAction *action){
-                                      [self.navigationController popToRootViewControllerAnimated:YES];
-                                  }];
-            [alert1 addAction:ok1];
-            [self presentViewController:alert1 animated:YES completion:nil];
-        }
-    }];
+    [self fakeCustom];
+//    NSString *str = [[NSString alloc] initWithFormat:@"%@%@",BLParameters.NetworkGetCustomFile,trackingNumber];
+//    [SVProgressHUD showWithStatus:@"生成报关文件中..." maskType:SVProgressHUDMaskTypeGradient];
+//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:str andParams:nil andMaxTimeOut:40 andAcceptType:@"application/pdf" andAuthorization:[self getAuthMethod] andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        [SVProgressHUD dismiss];
+//        NSString * newFilePath = [[self documentPath] stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"%@_invoice.pdf",trackingNumber]];
+//        BOOL isWriteSuccess = [data writeToFile:newFilePath atomically:YES];
+//        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//        if(res.statusCode == BLNetworkGetCustomFileSuccess && isWriteSuccess){
+//            NSURL *URL = [NSURL fileURLWithPath:newFilePath];
+//            
+//            if (URL) {
+//                // Initialize Document Interaction Controller
+//                UIDocumentInteractionController *documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:URL];
+//                
+//                // Configure Document Interaction Controller
+//                [documentInteractionController setDelegate:self];
+//                
+//                // Preview PDF
+//                [documentInteractionController presentPreviewAnimated:YES];
+//            }
+//        }
+//        else{
+//            UIAlertController * alert1=   [UIAlertController
+//                                           alertControllerWithTitle:@"出错了"
+//                                           message:@"PDF生成过程中出错了"
+//                                           preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok1 = [UIAlertAction
+//                                  actionWithTitle:@"OK"
+//                                  style:UIAlertActionStyleDefault
+//                                  handler:^(UIAlertAction *action){
+//                                      [self.navigationController popToRootViewControllerAnimated:YES];
+//                                  }];
+//            [alert1 addAction:ok1];
+//            [self presentViewController:alert1 animated:YES completion:nil];
+//        }
+//    }];
 }
 
 - (NSString *)documentPath {

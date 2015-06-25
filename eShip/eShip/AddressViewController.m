@@ -9,6 +9,7 @@
 #import "AddressViewController.h"
 #import "TSLocateView.h"
 #import "CheckPriceViewController.h"
+#import "ShipViewController.h"
 
 @interface AddressViewController (){
     NSString *provinceCode;
@@ -165,11 +166,16 @@
         rateObject.destinationAddress = Address;
         rateObject.destinationState = stateTextField.text;
     }
-    NSArray *arrayViewControllers = [self.navigationController viewControllers];
-    
-    CheckPriceViewController *vc = (CheckPriceViewController *)[arrayViewControllers objectAtIndex:arrayViewControllers.count-1];
-    vc.rateObject = rateObject;
-    [self.navigationController popViewControllerAnimated:YES];
+        NSArray *arrayViewControllers = [self.navigationController viewControllers];
+        if(_isShip){
+            ShipViewController *vc = (ShipViewController *)[arrayViewControllers objectAtIndex:arrayViewControllers.count-1];
+            vc.rateObject = rateObject;
+        }
+        else{
+            CheckPriceViewController *vc = (CheckPriceViewController *)[arrayViewControllers objectAtIndex:arrayViewControllers.count-1];
+            vc.rateObject = rateObject;
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

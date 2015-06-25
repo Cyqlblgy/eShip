@@ -135,42 +135,60 @@
 
 - (IBAction)startTracking:(id)sender {
     [self.view endEditing:YES];
-    NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,shipNumberTextField.text.lowercaseString];
+    [self fakeTracking];
+//    NSString *requestType = [[NSString alloc] initWithFormat:@"user/%@?carrier=%@&trackingNum=%@",BLParameters.NetworkTrack,carrierTextField.text.lowercaseString,shipNumberTextField.text.lowercaseString];
+//    [SVProgressHUD showWithStatus:@"快件追踪中" maskType:SVProgressHUDMaskTypeGradient];
+//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//        [SVProgressHUD dismiss];
+//        if(res.statusCode == BLNetworkTrackSuccess){
+//            NSError *e = nil;
+//            detailData = [NSJSONSerialization JSONObjectWithData:data
+//                                                               options:NSJSONReadingMutableContainers
+//                                                                 error:&e];
+//            [self performSegueWithIdentifier:@"trackIdentifier" sender:self];
+//        }
+//        else{
+//            NSString *errorMessage= nil;
+//            NSString *errorTitle = @"出错了";
+//        if(res.statusCode == BLNetworkTrackCarrierNotFound){
+//            errorMessage = @"无此快递公司";
+//        }
+//        else if(res.statusCode == BLNetworkTrackNumberNotFound){
+//           errorMessage = @"无此快递号";
+//        }
+//        else{
+//            errorMessage = @"追踪过程中出错了";
+//        }
+//            UIAlertController * alert=   [UIAlertController
+//                                          alertControllerWithTitle:errorTitle
+//                                          message:errorMessage
+//                                          preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok = [UIAlertAction
+//                                 actionWithTitle:@"OK"
+//                                 style:UIAlertActionStyleDefault
+//                                 handler:nil];
+//            [alert addAction:ok];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }
+//    }];
+}
+
+- (void)fakeTracking{
     [SVProgressHUD showWithStatus:@"快件追踪中" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodGet andrequestType:requestType andParams:nil andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        [SVProgressHUD dismiss];
-        if(res.statusCode == BLNetworkTrackSuccess){
-            NSError *e = nil;
-            detailData = [NSJSONSerialization JSONObjectWithData:data
-                                                               options:NSJSONReadingMutableContainers
-                                                                 error:&e];
-            [self performSegueWithIdentifier:@"trackIdentifier" sender:self];
-        }
-        else{
-            NSString *errorMessage= nil;
-            NSString *errorTitle = @"出错了";
-        if(res.statusCode == BLNetworkTrackCarrierNotFound){
-            errorMessage = @"无此快递公司";
-        }
-        else if(res.statusCode == BLNetworkTrackNumberNotFound){
-           errorMessage = @"无此快递号";
-        }
-        else{
-            errorMessage = @"追踪过程中出错了";
-        }
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:errorTitle
-                                          message:errorMessage
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"OK"
-                                 style:UIAlertActionStyleDefault
-                                 handler:nil];
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-    }];
+    [NSTimer scheduledTimerWithTimeInterval: 2
+                                     target: self
+                                   selector: @selector(fakeTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeTimeHandler{
+    [SVProgressHUD dismiss];
+    TrackingDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"trackDetailVC"];
+    vc.fakeNumber = shipNumberTextField.text;
+    vc.carrier = carrierTextField.text;
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 

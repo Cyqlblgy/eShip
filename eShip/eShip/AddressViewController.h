@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *stateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cityTextField;
 @property (nonatomic, assign) BOOL isOriginal;
+@property (nonatomic, assign) BOOL isShip;
 @property (weak, nonatomic) BLRateObject *rateObject;
 - (IBAction)saveAddress:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;

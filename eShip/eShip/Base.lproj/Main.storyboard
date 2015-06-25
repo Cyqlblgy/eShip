@@ -503,6 +503,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cqT-b8-rcx"/>
                     <connections>
                         <outlet property="recipentEmail" destination="jEL-WY-Qhz" id="BcJ-8Z-sv0"/>
                         <outlet property="recipentName" destination="7rD-Ru-d1R" id="gcN-NZ-wNz"/>
@@ -730,32 +731,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuM-7H-bUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044" y="-2230"/>
-        </scene>
-        <!--Ship View Controller-->
-        <scene sceneID="MmU-gI-RWu">
-            <objects>
-                <viewController storyboardIdentifier="shipVC" id="BZ9-76-5cI" customClass="ShipViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Ou-QZ-dt5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Be4-T9-fW6">
-                                <rect key="frame" x="144" y="185" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="ship:" destination="BZ9-76-5cI" eventType="touchUpInside" id="Gye-ES-dss"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IKR-ZI-90t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1418" y="-2230"/>
         </scene>
         <!--Rate Result View Controller-->
         <scene sceneID="bVT-kY-8No">
@@ -1521,6 +1496,134 @@
             </objects>
             <point key="canvasLocation" x="1739" y="-138"/>
         </scene>
+        <!--Ship View Controller-->
+        <scene sceneID="q3f-UJ-F9w">
+            <objects>
+                <viewController storyboardIdentifier="shipVC" id="1mb-5y-Wgf" customClass="ShipViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Il2-DD-MEr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="AYH-sf-sh7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择原寄地" minimumFontSize="17" id="cVX-is-aUq">
+                                        <rect key="frame" x="0.0" y="54" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1mb-5y-Wgf" id="fCs-0O-t5v"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="填写物品类型/重量/大小" minimumFontSize="17" id="7qC-uc-9zb">
+                                        <rect key="frame" x="0.0" y="160" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1mb-5y-Wgf" id="7ab-Di-qmi"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择快递商" minimumFontSize="17" id="We0-GB-iPp">
+                                        <rect key="frame" x="0.0" y="220" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1mb-5y-Wgf" id="9pI-az-LfO"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m0K-Xp-48p">
+                                        <rect key="frame" x="258" y="160" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="yDW-J0-b4O" kind="push" identifier="dAddress" id="Zlm-2w-jIo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wvy-KN-1v2">
+                                        <rect key="frame" x="258" y="220" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yGu-51-ITp">
+                                        <rect key="frame" x="258" y="101" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="yDW-J0-b4O" kind="push" identifier="oAddress" id="DUv-aT-rTv"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择目的地" minimumFontSize="17" id="krZ-Xq-JBA">
+                                        <rect key="frame" x="0.0" y="107" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1mb-5y-Wgf" id="cI2-rY-JPp"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rYK-UO-i8X" userLabel="searchButton">
+                                        <rect key="frame" x="16" y="292" width="288" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.16078431900000001" green="0.8980392814" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="开始快递">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="62H-gO-xnb" kind="push" identifier="shipAction" id="LfQ-9d-Hbo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L7R-Jp-lQB">
+                                        <rect key="frame" x="247" y="228" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="6NQ-fB-OIu" kind="push" identifier="iIdentifier" id="1s7-Mq-c6S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="carrierButton" destination="Wvy-KN-1v2" id="BxS-HA-DaR"/>
+                        <outlet property="carrierTextField" destination="We0-GB-iPp" id="TS4-wU-QeH"/>
+                        <outlet property="destinationButton" destination="m0K-Xp-48p" id="4ph-fi-RIq"/>
+                        <outlet property="destinationPlaceTextField" destination="krZ-Xq-JBA" id="BrM-D4-qc9"/>
+                        <outlet property="itemTypeButton" destination="L7R-Jp-lQB" id="PtZ-Wf-D30"/>
+                        <outlet property="itemTypeTextField" destination="7qC-uc-9zb" id="oXK-Do-UBd"/>
+                        <outlet property="originalButton" destination="yGu-51-ITp" id="cRk-fe-iJN"/>
+                        <outlet property="originalPlaceTextField" destination="cVX-is-aUq" id="Y3Z-4s-gSN"/>
+                        <outlet property="shipButton" destination="rYK-UO-i8X" id="lCx-U9-lxJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Czc-4y-MGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1391" y="-138"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="100" height="100"/>
@@ -1540,6 +1643,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nee-hG-zX9"/>
+        <segue reference="DUv-aT-rTv"/>
+        <segue reference="1s7-Mq-c6S"/>
     </inferredMetricsTieBreakers>
 </document>

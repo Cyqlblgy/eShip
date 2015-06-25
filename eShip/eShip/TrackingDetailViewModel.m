@@ -38,7 +38,8 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
     NSDate *sDate = [dateFormatter dateFromString:_date];
     dateFormatter.dateFormat = @"yyyy-MM-dd";
-    _date = [[dateFormatter stringFromDate:sDate] mutableCopy];
+    //For fake data
+    //_date = [[dateFormatter stringFromDate:sDate] mutableCopy];
 }
 
 - (void)addLabels{

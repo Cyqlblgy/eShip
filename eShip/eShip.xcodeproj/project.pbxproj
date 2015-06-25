@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A04BD511B3BA83900B9EFBF /* invoice.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04BD4F1B3BA83900B9EFBF /* invoice.pdf */; };
+		2A04BD521B3BA83900B9EFBF /* custom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04BD501B3BA83900B9EFBF /* custom.pdf */; };
 		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
 		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
 		2A18F1AC1B213A670034B76E /* SidebarAirbnbAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */; };
@@ -119,6 +121,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A04BD4F1B3BA83900B9EFBF /* invoice.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = invoice.pdf; path = ../../../../Downloads/invoice.pdf; sourceTree = "<group>"; };
+		2A04BD501B3BA83900B9EFBF /* custom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = custom.pdf; path = ../../../../Downloads/custom.pdf; sourceTree = "<group>"; };
 		2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eShipModel.xcdatamodel; sourceTree = "<group>"; };
 		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
@@ -467,6 +471,8 @@
 		2ACE03221AFC47B90091BD9D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A04BD4F1B3BA83900B9EFBF /* invoice.pdf */,
+				2A04BD501B3BA83900B9EFBF /* custom.pdf */,
 				2ACE03231AFC47B90091BD9D /* Info.plist */,
 				2ACE03241AFC47B90091BD9D /* main.m */,
 			);
@@ -747,6 +753,7 @@
 				2AD299581B16ABC400823518 /* AddressList.plist in Resources */,
 				2AD2992B1B157EB500823518 /* animatedCar_2.png in Resources */,
 				2A1F2B351B28E225004FA9D6 /* MineTableViewCell.xib in Resources */,
+				2A04BD521B3BA83900B9EFBF /* custom.pdf in Resources */,
 				2AD299341B157EB500823518 /* btn_021@2x.png in Resources */,
 				2AE04EEF1B0D86A800AA9628 /* SVProgressHUD.bundle in Resources */,
 				2AE04EEE1B0D86A100AA9628 /* AMap.bundle in Resources */,
@@ -759,6 +766,7 @@
 				2AD299311B157EB500823518 /* btn_020@2x.png in Resources */,
 				2AD2992E1B157EB500823518 /* bg_023@2x.png in Resources */,
 				2ACE03331AFC47B90091BD9D /* LaunchScreen.xib in Resources */,
+				2A04BD511B3BA83900B9EFBF /* invoice.pdf in Resources */,
 				2AD299321B157EB500823518 /* btn_021.disable@2x.png in Resources */,
 				2AD299331B157EB500823518 /* btn_021.press@2x.png in Resources */,
 				2ACE03301AFC47B90091BD9D /* Images.xcassets in Resources */,
