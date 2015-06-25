@@ -33,12 +33,15 @@
     self.navigationItem.title = @"查询结果";
     CGRect frame = mytableView.frame;
     mytableView.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 100*(realInfo.count+1));
-    // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回地图" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+}
+
+- (void)goBack{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -74,7 +77,7 @@
     ContactViewController *contactVC = [self.storyboard instantiateViewControllerWithIdentifier:@"contactVC"];
     contactVC.rateObject = rateObject;
     NSDictionary *textDic = [realInfo objectAtIndex:indexPath.row];
-    contactVC.shipCarrier = [textDic valueForKey:@"carrier"];
+    contactVC.shipCarrier = [[textDic valueForKey:@"carrier"] lowercaseString];
     [self.navigationController pushViewController:contactVC animated:YES];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "LinkAccountViewController.h"
+#import "SVProgressHUD.h"
 #import "BLNetwork.h"
 #import "BLParams.h"
 
@@ -91,92 +92,118 @@
 }
 
 - (void)goRegister{
-    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
-    if(currentUser){
-        usrn =  [currentUser valueForKey:@"userName"];
-        pswd = [currentUser valueForKey:@"passWord"];
-        NSString *authStr = [[NSString alloc] initWithFormat:@"%@:%@",usrn,pswd];
-      //  NSString *authStr = @"habuer:123456789";
-        NSData *plainData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *base64String = [plainData base64EncodedStringWithOptions:0];
-        NSString *x = [[NSString alloc] initWithFormat:@"Basic %@",base64String];
-        if([UPSTextField.text isEqualToString:@""] && [fedexTextField.text isEqualToString:@""]){
-            UIAlertController *alert =   [UIAlertController
-                                          alertControllerWithTitle:@"账号为空"
-                                          message:@"请至少填写一个快递运营商账号在提交"
-                                          preferredStyle:UIAlertControllerStyleAlert];;
-            UIAlertAction* ok = [UIAlertAction
-                                 actionWithTitle:@"知道了"
-                                 style:UIAlertActionStyleDefault
-                                 handler:nil];
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-        else{
-            NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc] init];
-            if(![UPSTextField.text isEqualToString:@""]){
-                [jsonDic setObject:UPSTextField.text forKey:@"UPS"];
-            }
-            if(![fedexTextField.text isEqualToString:@""]){
-                [jsonDic setObject:fedexTextField.text forKey:@"Fedex"];
-            }
-            [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLinkAccount andParams:jsonDic andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-                if(res.statusCode == BLNetworkLinkAccountSuccess){
-                    [self saveLinkedAccounts];
-                    UIAlertController *alert =   [UIAlertController
-                                                  alertControllerWithTitle:@"关联成功"
-                                                  message:@"您已成功将eShip账号和快递账号绑定"
-                                                  preferredStyle:UIAlertControllerStyleAlert];;
-                    UIAlertAction* ok = [UIAlertAction
-                                         actionWithTitle:@"知道了"
-                                         style:UIAlertActionStyleDefault
-                                         handler:nil];
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                }
-                else if(res.statusCode == BLNetworkLinkAccountConflict){
-                    UIAlertController *alert =   [UIAlertController
-                                                  alertControllerWithTitle:@"出错了"
-                                                  message:@"您提交的账号已被关联，请换一个再试"
-                                                  preferredStyle:UIAlertControllerStyleAlert];;
-                    UIAlertAction* ok = [UIAlertAction
-                                         actionWithTitle:@"知道了"
-                                         style:UIAlertActionStyleDefault
-                                         handler:nil];
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                }
-                else{
-                    UIAlertController *alert =   [UIAlertController
-                                                  alertControllerWithTitle:@"出错了"
-                                                  message:@"关联账号出错了请稍后再试"
-                                                  preferredStyle:UIAlertControllerStyleAlert];;
-                    UIAlertAction* ok = [UIAlertAction
-                                         actionWithTitle:@"知道了"
-                                         style:UIAlertActionStyleDefault
-                                         handler:nil];
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                }
-            }];
-        }
-        
-    }
-    else{
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"未登录"
-                                      message:@"请先登录再进行查询"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction
-                             actionWithTitle:@"OK"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction *action){
-                                 [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
-                             }];
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
+    [self fakeLinkAccount];
+//    NSDictionary *currentUser = [[NSUserDefaults standardUserDefaults] valueForKey:@"CurrentUser"];
+//    if(currentUser){
+//        usrn =  [currentUser valueForKey:@"userName"];
+//        pswd = [currentUser valueForKey:@"passWord"];
+//        NSString *authStr = [[NSString alloc] initWithFormat:@"%@:%@",usrn,pswd];
+//        NSData *plainData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+//        NSString *base64String = [plainData base64EncodedStringWithOptions:0];
+//        NSString *x = [[NSString alloc] initWithFormat:@"Basic %@",base64String];
+//        if([UPSTextField.text isEqualToString:@""] && [fedexTextField.text isEqualToString:@""]){
+//            UIAlertController *alert =   [UIAlertController
+//                                          alertControllerWithTitle:@"账号为空"
+//                                          message:@"请至少填写一个快递运营商账号在提交"
+//                                          preferredStyle:UIAlertControllerStyleAlert];;
+//            UIAlertAction* ok = [UIAlertAction
+//                                 actionWithTitle:@"知道了"
+//                                 style:UIAlertActionStyleDefault
+//                                 handler:nil];
+//            [alert addAction:ok];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }
+//        else{
+//            NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc] init];
+//            if(![UPSTextField.text isEqualToString:@""]){
+//                [jsonDic setObject:UPSTextField.text forKey:@"UPS"];
+//            }
+//            if(![fedexTextField.text isEqualToString:@""]){
+//                [jsonDic setObject:fedexTextField.text forKey:@"Fedex"];
+//            }
+//            [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLinkAccount andParams:jsonDic andMaxTimeOut:40 andAcceptType:nil andAuthorization:x andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//                NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//                if(res.statusCode == BLNetworkLinkAccountSuccess){
+//                    [self saveLinkedAccounts];
+//                    UIAlertController *alert =   [UIAlertController
+//                                                  alertControllerWithTitle:@"关联成功"
+//                                                  message:@"您已成功将eShip账号和快递账号绑定"
+//                                                  preferredStyle:UIAlertControllerStyleAlert];;
+//                    UIAlertAction* ok = [UIAlertAction
+//                                         actionWithTitle:@"知道了"
+//                                         style:UIAlertActionStyleDefault
+//                                         handler:nil];
+//                    [alert addAction:ok];
+//                    [self presentViewController:alert animated:YES completion:nil];
+//                }
+//                else if(res.statusCode == BLNetworkLinkAccountConflict){
+//                    UIAlertController *alert =   [UIAlertController
+//                                                  alertControllerWithTitle:@"出错了"
+//                                                  message:@"您提交的账号已被关联，请换一个再试"
+//                                                  preferredStyle:UIAlertControllerStyleAlert];;
+//                    UIAlertAction* ok = [UIAlertAction
+//                                         actionWithTitle:@"知道了"
+//                                         style:UIAlertActionStyleDefault
+//                                         handler:nil];
+//                    [alert addAction:ok];
+//                    [self presentViewController:alert animated:YES completion:nil];
+//                }
+//                else{
+//                    UIAlertController *alert =   [UIAlertController
+//                                                  alertControllerWithTitle:@"出错了"
+//                                                  message:@"关联账号出错了请稍后再试"
+//                                                  preferredStyle:UIAlertControllerStyleAlert];;
+//                    UIAlertAction* ok = [UIAlertAction
+//                                         actionWithTitle:@"知道了"
+//                                         style:UIAlertActionStyleDefault
+//                                         handler:nil];
+//                    [alert addAction:ok];
+//                    [self presentViewController:alert animated:YES completion:nil];
+//                }
+//            }];
+//        }
+//        
+//    }
+//    else{
+//        UIAlertController * alert=   [UIAlertController
+//                                      alertControllerWithTitle:@"未登录"
+//                                      message:@"请先登录再进行查询"
+//                                      preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* ok = [UIAlertAction
+//                             actionWithTitle:@"OK"
+//                             style:UIAlertActionStyleDefault
+//                             handler:^(UIAlertAction *action){
+//                                 [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"] animated:YES];
+//                             }];
+//        [alert addAction:ok];
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
+}
+
+- (void)fakeLinkAccount{
+    [SVProgressHUD showWithStatus:@"关联账号中" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 3
+                                     target: self
+                                   selector: @selector(fakeTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeTimeHandler{
+    [SVProgressHUD dismiss];
+    [self saveLinkedAccounts];
+    UIAlertController *alert =   [UIAlertController
+                                  alertControllerWithTitle:@"关联成功"
+                                  message:@"您已成功将eShip账号和快递账号绑定"
+                                  preferredStyle:UIAlertControllerStyleAlert];;
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"知道了"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction *action){
+                             [self.navigationController popToRootViewControllerAnimated:YES];
+                         }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)saveLinkedAccounts{

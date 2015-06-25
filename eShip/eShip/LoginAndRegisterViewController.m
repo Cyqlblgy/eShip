@@ -12,6 +12,7 @@
 #import "TheSidebarController.h"
 #import "LeftViewController.h"
 #import "LinkAccountViewController.h"
+#import "SVProgressHUD.h"
 
 @interface LoginAndRegisterViewController ()
 
@@ -150,55 +151,87 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
     else{
-        NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-        if([userNameTextField.text isEqualToString:@""]){
-        [jsonDictionary setValue:userNameTextField.text forKey:@"user_name"];
-        }
-        if([emailTextField.text isEqualToString:@""]){
-            [jsonDictionary setValue:emailTextField.text forKey:@"email"];
-        }
-        if([phoneNumberTextField.text isEqualToString:@""]){
-            [jsonDictionary setValue:phoneNumberTextField.text forKey:@"phone"];
-        }
-        if([passwordTextField.text isEqualToString:@""]){
-            [jsonDictionary setValue:passwordTextField.text forKey:@"password"];
-        }
-        [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
-            NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-            UIAlertController *alert;
-            UIAlertAction* ok;
-            if(res.statusCode == BLNetworkRegisterSuccess){
-                alert=   [UIAlertController
-                          alertControllerWithTitle:@"Success"
-                          message:@"注册成功"
-                          preferredStyle:UIAlertControllerStyleAlert];
-                [self saveCurrentUser];
-                ok =                 [UIAlertAction
-                                      actionWithTitle:@"OK"
-                                      style:UIAlertActionStyleDefault
-                                      handler:^(UIAlertAction *action){
-                                          LinkAccountViewController *linkvc = (LinkAccountViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"];
-                                          linkvc.isFromSettings = NO;
-                                          [self.navigationController pushViewController:linkvc animated:YES];
-                                      }];
-                LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
-                [vc updateLabel];
-            }
-            else if(res.statusCode == BLNetworkRegisterDuplicateUserNamrorEmail){
-                alert=   [UIAlertController
-                          alertControllerWithTitle:@"Failed"
-                          message:@"注册失败"
-                          preferredStyle:UIAlertControllerStyleAlert];
-                ok =                 [UIAlertAction
-                                      actionWithTitle:@"OK"
-                                      style:UIAlertActionStyleDefault
-                                      handler:nil];
-
-            }
-            [alert addAction:ok];
-            [self presentViewController:alert animated:YES completion:nil];
-        }];
+        [self fakeRegister];
+//        NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+//        if([userNameTextField.text isEqualToString:@""]){
+//        [jsonDictionary setValue:userNameTextField.text forKey:@"user_name"];
+//        }
+//        if([emailTextField.text isEqualToString:@""]){
+//            [jsonDictionary setValue:emailTextField.text forKey:@"email"];
+//        }
+//        if([phoneNumberTextField.text isEqualToString:@""]){
+//            [jsonDictionary setValue:phoneNumberTextField.text forKey:@"phone"];
+//        }
+//        if([passwordTextField.text isEqualToString:@""]){
+//            [jsonDictionary setValue:passwordTextField.text forKey:@"password"];
+//        }
+//        [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkRegister andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+//            NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//            UIAlertController *alert;
+//            UIAlertAction* ok;
+//            if(res.statusCode == BLNetworkRegisterSuccess){
+//                alert=   [UIAlertController
+//                          alertControllerWithTitle:@"Success"
+//                          message:@"注册成功"
+//                          preferredStyle:UIAlertControllerStyleAlert];
+//                [self saveCurrentUser];
+//                ok =                 [UIAlertAction
+//                                      actionWithTitle:@"OK"
+//                                      style:UIAlertActionStyleDefault
+//                                      handler:^(UIAlertAction *action){
+//                                          LinkAccountViewController *linkvc = (LinkAccountViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"];
+//                                          linkvc.isFromSettings = NO;
+//                                          [self.navigationController pushViewController:linkvc animated:YES];
+//                                      }];
+//                LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+//                [vc updateLabel];
+//            }
+//            else if(res.statusCode == BLNetworkRegisterDuplicateUserNamrorEmail){
+//                alert=   [UIAlertController
+//                          alertControllerWithTitle:@"Failed"
+//                          message:@"注册失败"
+//                          preferredStyle:UIAlertControllerStyleAlert];
+//                ok =                 [UIAlertAction
+//                                      actionWithTitle:@"OK"
+//                                      style:UIAlertActionStyleDefault
+//                                      handler:nil];
+//
+//            }
+//            [alert addAction:ok];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }];
     }
+}
+
+- (void)fakeRegister{
+    [SVProgressHUD showWithStatus:@"注册中" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 3
+                                     target: self
+                                   selector: @selector(fakeTimeHandler)
+                                   userInfo: nil
+                                    repeats: NO];
+}
+
+- (void)fakeTimeHandler{
+    [SVProgressHUD dismiss];
+    [self saveCurrentUser];
+    UIAlertController *alert=   [UIAlertController
+                                 alertControllerWithTitle:@"Success"
+                                 message:@"注册成功"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction *action){
+                             LinkAccountViewController *linkvc = (LinkAccountViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"linkAccountVC"];
+                             linkvc.isFromSettings = NO;
+                             [self.navigationController pushViewController:linkvc animated:YES];
+                         }];
+    LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+    [vc updateLabel];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 

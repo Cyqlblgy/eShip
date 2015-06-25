@@ -207,8 +207,15 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jak-yu-meW">
+                                <rect key="frame" x="22" y="176" width="181" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="wiV-ZD-nlA">
-                                <rect key="frame" x="58" y="515" width="108" height="21"/>
+                                <rect key="frame" x="58" y="527" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="eShip V1.0">
@@ -219,13 +226,6 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jak-yu-meW">
-                                <rect key="frame" x="22" y="176" width="181" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -629,7 +629,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6qQ-79-fFk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="必填" minimumFontSize="17" id="8at-ts-QqJ">
                                         <rect key="frame" x="24" y="47" width="251" height="30"/>
@@ -1472,51 +1472,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="zYb-FH-fJ1" kind="relationship" relationship="viewControllers" id="HFn-yf-uTg"/>
-                        <segue destination="4FN-4C-sA3" kind="relationship" relationship="viewControllers" id="koD-Jh-qKQ"/>
-                        <segue destination="1V0-6E-pLx" kind="relationship" relationship="viewControllers" id="ZNq-DA-XUe"/>
-                        <segue destination="ULB-Hy-4Bl" kind="relationship" relationship="viewControllers" id="Pji-Yc-Zg9"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwH-bL-5ca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="368"/>
-        </scene>
-        <!--主页-->
-        <scene sceneID="ryD-9r-lUa">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zYb-FH-fJ1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" image="home" id="b9Q-eU-1jv"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RaA-D4-SFp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="g26-OW-Zwx" kind="relationship" relationship="rootViewController" id="Qjc-wn-qb0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1se-N0-4Hf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="142" y="-261"/>
-        </scene>
-        <!--设置-->
-        <scene sceneID="4kK-cw-x65">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ULB-Hy-4Bl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="Settings" id="Y9i-Yz-NlB"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hPL-RI-IA4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p9Q-Q0-CiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1226" y="-203"/>
         </scene>
         <!--File Display View Controller-->
         <scene sceneID="mYr-0I-nNF">
@@ -1562,56 +1521,14 @@
             </objects>
             <point key="canvasLocation" x="1739" y="-138"/>
         </scene>
-        <!--我的-->
-        <scene sceneID="XTd-t6-ek1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4FN-4C-sA3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="Mine" id="cJ7-zf-7kY"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c3m-Yr-ziW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fxn-Ga-n2A" kind="relationship" relationship="rootViewController" id="G1E-mD-6g3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ge-st-GhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1758" y="-812"/>
-        </scene>
-        <!--消息-->
-        <scene sceneID="syj-dU-uoi">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1V0-6E-pLx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="消息" image="message" id="yc6-w9-jgI"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aat-WG-Bmi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FxW-Tf-1Hk" kind="relationship" relationship="rootViewController" id="m2n-bU-21x"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uy2-gn-GN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="162" y="986"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="100" height="100"/>
-        <image name="Mine" width="1024" height="1024"/>
-        <image name="Settings" width="32" height="32"/>
-        <image name="home" width="32" height="32"/>
         <image name="homeBackground" width="408" height="303"/>
         <image name="homeCheck" width="60" height="60"/>
         <image name="homeMap" width="60" height="60"/>
         <image name="homeShip" width="60" height="60"/>
         <image name="homeTrack" width="60" height="64"/>
-        <image name="message" width="32" height="32"/>
         <image name="qq" width="290" height="300"/>
         <image name="renren" width="240" height="240"/>
         <image name="wechat" width="500" height="500"/>

@@ -108,61 +108,96 @@
     }
     else{
         [self.view endEditing:YES];
-        NSDictionary *jsonDictionary;
-        if([unTextField.text rangeOfString:@"@"].location != NSNotFound){
-            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                              unTextField.text, @"email",
-                              pwTextField.text, @"password",
-                              nil];
-
-        }
-        else{
-            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    unTextField.text, @"user_name",
-                                    pwTextField.text, @"password",
-                                    nil];
-        }
-    [SVProgressHUD showWithStatus:@"登录中" maskType:SVProgressHUDMaskTypeGradient];
-    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        [SVProgressHUD dismiss];
-        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-        UIAlertController *alert;
-        UIAlertAction* ok;
-        if(connectionError == nil && res.statusCode == BLNetworkLoginSuccess){
-            alert=   [UIAlertController
-                      alertControllerWithTitle:@"Success"
-                      message:@"登陆成功"
-                      preferredStyle:UIAlertControllerStyleAlert];
-            NSError *e =nil;
-            NSDictionary *loginResult = [NSJSONSerialization JSONObjectWithData:data
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:&e];
-            [self saveCurrentUserwithDictionary:loginResult];
-            
-            ok = [UIAlertAction
-                  actionWithTitle:@"OK"
-                  style:UIAlertActionStyleDefault
-                  handler:^(UIAlertAction *action){
-                      [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"] animated:NO];
-                  }];
-            LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
-            [vc updateLabel];
-        }
-        else{
-            alert=   [UIAlertController
-                      alertControllerWithTitle:@"Failed"
-                      message:@"登陆失败"
-                      preferredStyle:UIAlertControllerStyleAlert];
-            ok = [UIAlertAction
-                  actionWithTitle:@"OK"
-                  style:UIAlertActionStyleDefault
-                  handler:nil];
-        }
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
-        
-    }];
+        [self fakeLogin];
+//        NSDictionary *jsonDictionary;
+//        if([unTextField.text rangeOfString:@"@"].location != NSNotFound){
+//            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                              unTextField.text, @"email",
+//                              pwTextField.text, @"password",
+//                              nil];
+//
+//        }
+//        else{
+//            jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    unTextField.text, @"user_name",
+//                                    pwTextField.text, @"password",
+//                                    nil];
+//        }
+//    [SVProgressHUD showWithStatus:@"登录中" maskType:SVProgressHUDMaskTypeGradient];
+//    [BLNetwork urlConnectionRequest:BLParameters.NetworkHttpMethodPost andrequestType:BLParameters.NetworkLogin andParams:jsonDictionary andMaxTimeOut:20 andAcceptType:nil andAuthorization:nil andResponse:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        [SVProgressHUD dismiss];
+//        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+//        UIAlertController *alert;
+//        UIAlertAction* ok;
+//        if(connectionError == nil && res.statusCode == BLNetworkLoginSuccess){
+//            alert=   [UIAlertController
+//                      alertControllerWithTitle:@"Success"
+//                      message:@"登陆成功"
+//                      preferredStyle:UIAlertControllerStyleAlert];
+//            NSError *e =nil;
+//            NSDictionary *loginResult = [NSJSONSerialization JSONObjectWithData:data
+//                                                                        options:NSJSONReadingMutableContainers
+//                                                                          error:&e];
+//            [self saveCurrentUserwithDictionary:loginResult];
+//            
+//            ok = [UIAlertAction
+//                  actionWithTitle:@"OK"
+//                  style:UIAlertActionStyleDefault
+//                  handler:^(UIAlertAction *action){
+//                      [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"] animated:NO];
+//                  }];
+//            LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+//            [vc updateLabel];
+//        }
+//        else{
+//            alert=   [UIAlertController
+//                      alertControllerWithTitle:@"Failed"
+//                      message:@"登陆失败"
+//                      preferredStyle:UIAlertControllerStyleAlert];
+//            ok = [UIAlertAction
+//                  actionWithTitle:@"OK"
+//                  style:UIAlertActionStyleDefault
+//                  handler:nil];
+//        }
+//        [alert addAction:ok];
+//        [self presentViewController:alert animated:YES completion:nil];
+//        
+//    }];
     }
+}
+
+- (void)fakeLogin{
+    [SVProgressHUD showWithStatus:@"登录中" maskType:SVProgressHUDMaskTypeGradient];
+    [NSTimer scheduledTimerWithTimeInterval: 3
+                                             target: self
+                                           selector: @selector(fakeTimeHandler)
+                                           userInfo: nil
+                                            repeats: NO];
+}
+
+- (void)fakeTimeHandler{
+    [SVProgressHUD dismiss];
+    NSDictionary *Dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                unTextField.text, @"userName",
+                                pwTextField.text, @"passWord",
+                                nil];
+    [[NSUserDefaults standardUserDefaults] setValue:Dictionary forKey:@"CurrentUser"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    UIAlertController *alert=   [UIAlertController
+                                 alertControllerWithTitle:@"Success"
+                                 message:@"登陆成功"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction *action){
+                             [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"] animated:NO];
+                         }];
+    LeftViewController *vc =  (LeftViewController *)self.sidebarController.leftSidebarViewController;
+    [vc updateLabel];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)saveCurrentUserwithDictionary:(NSDictionary *)loginResult{
