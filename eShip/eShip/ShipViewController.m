@@ -94,6 +94,10 @@
 
 }
 
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     if(rateObject.originalAddress){
         originalPlaceTextField.text = [[NSString alloc] initWithFormat:@"%@ %@",[rateObject.originalAddress objectForKey:@"countryName"],[rateObject.originalAddress objectForKey:@"city"]];

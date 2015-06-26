@@ -222,8 +222,11 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         if([picked isEqualToString:@"查件"]){
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"findVC"] animated:YES];
         }
-        else if([picked isEqualToString:@"询价"] || [picked isEqualToString:@"寄件"]){
+        else if([picked isEqualToString:@"询价"]){
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"checkPriceVC"] animated:YES];
+        }
+        else if([picked isEqualToString:@"寄件"]){
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"shipVC"] animated:YES];
         }
     }
     pickTableController = nil;
