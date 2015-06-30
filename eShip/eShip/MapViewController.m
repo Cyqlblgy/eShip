@@ -87,7 +87,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController navigationBar].hidden = NO;
-    self.navigationItem.title = @"驿站";
+    self.navigationItem.title = @"驿栈";
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:22.0f],NSFontAttributeName, nil]];
     UIBarButtonItem *aButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(buttonTapped)];
     self.navigationItem.rightBarButtonItem = aButton;

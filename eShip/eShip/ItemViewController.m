@@ -9,6 +9,7 @@
 
 #import "ItemViewController.h"
 #import "CheckPriceViewController.h"
+#import "HMSegmentedControl.h"
 
 @interface ItemViewController (){
 }
@@ -35,6 +36,55 @@
     priceTextField.frame = CGRectMake(priceTextField.frame.origin.x, priceTextField.frame.origin.y, frame.size.width/2, priceTextField.frame.size.height);
     priceSegment.frame = CGRectMake(priceTextField.frame.origin.x + priceTextField.frame.size.width + 10, priceSegment.frame.origin.y,priceSegment.frame.size.width, priceSegment.frame.size.height);
     weightSegment.frame = CGRectMake(weightTextField.frame.origin.x + weightTextField.frame.size.width + 10, weightSegment.frame.origin.y,weightSegment.frame.size.width, weightSegment.frame.size.height);
+    
+    
+    HMSegmentedControl *segmentedControl2 = [[HMSegmentedControl alloc] initWithSectionImages:@[[UIImage imageNamed:@"dollar"], [UIImage imageNamed:@"rmb"]] sectionSelectedImages:@[[UIImage imageNamed:@"dollar_selected"], [UIImage imageNamed:@"rmb_selected"]]];
+    segmentedControl2.frame = CGRectMake(priceTextField.frame.origin.x + priceTextField.frame.size.width + 10, priceSegment.frame.origin.y-10,priceSegment.frame.size.width, priceSegment.frame.size.height+10);;
+    segmentedControl2.selectionIndicatorHeight = 4.0f;
+    segmentedControl2.backgroundColor = [UIColor clearColor];
+    segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    [segmentedControl2 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:segmentedControl2];
+    [priceSegment setHidden:YES];
+    
+    HMSegmentedControl *segmentedControl3 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"LB", @"KG"]];
+    [segmentedControl3 setFrame:CGRectMake(weightTextField.frame.origin.x + weightTextField.frame.size.width + 10, weightSegment.frame.origin.y-10,weightSegment.frame.size.width, weightSegment.frame.size.height+8)];
+    [segmentedControl3 setIndexChangeBlock:^(NSInteger index) {
+        NSLog(@"Selected index %ld (via block)", (long)index);
+    }];
+    segmentedControl3.selectionIndicatorHeight = 4.0f;
+    segmentedControl3.backgroundColor = [UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1];
+    segmentedControl3.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    segmentedControl3.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
+    segmentedControl3.selectionStyle = HMSegmentedControlSelectionStyleBox;
+    segmentedControl3.selectedSegmentIndex = HMSegmentedControlNoSegment;
+    segmentedControl3.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl3.shouldAnimateUserSelection = NO;
+    segmentedControl3.layer.cornerRadius = 5.0f;
+    segmentedControl3.layer.masksToBounds = YES;
+    [self.view addSubview:segmentedControl3];
+    
+    [weightSegment setHidden:YES];
+    
+    HMSegmentedControl *segmentedControl1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"CM", @"IN"]];
+    [segmentedControl1 setFrame:CGRectMake(lengthSegment.frame.origin.x, lengthSegment.frame.origin.y-10,lengthSegment.frame.size.width, lengthSegment.frame.size.height+8)];
+    segmentedControl1.selectionIndicatorHeight = 4.0f;
+    segmentedControl1.backgroundColor = [UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1];
+    segmentedControl1.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    segmentedControl1.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
+    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleBox;
+    segmentedControl1.selectedSegmentIndex = HMSegmentedControlNoSegment;
+    segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl1.shouldAnimateUserSelection = NO;
+    segmentedControl1.layer.cornerRadius = 5.0f;
+    segmentedControl1.layer.masksToBounds = YES;
+    [self.view addSubview:segmentedControl1];
+    
+    [lengthSegment setHidden:YES];
+
+    
+    
     UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
     [keyboardDoneButtonView sizeToFit];
     
@@ -53,6 +103,10 @@
     heightTextField.inputAccessoryView = keyboardDoneButtonView;
     weightTextField.inputAccessoryView = keyboardDoneButtonView;
     priceTextField.inputAccessoryView = keyboardDoneButtonView;
+}
+
+- (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
+    NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
 }
 
 - (IBAction)doneClicked:(id)sender{

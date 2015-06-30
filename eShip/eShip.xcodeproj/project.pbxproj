@@ -44,6 +44,7 @@
 		2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */; };
 		2A1F2BA21B2C9E2E004FA9D6 /* BLUPSShipObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */; };
 		2A1F2BA51B2CC285004FA9D6 /* MACustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1F2BA41B2CC285004FA9D6 /* MACustomCalloutView.m */; };
+		2A2CA3651B4228140043C188 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2CA3641B4228140043C188 /* HMSegmentedControl.m */; };
 		2A2F1EA81B2FB36C00B517A8 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */; };
 		2A2F1FDD1B33D2E400B517A8 /* LinkAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
@@ -181,6 +182,8 @@
 		2A1F2BA11B2C9E2E004FA9D6 /* BLUPSShipObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUPSShipObject.m; sourceTree = "<group>"; };
 		2A1F2BA31B2CC285004FA9D6 /* MACustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACustomCalloutView.h; sourceTree = "<group>"; };
 		2A1F2BA41B2CC285004FA9D6 /* MACustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACustomCalloutView.m; sourceTree = "<group>"; };
+		2A2CA3631B4228140043C188 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		2A2CA3641B4228140043C188 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		2A2F1EA61B2FB36C00B517A8 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		2A2F1FDB1B33D2E400B517A8 /* LinkAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkAccountViewController.h; sourceTree = "<group>"; };
@@ -411,6 +414,15 @@
 			path = CRGradientNavigationBar;
 			sourceTree = "<group>";
 		};
+		2A2CA3621B4228140043C188 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				2A2CA3631B4228140043C188 /* HMSegmentedControl.h */,
+				2A2CA3641B4228140043C188 /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 		2A2F1EA51B2FB36C00B517A8 /* TTTAttributedLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +454,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A2CA3621B4228140043C188 /* HMSegmentedControl */,
 				2A2F1EA51B2FB36C00B517A8 /* TTTAttributedLabel */,
 				2A1F2ADA1B2673BB004FA9D6 /* CRGradientNavigationBar */,
 				2A18F19A1B213A670034B76E /* TheSidebarController */,
@@ -808,6 +821,7 @@
 				2A1F2ADD1B2673BB004FA9D6 /* CRGradientNavigationBar.m in Sources */,
 				2A1BF9EC1B05988F003549D7 /* MACustomizedAnnotation.m in Sources */,
 				2A2F1FDD1B33D2E400B517A8 /* LinkAccountViewController.m in Sources */,
+				2A2CA3651B4228140043C188 /* HMSegmentedControl.m in Sources */,
 				2A1F2B9F1B2C8E05004FA9D6 /* FileDisplayViewController.m in Sources */,
 				2A2F1EA81B2FB36C00B517A8 /* TTTAttributedLabel.m in Sources */,
 				2AD2991D1B157D3400823518 /* TSLocateView.m in Sources */,
@@ -986,7 +1000,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "17424c1a-6ae7-4600-9f19-3f6d4d7afc64";
+				PROVISIONING_PROFILE = "15fc3d80-ce05-4ca4-a78d-b90d69b01704";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1010,7 +1024,7 @@
 					"$(SDKROOT)/usr/lib/system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "17424c1a-6ae7-4600-9f19-3f6d4d7afc64";
+				PROVISIONING_PROFILE = "15fc3d80-ce05-4ca4-a78d-b90d69b01704";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
