@@ -116,7 +116,7 @@
     }
     cell.label.text = [menuItems objectAtIndex:indexPath.row];
     cell.leftimageView.image = [UIImage imageNamed:[imageNames objectAtIndex:indexPath.row]];
-    cell.backgroundColor =[UIColor colorWithPatternImage:image];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -127,6 +127,7 @@
     [contentNC pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:[vcNames objectAtIndex:indexPath.row-1]] animated:NO];
     }
     [mytableView deselectRowAtIndexPath:indexPath animated:NO];
+    
  //   [self.sidebarController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"findVC"]];
 }
 
