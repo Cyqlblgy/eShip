@@ -44,6 +44,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CarrierListCell"];
     }
+    [cell setTintColor:[UIColor redColor]];
     NSString *rowText = [list objectAtIndex:indexPath.row];
     cell.textLabel.text = rowText;
     if(_cellTextFont){
