@@ -111,22 +111,47 @@
 
 - (IBAction)getCarrierList:(id)sender {
     if(popoverController == nil && tableController == nil){
-    tableController = [self.storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
-    tableController.title = @"快递公司";
-    tableController.list = [[NSArray alloc] initWithObjects:@"FedEX",@"UPS",nil];
-    tableController.preferredContentSize = CGSizeMake(280, (tableController.list.count+1)*44);
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];
-    barItem.title = @"完成";
-    barItem.target = self;
-    barItem.action = @selector(done:);
-    [tableController.navigationItem setRightBarButtonItem:barItem];
-    tableController.modalInPopover = NO;
-    UINavigationController* contentViewController = [[UINavigationController alloc] initWithRootViewController:tableController];
-    popoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
-    popoverController.delegate = self;
-    popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
-    CGRect rect = getListButton.bounds;
-    [popoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:getListButton permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+        tableController = [self.storyboard instantiateViewControllerWithIdentifier:@"CarrierListTableView"];
+        tableController.title = @"快递公司";
+        tableController.list = [[NSArray alloc] initWithObjects:@"FedEX",@"UPS",nil];
+        tableController.imageList = [[NSArray alloc] initWithObjects:@"fedex",@"ups",nil];
+        tableController.preferredContentSize = CGSizeMake(280, (tableController.list.count+1)*44);
+        UIBarButtonItem *barItem = [[UIBarButtonItem alloc] init];
+        barItem.title = @"完成";
+        barItem.tintColor = [UIColor darkGrayColor];
+        barItem.target = self;
+        barItem.action = @selector(done:);
+        [tableController.navigationItem setRightBarButtonItem:barItem];
+        tableController.modalInPopover = NO;
+        UINavigationController* contentViewController = [[UINavigationController alloc] initWithRootViewController:tableController];
+        popoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
+        popoverController.delegate = self;
+        popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+        CGRect rect = getListButton.bounds;
+        WYPopoverTheme *result = [[WYPopoverTheme alloc] init];
+        result.tintColor = [self colorWithHexString:@"81F3FD"];
+        result.outerStrokeColor = nil;
+        result.innerStrokeColor = nil;
+        result.fillTopColor = result.tintColor;
+        result.glossShadowColor = nil;
+        result.glossShadowOffset = CGSizeMake(0, 1.5);
+        result.glossShadowBlurRadius = 0;
+        result.borderWidth = 6;
+        result.arrowBase = 42;
+        result.arrowHeight = 18;
+        result.outerShadowColor = [UIColor colorWithWhite:0 alpha:0.75];
+        result.outerShadowBlurRadius = 8;
+        result.outerShadowOffset = CGSizeMake(0, 2);
+        result.outerCornerRadius = 8;
+        result.minOuterCornerRadius = 0;
+        result.innerShadowColor = [UIColor clearColor];
+        result.innerShadowBlurRadius = 2;
+        result.innerShadowOffset = CGSizeMake(0, 1);
+        result.innerCornerRadius = 6;
+        result.viewContentInsets = UIEdgeInsetsMake(3, 0, 0, 0);
+        result.overlayColor = [UIColor clearColor];
+        popoverController.theme = result;
+        [popoverController presentPopoverFromRect:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width*1.5, rect.size.height) inView:getListButton permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
     }
     else{
         [self done:nil];
@@ -181,6 +206,42 @@
                                    selector: @selector(fakeTimeHandler)
                                    userInfo: nil
                                     repeats: NO];
+}
+
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
 }
 
 - (void)fakeTimeHandler{

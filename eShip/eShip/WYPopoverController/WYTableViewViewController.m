@@ -56,6 +56,9 @@
     else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    if(_imageList){
+    cell.imageView.image = [UIImage imageNamed:[_imageList objectAtIndex:indexPath.row]];
+    }
     return cell;
 }
 
