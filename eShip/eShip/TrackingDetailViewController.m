@@ -28,7 +28,19 @@
     [super viewDidLoad];
     dateFormatter = [[NSDateFormatter alloc] init];
     newDateFormatter = [[NSDateFormatter alloc] init];
-    // Do any additional setup after loading the view.
+    self.navigationItem.title = @"快递详情";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"快递追踪" style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(goNext)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
+
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)goNext{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

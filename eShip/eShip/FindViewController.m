@@ -12,6 +12,7 @@
 #import "BLParams.h"
 #import "BLNetwork.h"
 #import "SVProgressHUD.h"
+#import "TrackResultViewController.h"
 #import "TrackingDetailViewController.h"
 
 @interface FindViewController (){
@@ -246,7 +247,8 @@
 
 - (void)fakeTimeHandler{
     [SVProgressHUD dismiss];
-    TrackingDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"trackDetailVC"];
+  //  TrackingDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"trackDetailVC"];
+    TrackResultViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"trackResultVC"];
     vc.fakeNumber = shipNumberTextField.text;
     vc.carrier = carrierTextField.text;
     [self.navigationController pushViewController:vc animated:NO];

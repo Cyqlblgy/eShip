@@ -11,6 +11,8 @@
 		2A04BD521B3BA83900B9EFBF /* custom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04BD501B3BA83900B9EFBF /* custom.pdf */; };
 		2A0AB2CF1B0AD5A900F26262 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */; };
 		2A0AB2D21B0AD61D00F26262 /* eShipModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A0AB2D01B0AD61D00F26262 /* eShipModel.xcdatamodeld */; };
+		2A11D4CB1B4A220C00ECC721 /* MACircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11D4CA1B4A220C00ECC721 /* MACircleProgressIndicator.m */; };
+		2A11D4D11B4A247A00ECC721 /* TrackResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A11D4D01B4A247A00ECC721 /* TrackResultViewController.m */; };
 		2A18F1AC1B213A670034B76E /* SidebarAirbnbAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */; };
 		2A18F1AD1B213A670034B76E /* SidebarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F19F1B213A670034B76E /* SidebarAnimation.m */; };
 		2A18F1AE1B213A670034B76E /* SidebarFacebookAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A18F1A11B213A670034B76E /* SidebarFacebookAnimation.m */; };
@@ -127,6 +129,10 @@
 		2A0AB2CE1B0AD5A900F26262 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A0AB2D11B0AD61D00F26262 /* eShipModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eShipModel.xcdatamodel; sourceTree = "<group>"; };
 		2A0AB2D81B0AE16E00F26262 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		2A11D4C91B4A220C00ECC721 /* MACircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACircleProgressIndicator.h; sourceTree = "<group>"; };
+		2A11D4CA1B4A220C00ECC721 /* MACircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACircleProgressIndicator.m; sourceTree = "<group>"; };
+		2A11D4CF1B4A247A00ECC721 /* TrackResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackResultViewController.h; sourceTree = "<group>"; };
+		2A11D4D01B4A247A00ECC721 /* TrackResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackResultViewController.m; sourceTree = "<group>"; };
 		2A18F19C1B213A670034B76E /* SidebarAirbnbAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAirbnbAnimation.h; sourceTree = "<group>"; };
 		2A18F19D1B213A670034B76E /* SidebarAirbnbAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAirbnbAnimation.m; sourceTree = "<group>"; };
 		2A18F19E1B213A670034B76E /* SidebarAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAnimation.h; sourceTree = "<group>"; };
@@ -334,6 +340,15 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		2A11D4C81B4A220C00ECC721 /* CircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				2A11D4C91B4A220C00ECC721 /* MACircleProgressIndicator.h */,
+				2A11D4CA1B4A220C00ECC721 /* MACircleProgressIndicator.m */,
+			);
+			path = CircularProgress;
+			sourceTree = "<group>";
+		};
 		2A18F19A1B213A670034B76E /* TheSidebarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +469,7 @@
 		2ACE03211AFC47B90091BD9D /* eShip */ = {
 			isa = PBXGroup;
 			children = (
+				2A11D4C81B4A220C00ECC721 /* CircularProgress */,
 				2A2CA3621B4228140043C188 /* HMSegmentedControl */,
 				2A2F1EA51B2FB36C00B517A8 /* TTTAttributedLabel */,
 				2A1F2ADA1B2673BB004FA9D6 /* CRGradientNavigationBar */,
@@ -583,6 +599,8 @@
 				2A1F2B9E1B2C8E05004FA9D6 /* FileDisplayViewController.m */,
 				2A2F1FDB1B33D2E400B517A8 /* LinkAccountViewController.h */,
 				2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */,
+				2A11D4CF1B4A247A00ECC721 /* TrackResultViewController.h */,
+				2A11D4D01B4A247A00ECC721 /* TrackResultViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -853,9 +871,11 @@
 				2AD2995C1B16B66800823518 /* BLRateObject.m in Sources */,
 				2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */,
 				2ACE03251AFC47B90091BD9D /* main.m in Sources */,
+				2A11D4D11B4A247A00ECC721 /* TrackResultViewController.m in Sources */,
 				2AE04ECE1B0C28DB00AA9628 /* BLNetwork.m in Sources */,
 				2AD299821B1C070B00823518 /* ShipTableViewCell.m in Sources */,
 				2A1F2AE11B2688CE004FA9D6 /* LeftTableViewCell.m in Sources */,
+				2A11D4CB1B4A220C00ECC721 /* MACircleProgressIndicator.m in Sources */,
 				2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 				2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */,

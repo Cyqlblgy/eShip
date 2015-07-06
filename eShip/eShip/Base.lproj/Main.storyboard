@@ -376,6 +376,46 @@
             </objects>
             <point key="canvasLocation" x="1619" y="-2918"/>
         </scene>
+        <!--Track Result View Controller-->
+        <scene sceneID="zr3-Eu-HDA">
+            <objects>
+                <viewController storyboardIdentifier="trackResultVC" id="ofX-t0-IQ7" customClass="TrackResultViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7tl-bG-08y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3jW-zp-Erb">
+                                <rect key="frame" x="38" y="39" width="245" height="39"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jHA-Yf-RnO">
+                                <rect key="frame" x="38" y="92" width="245" height="39"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="xoD-qd-cel" customClass="MACircleProgressIndicator">
+                                <rect key="frame" x="60" y="161" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="latestStatus" destination="jHA-Yf-RnO" id="fCe-L6-AZn"/>
+                        <outlet property="pView" destination="xoD-qd-cel" id="FJN-F9-jmX"/>
+                        <outlet property="trackingNumber" destination="3jW-zp-Erb" id="cY3-x1-Fwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U8O-Mi-ynv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2055" y="-2918"/>
+        </scene>
         <!--Contact View Controller-->
         <scene sceneID="4B8-lg-vA4">
             <objects>
