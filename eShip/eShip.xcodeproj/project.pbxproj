@@ -49,6 +49,7 @@
 		2A2CA3651B4228140043C188 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2CA3641B4228140043C188 /* HMSegmentedControl.m */; };
 		2A2F1EA81B2FB36C00B517A8 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */; };
 		2A2F1FDD1B33D2E400B517A8 /* LinkAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */; };
+		2A315FD31B4B757800335F57 /* ColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A315FD21B4B757800335F57 /* ColorHelper.m */; };
 		2AB6A07C1B1EA1FE004B7BC6 /* CommoditiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */; };
 		2ACE03251AFC47B90091BD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03241AFC47B90091BD9D /* main.m */; };
 		2ACE03281AFC47B90091BD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE03271AFC47B90091BD9D /* AppDelegate.m */; };
@@ -194,6 +195,8 @@
 		2A2F1EA71B2FB36C00B517A8 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		2A2F1FDB1B33D2E400B517A8 /* LinkAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkAccountViewController.h; sourceTree = "<group>"; };
 		2A2F1FDC1B33D2E400B517A8 /* LinkAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkAccountViewController.m; sourceTree = "<group>"; };
+		2A315FD11B4B757800335F57 /* ColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorHelper.h; sourceTree = "<group>"; };
+		2A315FD21B4B757800335F57 /* ColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorHelper.m; sourceTree = "<group>"; };
 		2AB6A07A1B1EA1FE004B7BC6 /* CommoditiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommoditiesViewController.h; sourceTree = "<group>"; };
 		2AB6A07B1B1EA1FE004B7BC6 /* CommoditiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommoditiesViewController.m; sourceTree = "<group>"; };
 		2ACE031F1AFC47B90091BD9D /* eShip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eShip.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				2A1BF9CB1B0588D3003549D7 /* APIKey.h */,
+				2A315FD11B4B757800335F57 /* ColorHelper.h */,
+				2A315FD21B4B757800335F57 /* ColorHelper.m */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -879,6 +884,7 @@
 				2A18F1B81B213B850034B76E /* LeftViewController.m in Sources */,
 				2ACE034A1AFC50A40091BD9D /* SettingsViewController.m in Sources */,
 				2A1F2B391B28EDA0004FA9D6 /* MineNextTableViewCell.m in Sources */,
+				2A315FD31B4B757800335F57 /* ColorHelper.m in Sources */,
 				2AD299141B155FC500823518 /* LogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1029,7 +1035,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hao Zhou (Y78559VP3W)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

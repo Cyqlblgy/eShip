@@ -21,6 +21,7 @@
 #import "WYPopoverController.h"
 #import "WYTableViewViewController.h"
 #import "TTTAttributedLabel.h"
+#import "ColorHelper.h"
 
 @interface MapViewController () <MAMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate,WYPopoverControllerDelegate>{
     double lat1,long1;
@@ -33,28 +34,46 @@
     WYPopoverController *destinationpopoverController;
     WYTableViewViewController * pickTableController;
     UITapGestureRecognizer *singleFingerTap;
+    UIImageView *searchImageView;
+    UILabel *searchLabel;
 }
 
 @end
 
 @implementation MapViewController
 
-@synthesize myMapView;
+@synthesize myMapView,searchButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    long1 = 116.392479;
+    lat1 = 39.948691;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pickNextStep) name:@"pickNext" object:nil];
     tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeftSide)];
     tapGesture.numberOfTouchesRequired = 1;
     tapGesture.numberOfTapsRequired = 1;
     [tapGesture setDelegate:self];
+    [self.view addGestureRecognizer:tapGesture];
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     myMapView = [[MAMapView alloc] initWithFrame:screenFrame];
     myMapView.delegate = self;
-    [self.view addGestureRecognizer:tapGesture];
-    long1 = 116.392479;
-    lat1 = 39.948691;
     [self.view addSubview:myMapView];
+    searchButton = [[UIButton alloc] initWithFrame:CGRectMake(screenFrame.origin.x+5, 9, screenFrame.size.width-10, 40)];
+    searchButton.backgroundColor = [ColorHelper colorWithHexString:@"5AC8FB"];
+    [searchButton addTarget:self action:@selector(goSearch) forControlEvents:UIControlEventTouchUpInside];
+    searchButton.layer.cornerRadius = 3;
+    searchButton.layer.masksToBounds = YES;
+    searchImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 30, 30)];
+    searchImageView.image = [UIImage imageNamed:@"search"];
+    searchLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, searchButton.frame.size.width, 40)];
+    searchLabel.text = @"请输入一个地址";
+    [searchLabel setFont:[UIFont fontWithName:@"Arial" size:16.0]];
+    searchLabel.textAlignment = NSTextAlignmentCenter;
+    searchLabel.backgroundColor = [UIColor clearColor];
+    searchLabel.textColor = [UIColor darkGrayColor];
+    [searchButton addSubview:searchLabel];
+    [searchButton addSubview:searchImageView];
+    [self.view addSubview:searchButton];
     carArray = [[NSMutableArray alloc] init];
     houseNames = [[NSArray alloc] initWithObjects:@"北京西站",@"UPS北京分公司",@"北京大山子站",@"北京东部操作中心",@"北京亦庄站",@"北京西部操作中心",@"北京亦庄南站",@"北京南部操作中心",@"北京北站",nil];
     houseAddresses = [[NSArray alloc] initWithObjects:@"海淀区田村路43号",@"朝阳区麦子店枣营路甲3号",@"朝阳区酒仙桥北路5号",@"朝阳区来广营西路316号",@"亦庄开发区东工业区双羊路18号",@"海淀区阜外亮甲1号",@"大兴区新瀛工业园150号",@"经济技术开发区康定街11号",@"朝阳区万红路5号蓝涛中心",nil];
@@ -89,8 +108,8 @@
     [self.navigationController navigationBar].hidden = NO;
     self.navigationItem.title = @"驿栈";
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:22.0f],NSFontAttributeName, nil]];
-    UIBarButtonItem *aButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(buttonTapped)];
-    self.navigationItem.rightBarButtonItem = aButton;
+//    UIBarButtonItem *aButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Find.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(buttonTapped)];
+//    self.navigationItem.rightBarButtonItem = aButton;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Settings.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeftSide)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
@@ -106,12 +125,16 @@
     [self.sidebarController.navigationController pushViewController:contactVC animated:YES];
 }
 
-- (void)showLeftSide{
+- (void)goSearch{
+   
+}
+
+-(void)showLeftSide{
     if(self.sidebarController.sidebarIsPresenting)
     {
         
         [self.sidebarController dismissSidebarViewController];
-       
+        
     }
     else
     {

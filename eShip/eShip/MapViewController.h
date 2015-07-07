@@ -13,6 +13,7 @@
 @interface MapViewController : UIViewController<TheSidebarControllerDelegate>
 
 @property (strong, nonatomic) MAMapView *myMapView;
+@property (strong, nonatomic) UIButton *searchButton;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *startLocation;
 
